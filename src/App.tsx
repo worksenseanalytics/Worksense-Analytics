@@ -57,9 +57,16 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Logo from "./components/Logo";
 import CoreServiceDetail from "./components/CoreServiceDetail";
+import MachineLearningDetail from "./components/MachineLearningDetail";
+import ExcelAutomationDetail from "./components/ExcelAutomationDetail";
+import DeepLearningDetail from "./components/DeepLearningDetail";
+import ComprehensiveReportingDetail from "./components/ComprehensiveReportingDetail";
+import EnterpriseSolutionDetail from "./components/EnterpriseSolutionDetail";
+import PersonalAcademicDetail from "./components/PersonalAcademicDetail";
 import TrustedPartners from "./components/TrustedPartners";
 import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
+import ServicesOverview from "./components/ServicesOverview";
 import { SIMULATION_DATASETS, INDUSTRY_TOOLS, PROJECT_TECH_STACK } from "./data";
 import { ChatMessage, DirtyRecord, CleanRecord } from "./types";
 import { useLanguage } from "./i18n";
@@ -102,8 +109,29 @@ export default function App() {
       {/* TRUSTED PARTNERS SECTION */}
       <TrustedPartners />
 
+      {/* QUICK LINKS / SERVICE CATALOG (Sticky Nav & Bento Grid) */}
+      <ServicesOverview />
+
       {/* Jasa Utama ke-1: Pembersihan Data, EDA, & Dashboard Interaktif */}
       <CoreServiceDetail />
+
+      {/* Jasa Utama ke-2: Machine Learning & Prediktif Modeling */}
+      <MachineLearningDetail />
+
+      {/* Jasa Utama ke-3: Excel, Google Sheets, & VBA Automation */}
+      <ExcelAutomationDetail />
+
+      {/* Jasa Utama ke-4: Deep Learning & Generative AI */}
+      <DeepLearningDetail />
+
+      {/* Jasa Utama ke-5: Reporting Komprehensif & Pitch Deck Eksekutif */}
+      <ComprehensiveReportingDetail />
+
+      {/* Jasa Utama ke-6: Enterprise All-in-One Data Ecosystem */}
+      <EnterpriseSolutionDetail />
+
+      {/* Jasa Utama ke-7: Solusi Personal, Riset Akademik & UMKM */}
+      <PersonalAcademicDetail />
 
       {/* GLOBAL CERTIFICATION CREDENTIALS GRID SECTION */}
       <section className="bg-slate-900 border-t border-slate-800 py-12 md:py-16 relative">

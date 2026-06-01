@@ -37,7 +37,7 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            <a href="#services" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+            <a href="#katalog-layanan" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               {t("nav.services")}
             </a>
             <a href="#tools" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
@@ -114,7 +114,7 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
       {isOpen && (
         <div className="md:hidden absolute top-20 left-0 w-full bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-4 space-y-1 shadow-2xl">
           <a
-            href="#services"
+            href="#katalog-layanan"
             onClick={() => setIsOpen(false)}
             className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
           >

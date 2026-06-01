@@ -1,0 +1,348 @@
+import React, { useState } from "react";
+import { 
+  Network, 
+  BrainCircuit, 
+  Eye, 
+  MessageSquareText, 
+  CheckCircle, 
+  Zap,
+  Activity,
+  Layers,
+  Server,
+  TerminalSquare,
+  Microchip
+} from "lucide-react";
+
+import { useLanguage } from "../i18n";
+
+export default function DeepLearningDetail() {
+  const { t } = useLanguage();
+  const [activeWorkflowStep, setActiveWorkflowStep] = useState<number>(0);
+
+  const workflowSteps = [
+    {
+      num: "01",
+      title: t('dl.wf.step1_title'),
+      desc: t('dl.wf.step1_desc')
+    },
+    {
+      num: "02",
+      title: t('dl.wf.step2_title'),
+      desc: t('dl.wf.step2_desc')
+    },
+    {
+      num: "03",
+      title: t('dl.wf.step3_title'),
+      desc: t('dl.wf.step3_desc')
+    },
+    {
+      num: "04",
+      title: t('dl.wf.step4_title'),
+      desc: t('dl.wf.step4_desc')
+    }
+  ];
+
+  return (
+    <section id="jasa-deep-learning" className="bg-slate-900 py-16 md:py-24 pb-16 md:pb-20 relative border-t border-slate-800 overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(168,85,247,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(168,85,247,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-fuchsia-600/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/3 left-0 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        {/* HEADER SECTION */}
+        <div className="flex flex-col mb-16 relative">
+          
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-purple-500/10 px-3 py-1 text-xs font-mono font-bold tracking-wider text-purple-400 border border-purple-500/20 self-start mb-5">
+            <BrainCircuit className="h-3.5 w-3.5 text-purple-400 animate-pulse" /> {t('dl.badge')}
+          </span>
+
+          <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 lg:gap-10 items-center">
+            
+            <div className="lg:col-span-7 text-left flex flex-col justify-center max-w-2xl">
+              <h2 className="font-sans text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl leading-[1.1] text-left">
+                {t('dl.title1')}
+                <span className="block mt-1 bg-gradient-to-r from-fuchsia-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent pb-1">
+                  {t('dl.title2')}
+                </span>
+              </h2>
+              
+              <p className="mt-4 text-xs sm:text-sm text-slate-300 font-bold font-sans tracking-wide leading-relaxed text-left">
+                {t('dl.subtitle1')}<span className="text-purple-400 font-extrabold">{t('dl.subtitle2')}</span>
+              </p>
+
+              <div className="mt-5 h-1 w-24 bg-gradient-to-r from-purple-500 via-fuchsia-500 to-purple-400 rounded-full shadow-[0_0_10px_rgba(168,85,247,0.25)]" />
+            </div>
+
+            <div className="lg:col-span-3 relative flex items-center justify-center self-center w-[360px] max-w-full">
+              
+              <div className="hidden md:flex absolute -top-8 -right-6 bg-slate-950/95 border border-slate-800/80 rounded-xl p-2.5 items-center gap-2 shadow-2xl z-20 hover:scale-105 transition-all cursor-pointer select-none">
+                <div className="h-6 w-6 rounded-lg bg-fuchsia-500/10 flex items-center justify-center">
+                  <Activity className="h-3.5 w-3.5 text-fuchsia-400" />
+                </div>
+                <div>
+                  <div className="text-[8px] font-mono tracking-widest text-slate-500 uppercase leading-none">{t('dl.precision')}</div>
+                  <div className="text-[11px] font-bold text-slate-100 font-mono leading-none mt-0.5">99.1% mAP</div>
+                </div>
+              </div>
+
+              <div className="hidden md:flex absolute -bottom-7 -left-5 bg-slate-950/95 border border-slate-800/80 rounded-xl p-2.5 flex-col gap-1 shadow-2xl z-20 hover:scale-105 transition-all cursor-pointer select-none">
+                <div className="flex items-center gap-2">
+                  <div className="h-6 w-6 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                    <Microchip className="h-3.5 w-3.5 text-purple-400" />
+                  </div>
+                  <div>
+                    <div className="text-[8px] font-mono tracking-widest text-slate-450 uppercase leading-none">{t('dl.latency')}</div>
+                    <div className="text-[11px] font-bold text-slate-100 font-mono leading-none mt-0.5">340.2 TFLOPS</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="w-full bg-slate-950/40 rounded-xl border border-slate-800/80 p-4.5 backdrop-blur-sm shadow-xl flex flex-col justify-between relative overflow-hidden h-[260px] hover:border-slate-700 transition-all select-none">
+                <div className="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-fuchsia-400 via-purple-500 to-fuchsia-300" />
+                
+                <div className="flex items-center justify-between pb-2 border-b border-slate-800/30">
+                  <div className="flex items-center gap-2">
+                    <div className="h-6 w-6 rounded bg-gradient-to-br from-fuchsia-400 to-purple-500 flex items-center justify-center text-[10px] text-slate-950 font-sans font-bold">
+                      <Network className="h-3.5 w-3.5" />
+                    </div>
+                    <div>
+                      <h4 className="text-[11px] font-bold text-slate-200 leading-none">Neural Net</h4>
+                      <p className="text-[9px] text-slate-500 font-mono mt-0.5">Deep Architecture</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative h-32 bg-slate-950/70 rounded p-4 mt-4 border border-slate-850/60 overflow-hidden flex flex-col justify-center items-center">
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:0.6rem_0.6rem] pointer-events-none" />
+                  
+                  {/* Mock Neural Net SVG */}
+                  <svg className="w-full h-full relative z-10 opacity-70" viewBox="0 0 100 40" preserveAspectRatio="xMidYMid meet">
+                    {/* Input Layer */}
+                    <circle cx="15" cy="10" r="2" fill="#d8b4fe" />
+                    <circle cx="15" cy="20" r="2" fill="#d8b4fe" />
+                    <circle cx="15" cy="30" r="2" fill="#d8b4fe" />
+                    
+                    {/* Hidden Layer 1 */}
+                    <circle cx="40" cy="5" r="2" fill="#c084fc" />
+                    <circle cx="40" cy="15" r="2" fill="#c084fc" />
+                    <circle cx="40" cy="25" r="2" fill="#c084fc" />
+                    <circle cx="40" cy="35" r="2" fill="#c084fc" />
+                    
+                    {/* Hidden Layer 2 */}
+                    <circle cx="65" cy="10" r="2" fill="#a855f7" />
+                    <circle cx="65" cy="20" r="2" fill="#a855f7" />
+                    <circle cx="65" cy="30" r="2" fill="#a855f7" />
+
+                    {/* Output Layer */}
+                    <circle cx="90" cy="15" r="2" fill="#9333ea" />
+                    <circle cx="90" cy="25" r="2" fill="#9333ea" />
+
+                    {/* Connections */}
+                    <path d="M 15 10 L 40 5 M 15 10 L 40 15 M 15 10 L 40 25 M 15 10 L 40 35" stroke="#9333ea" strokeWidth="0.5" strokeOpacity="0.4" />
+                    <path d="M 15 20 L 40 5 M 15 20 L 40 15 M 15 20 L 40 25 M 15 20 L 40 35" stroke="#9333ea" strokeWidth="0.5" strokeOpacity="0.4" />
+                    <path d="M 15 30 L 40 5 M 15 30 L 40 15 M 15 30 L 40 25 M 15 30 L 40 35" stroke="#9333ea" strokeWidth="0.5" strokeOpacity="0.4" />
+                    
+                    <path d="M 40 5 L 65 10 M 40 5 L 65 20 M 40 5 L 65 30" stroke="#a855f7" strokeWidth="0.5" strokeOpacity="0.5" />
+                    <path d="M 40 15 L 65 10 M 40 15 L 65 20 M 40 15 L 65 30" stroke="#a855f7" strokeWidth="0.5" strokeOpacity="0.5" />
+                    <path d="M 40 25 L 65 10 M 40 25 L 65 20 M 40 25 L 65 30" stroke="#a855f7" strokeWidth="0.5" strokeOpacity="0.5" />
+                    <path d="M 40 35 L 65 10 M 40 35 L 65 20 M 40 35 L 65 30" stroke="#a855f7" strokeWidth="0.5" strokeOpacity="0.5" />
+
+                    <path d="M 65 10 L 90 15 M 65 10 L 90 25" stroke="#d8b4fe" strokeWidth="0.5" strokeOpacity="0.8" />
+                    <path d="M 65 20 L 90 15 M 65 20 L 90 25" stroke="#d8b4fe" strokeWidth="0.5" strokeOpacity="0.8" />
+                    <path d="M 65 30 L 90 15 M 65 30 L 90 25" stroke="#d8b4fe" strokeWidth="0.5" strokeOpacity="0.8" />
+                    
+                    {/* Active pulse */}
+                    <circle cx="40" cy="15" r="3" fill="#d8b4fe" className="animate-pulse" />
+                    <circle cx="65" cy="20" r="3" fill="#d8b4fe" className="animate-pulse" style={{ animationDelay: '0.2s' }} />
+                  </svg>
+                </div>
+                
+                <div className="mt-3 flex justify-between text-[9px] font-mono text-slate-500">
+                  <span>Input Tensors</span>
+                  <span className="text-fuchsia-400 font-semibold">Predictions</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 pt-5 border-t border-slate-800/60 flex flex-wrap gap-2.5 justify-start items-center">
+            <span className="text-xs text-slate-400 font-mono font-semibold mr-1">{t('dl.tools')}</span>
+            
+            <span className="inline-flex items-center gap-1.5 rounded-lg bg-orange-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-orange-400 border border-orange-500/20">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" className="h-3.5 w-3.5 object-contain" referrerPolicy="no-referrer" />
+              PyTorch
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-lg bg-yellow-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-yellow-400 border border-yellow-500/20">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" className="h-3.5 w-3.5 object-contain" referrerPolicy="no-referrer" />
+              TensorFlow
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-lg bg-green-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-green-400 border border-green-500/20">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg" alt="OpenCV" className="h-3.5 w-3.5 object-contain" referrerPolicy="no-referrer" />
+              OpenCV
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-lg bg-blue-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-blue-400 border border-blue-500/20">
+              <TerminalSquare className="h-3.5 w-3.5" />
+              HuggingFace
+            </span>
+          </div>
+        </div>
+
+        {/* INTRO PROFILE CARDS */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20">
+          <div className="rounded-2xl border border-slate-700/50 bg-slate-800/30 p-6 md:p-8 backdrop-blur-sm flex flex-col justify-between hover:border-slate-600 transition-all">
+            <p className="text-slate-300 text-sm md:text-base leading-relaxed font-sans">
+              {t('dl.intro1_desc')}<strong>{t('dl.intro1_bold')}</strong>{t('dl.intro1_desc2')}
+            </p>
+            <div className="mt-6 flex items-center gap-2 text-xs text-fuchsia-400 font-mono">
+              <span className="h-2 w-2 rounded-full bg-fuchsia-500 animate-ping" />
+              <span>{t('dl.intro1_tag')}</span>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-700/50 bg-slate-800/30 p-6 md:p-8 backdrop-blur-sm flex flex-col justify-between hover:border-slate-600 transition-all">
+            <p className="text-slate-300 text-sm md:text-base leading-relaxed font-sans">
+              {t('dl.intro2_desc1')}<strong>{t('dl.intro2_bold1')}</strong>{t('dl.intro2_desc2')}
+            </p>
+            <div className="mt-6 flex items-center gap-2 text-xs text-purple-400 font-mono font-bold">
+              <CheckCircle className="h-4 w-4" />
+              <span>{t('dl.intro2_tag')}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* SEGMENT SOLUTIONS */}
+        <div className="mb-24">
+          <div className="text-center mb-12">
+            <h3 className="text-xl font-bold text-white font-sans">
+              {t('dl.segment_title')}
+            </h3>
+            <p className="text-xs text-slate-500 font-mono mt-1 uppercase tracking-wider">
+              {t('dl.segment_subtitle')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            {/* UC 1 */}
+            <div className="relative rounded-2xl border border-slate-800 bg-slate-900/50 p-6 sm:p-8 flex flex-col justify-between hover:border-slate-700 transition-all shadow-xl group">
+              <div className="absolute top-0 right-0 -mr-2 -mt-2 h-20 w-20 opacity-5 group-hover:opacity-10 transition-opacity bg-fuchsia-500 blur-xl rounded-full" />
+              
+              <div>
+                <div className="flex justify-between items-center mb-6">
+                  <span className="inline-flex rounded-lg bg-fuchsia-500/10 px-3 py-1 text-xs font-semibold text-fuchsia-400 border border-fuchsia-500/25">
+                    {t('dl.usecase1.badge1')}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-xs text-slate-500 font-mono">
+                    <MessageSquareText className="h-3.5 w-3.5 text-fuchsia-400" /> {t('dl.usecase1.badge2')}
+                  </span>
+                </div>
+                
+                <h4 className="font-sans text-xl font-bold text-white leading-snug">
+                  {t('dl.usecase1.title')}
+                </h4>
+                
+                <p className="mt-3 text-slate-400 text-xs sm:text-sm leading-relaxed font-sans">
+                  {t('dl.usecase1.desc')}
+                </p>
+              </div>
+            </div>
+
+            {/* UC 2 */}
+            <div className="relative rounded-2xl border border-slate-800 bg-slate-900/50 p-6 sm:p-8 flex flex-col justify-between hover:border-slate-700 transition-all shadow-xl group">
+              <div className="absolute top-0 right-0 -mr-2 -mt-2 h-20 w-20 opacity-5 group-hover:opacity-10 transition-opacity bg-purple-500 blur-xl rounded-full" />
+              
+              <div>
+                <div className="flex justify-between items-center mb-6">
+                  <span className="inline-flex rounded-lg bg-purple-500/10 px-3 py-1 text-xs font-semibold text-purple-400 border border-purple-500/25">
+                    {t('dl.usecase2.badge1')}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-xs text-slate-500 font-mono">
+                    <Eye className="h-3.5 w-3.5 text-purple-400" /> {t('dl.usecase2.badge2')}
+                  </span>
+                </div>
+                
+                <h4 className="font-sans text-xl font-bold text-white leading-snug">
+                  {t('dl.usecase2.title')}
+                </h4>
+                
+                <p className="mt-3 text-slate-400 text-xs sm:text-sm leading-relaxed font-sans">
+                  {t('dl.usecase2.desc')}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* TOOLS */}
+        <div className="mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 flex flex-col items-center text-center group hover:border-fuchsia-500/30 transition-all">
+              <div className="h-12 w-12 rounded-xl bg-fuchsia-500/10 text-fuchsia-400 flex items-center justify-center mb-4 group-hover:bg-fuchsia-500 group-hover:text-slate-950 transition-colors">
+                <Network className="h-6 w-6" />
+              </div>
+              <h4 className="font-bold text-slate-200 text-sm font-sans">{t('dl.tools.title1')}</h4>
+              <p className="mt-2 text-xs text-slate-400 leading-relaxed font-sans">{t('dl.tools.desc1')}</p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 flex flex-col items-center text-center group hover:border-purple-500/30 transition-all">
+              <div className="h-12 w-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 group-hover:bg-purple-500 group-hover:text-slate-950 transition-colors">
+                <Server className="h-6 w-6" />
+              </div>
+              <h4 className="font-bold text-slate-200 text-sm font-sans">{t('dl.tools.title2')}</h4>
+              <p className="mt-2 text-xs text-slate-400 leading-relaxed font-sans">{t('dl.tools.desc2')}</p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 flex flex-col items-center text-center group hover:border-purple-500/30 transition-all">
+              <div className="h-12 w-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 group-hover:bg-purple-500 group-hover:text-slate-950 transition-colors">
+                <Layers className="h-6 w-6" />
+              </div>
+              <h4 className="font-bold text-slate-200 text-sm font-sans">{t('dl.tools.title3')}</h4>
+              <p className="mt-2 text-xs text-slate-400 leading-relaxed font-sans">{t('dl.tools.desc3')}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* WORKFLOW */}
+        <div>
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h4 className="text-2xl font-bold text-white font-sans">{t('dl.wf.title')}</h4>
+            <p className="mt-2 text-xs text-fuchsia-400 font-mono tracking-widest uppercase">{t('dl.wf.badge')}</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {workflowSteps.map((step, idx) => (
+              <div 
+                key={idx}
+                onMouseEnter={() => setActiveWorkflowStep(idx)}
+                className={`rounded-2xl border p-6 flex flex-col justify-between transition-all duration-300 relative overflow-hidden group cursor-pointer ${
+                  activeWorkflowStep === idx 
+                    ? "bg-slate-800 border-fuchsia-500/40 shadow-lg shadow-fuchsia-500/5 translate-y-[-4px]" 
+                    : "bg-slate-900/50 border-slate-800 hover:border-slate-700"
+                }`}
+              >
+                <div>
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="font-mono text-3xl font-extrabold text-slate-700 group-hover:text-fuchsia-500/20 transition-colors">
+                      {step.num}
+                    </span>
+                    <span className={`h-2 w-2 rounded-full ${activeWorkflowStep === idx ? "bg-fuchsia-400" : "bg-slate-800"}`} />
+                  </div>
+                  <h5 className="font-bold text-slate-100 text-sm sm:text-base font-sans group-hover:text-fuchsia-400 transition-colors">
+                    {step.title}
+                  </h5>
+                  <p className="mt-2 text-xs text-slate-400 leading-relaxed font-sans">
+                    {step.desc}
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-slate-800 text-[10px] text-slate-500 font-mono">
+                  {t('dl.wf.verified')}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}

@@ -27,7 +27,7 @@ export default function Hero() {
 
             <h1 className="mt-6 font-sans text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
               {t('hero.title_prefix')}{" "}
-              <span className="block mt-2 bg-gradient-to-r from-sky-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent">
+              <span className="block mt-2 bg-gradient-to-r from-sky-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent pb-1">
                 {t('hero.title_highlight')}
               </span>
             </h1>

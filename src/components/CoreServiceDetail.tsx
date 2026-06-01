@@ -171,7 +171,7 @@ export default function CoreServiceDetail() {
             <div className="lg:col-span-7 text-left flex flex-col justify-center max-w-2xl">
               <h2 className="font-sans text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl leading-[1.1] text-left">
                 {t('core.title1')}
-                <span className="block mt-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent">
+                <span className="block mt-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent pb-1">
                   {t('core.title2')}
                 </span>
               </h2>
