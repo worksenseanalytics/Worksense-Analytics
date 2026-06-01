@@ -46,6 +46,12 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
             <a href="#workflow" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               {t("nav.workflow")}
             </a>
+            <a href="#testimonials" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+              {t("nav.testimonials")}
+            </a>
+            <a href="#contact" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+              {t("nav.contact_section")}
+            </a>
           </div>
 
           {/* Call to Action Fastwork Link & Theme Toggle */}
@@ -69,6 +75,17 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
                 <Moon className="h-4 w-4 text-sky-500" />
               )}
             </button>
+
+            <a
+              id="nav-whatsapp-cta"
+              href="https://wa.me/6282126574799?text=Halo%20Tim%20Worksense%20Analytics!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20layanan%20analisis%20data%20dan%20pembuatan%20dashboard%20untuk%20bisnis%20saya."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 px-4 py-2 text-xs font-semibold text-slate-900 shadow-md shadow-emerald-500/15 transition-all hover:scale-105"
+            >
+              <MessageSquare className="h-3.5 w-3.5" />
+              {t("nav.chat")}
+            </a>
           </div>
 
           {/* Mobile responsive toggle */}
@@ -114,6 +131,20 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
           >
             {t("nav.workflow")}
           </a>
+          <a
+            href="#testimonials"
+            onClick={() => setIsOpen(false)}
+            className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
+          >
+            {t("nav.testimonials")}
+          </a>
+          <a
+            href="#contact"
+            onClick={() => setIsOpen(false)}
+            className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
+          >
+            {t("nav.contact_section")}
+          </a>
 
           <div className="pt-4 border-t border-slate-800 space-y-3">
             <div className="flex items-center justify-between px-3">
@@ -128,6 +159,16 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
                 Ubah ke {theme === "dark" ? "Cerah" : "Gelap"}
               </button>
             </div>
+
+            <a
+              href="https://wa.me/6282126574799?text=Halo%20Tim%20Worksense%20Analytics!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20layanan%20analisis%20data%20dan%20pembuatan%20dashboard%20untuk%20bisnis%20saya."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-500 py-3 text-sm font-semibold text-slate-900 font-sans"
+            >
+              <MessageSquare className="h-4 w-4" />
+              {t("nav.chat")}
+            </a>
           </div>
         </div>
       )}

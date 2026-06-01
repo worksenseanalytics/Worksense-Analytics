@@ -25,6 +25,17 @@ Platform menggunakan arsitektur frontend dengan Tailwind CSS, Recharts, Vite (bu
   - Whitespace pada mobile layout (vertical bar / overflow X) diatasi menggunakan styling komprehensif `<div className="w-full overflow-x-clip ...">` di parent `#root`, `App.tsx`, dan `index.css` agar tidak membatalkan behavior target `position: sticky` pada navigasi yang seringkali rusak akibat properti `overflow: hidden`.
 - **CTA dan Link Eksternal**:
   - Telah menghapus seluruh tombol dan link Call-to-Action menuju Fastwork dan Simulator Demo untuk tampilan yang lebih bersih. Termasuk juga block CTA hubungi kami pada service detail.
+  - Namun menambahkan kembali Call-to-Action "Chat Sekarang" di Navbar yang mengarah langsung ke WhatsApp (`wa.me`) dan dilengkapi dengan auto-text template pesan, lalu memiliki styling container (background `emerald-500`) yang menarik baik untuk desktop dan responsif mobile viewport.
+- **Halaman Hubungi Kami (Contact Section)**:
+  - Telah mengubah bagian section penutup (sebelumnya CTA Fastwork) menjadi section **Hubungi Kami** (Contact Section).
+  - Menyertakan dua metode komunikasi direct: link WhatsApp (lengkap dengan template pesan text) dan link Email langsung (`worksenseanalytics@gmail.com`).
+  - Memasukkan *platform links* (Instagram: `https://www.instagram.com/worksense.analytics/`, Fastwork, Upwork, Fiverr) menggunakan visualisasi tombol yang simpel dan elegan (`Also Find Us On`).
+  - Opsi navigasi untuk 'Hubungi Kami' (`#contact`) juga disematkan di komponen Navbar untuk desktop dan mobile.
+- **Section Testimoni (Testimonials Section)**:
+  - Telah menambahkan komponen `Testimonials.tsx` sebelum halaman "Hubungi Kami" yang menampilkan ulasan positif fiktif dari beragam level klien (Operational Manager, Finance Director, CEO).
+  - Integrasi terjemahan i18n penuh dengan opsi navigasi `#testimonials` di Navbar desktop maupun menu toggle mobile.
+- **Perbaikan Image Service Tools**:
+  - Telah mengganti URL image ikon tools Wikipedia yang mengalami isu CORS/404 (Google Sheets dan Excel VBA) dengan sumber asset image stabil dari `img.icons8.com`.
 - **Title Document**: Disetel menjadi `Worksense Analytics` untuk ditampilkan pada Tab Browser saat di-deploy, melalui `index.html`.
 
 ## 4. Konvensi Bahasa / Translation Key Naming

@@ -383,7 +383,7 @@ export default function CoreServiceDetail() {
 
             <span className="inline-flex items-center gap-1.5 rounded-lg bg-purple-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-purple-400 border border-purple-500/20 hover:bg-purple-500/15 transition-colors">
               <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/d/df/Google_Sheets_2020_Logo.svg" 
+                src="https://img.icons8.com/color/48/google-sheets.png" 
                 alt="Google Sheets" 
                 className="h-3.5 w-3.5 object-contain" 
                 referrerPolicy="no-referrer" 
@@ -393,7 +393,7 @@ export default function CoreServiceDetail() {
             
             <span className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/15 transition-colors">
               <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%85%93present%29.svg" 
+                src="https://img.icons8.com/color/48/microsoft-excel-2019--v1.png" 
                 alt="Excel VBA" 
                 className="h-3.5 w-3.5 object-contain" 
                 referrerPolicy="no-referrer" 

@@ -34,7 +34,11 @@ import {
   Palette,
   ShieldAlert,
   HelpCircle,
-  Clock
+  Clock,
+  Instagram,
+  Briefcase,
+  Globe,
+  LayoutGrid
 } from "lucide-react";
 import {
   ResponsiveContainer,
@@ -57,6 +61,7 @@ import Hero from "./components/Hero";
 import Logo from "./components/Logo";
 import CoreServiceDetail from "./components/CoreServiceDetail";
 import TrustedPartners from "./components/TrustedPartners";
+import Testimonials from "./components/Testimonials";
 import { SIMULATION_DATASETS, INDUSTRY_TOOLS, PROJECT_TECH_STACK } from "./data";
 import { ChatMessage, DirtyRecord, CleanRecord } from "./types";
 import { useLanguage } from "./i18n";
@@ -302,13 +307,16 @@ export default function App() {
         </div>
       </section>
 
-      {/* FINAL CONCLUDING TRUST & FASTWORK OUTREACH CALL-TO-ACTION */}
-      <section className="bg-slate-950 py-24 border-t border-slate-900 relative">
+      {/* CLIENT TESTIMONIALS */}
+      <Testimonials />
+
+      {/* FINAL CONCLUDING TRUST & CONTACT OUTREACH CALL-TO-ACTION */}
+      <section id="contact" className="bg-slate-950 py-24 border-t border-slate-900 relative">
         <div className="absolute top-1/2 left-1/2 -ml-[300px] -mt-[300px] h-[600px] w-[600px] rounded-full bg-sky-500/5 blur-[120px] pointer-events-none" />
         
         <div className="relative mx-auto max-w-4xl text-center px-4 sm:px-6 lg:px-8">
           <span className="inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/5 px-3.5 py-1 text-xs font-semibold text-sky-400 uppercase tracking-widest font-mono">
-            Fastwork Verified Professional Seller
+            Available for Consultation
           </span>
 
           <h2 className="mt-6 font-sans text-3xl font-extrabold text-white sm:text-5xl leading-tight">
@@ -323,6 +331,47 @@ export default function App() {
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a
+              href="https://wa.me/6282126574799?text=Halo%20Tim%20Worksense%20Analytics!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20layanan%20analisis%20data%20dan%20pembuatan%20dashboard%20untuk%20bisnis%20saya."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 px-8 py-4 text-sm font-bold text-slate-900 shadow-xl shadow-emerald-500/20 transition-all hover:scale-105"
+            >
+              <MessageSquare className="h-4.5 w-4.5" />
+              {t('footer.cta1')}
+            </a>
+            
+            <a
+              href="mailto:worksenseanalytics@gmail.com"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 hover:bg-slate-800 px-8 py-4 text-sm font-bold text-white border border-slate-700 transition-all hover:scale-105"
+            >
+              <Send className="h-4.5 w-4.5 text-sky-400" />
+              {t('footer.cta2')}
+            </a>
+          </div>
+
+          <div className="mt-8 flex flex-col items-center gap-4">
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-widest font-mono">
+              Also Find Us On
+            </span>
+            <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4">
+              <a href="https://www.instagram.com/worksense.analytics/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-pink-500/50 transition-all text-slate-400 hover:text-white">
+                <Instagram className="h-4 w-4 text-pink-500" />
+                <span className="text-sm font-semibold">Instagram</span>
+              </a>
+              <a href="https://fastwork.id/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-sky-500/50 transition-all text-slate-400 hover:text-white">
+                <Briefcase className="h-4 w-4 text-sky-500" />
+                <span className="text-sm font-semibold">Fastwork</span>
+              </a>
+              <a href="https://upwork.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-green-500/50 transition-all text-slate-400 hover:text-white">
+                <Globe className="h-4 w-4 text-green-500" />
+                <span className="text-sm font-semibold">Upwork</span>
+              </a>
+              <a href="https://fiverr.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-emerald-500/50 transition-all text-slate-400 hover:text-white">
+                <LayoutGrid className="h-4 w-4 text-emerald-500" />
+                <span className="text-sm font-semibold">Fiverr</span>
+              </a>
+            </div>
           </div>
 
           <div className="mt-8 flex justify-center items-center gap-10 text-xs text-slate-500 font-mono">
