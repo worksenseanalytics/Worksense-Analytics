@@ -1,0 +1,41 @@
+# Dokumentasi Rekap Pengembangan: Worksense Analytics Dashboard
+
+## 1. Overview Proyek
+Aplikasi ini adalah **Web App Dashboard Interaktif** yang berfokus pada layanan data analyst, pembersihan data (data wrangling), serta visualisasi business intelligence (Power BI / Tableau / React Recharts).
+Platform menggunakan arsitektur frontend dengan Tailwind CSS, Recharts, Vite (bundler), dan react-router.
+
+## 2. Struktur Data dan File Utama
+- `src/App.tsx`: Halaman utama aplikasi (Single Page / Landing page panjang) berisi Hero, Core Services, dan Workflow.
+- `src/components/CoreServiceDetail.tsx`: Penjabaran detail layanan pembersihan data interaktif.
+- `src/components/Hero.tsx`: Section pembuka dengan Call-to-Action.
+- `src/components/Navbar.tsx`: Navigasi dan tombol switch bahasa/tema.
+- `src/components/TrustedPartners.tsx`: Logotip mitra industri (dummy/placeholder dengan UI elegan).
+- `src/i18n.tsx`: Context dan kamus untuk sistem multi-bahasa Internasionalisasi (id/en). Translation key dikelola di sini.
+
+## 3. Fitur yang Diimplementasikan
+- **Dark/Light Mode**:
+  - Dikontrol dari Navbar, menyimpan preferensi di `localStorage`.
+  - Warna pada mode terang kini menyesuaikan semua custom tailwind classes, menangani state pseudo seperti hover background, button overrides, hingga elemen custom border yang sebelumnya tersisa gelap.
+  - Perbaikan pada border dan bar chart (ilustrasi hero & core service) agar lebih terlihat dan tidak menyatu dengan background putih. Teks tambahan `text-slate-*` diperhalus.
+- **Sistem Dual Bahasa (i18n)**:
+  - Tersedia opsi Indonesia (id) dan English (en).
+  - Mengubah seluruh UI text 100% menggunakan custom dictionary hook `useLanguage` yang diwrap dalam `LanguageProvider`.
+- **Responsive Web & Mobile Layout**:
+  - Container menggunakan auto margin, padding dinamis Tailwind (misal: `lg:px-8`, `md:py-20`).
+  - Whitespace pada mobile layout (vertical bar / overflow X) diatasi menggunakan styling komprehensif `<div className="w-full overflow-x-clip ...">` di parent `#root`, `App.tsx`, dan `index.css` agar tidak membatalkan behavior target `position: sticky` pada navigasi yang seringkali rusak akibat properti `overflow: hidden`.
+- **CTA dan Link Eksternal**:
+  - Telah menghapus seluruh tombol dan link Call-to-Action menuju Fastwork dan Simulator Demo untuk tampilan yang lebih bersih. Termasuk juga block CTA hubungi kami pada service detail.
+- **Title Document**: Disetel menjadi `Worksense Analytics` untuk ditampilkan pada Tab Browser saat di-deploy, melalui `index.html`.
+
+## 4. Konvensi Bahasa / Translation Key Naming
+Semua teks yang muncul di aplikasi dimanage menggunakan prefix komponen di `i18n.tsx`:
+- `nav.*`: Area navigasi.
+- `hero.*`: Teks Hero utama.
+- `wf.*` / `wf_full.*`: Alur Kerja (Workflow) pada App dan Core Service.
+- `core.*`: Judul Layanan Utama.
+- `cert.*`: Badge sertifikasi global.
+- `tools.*` / `partners.*`: Kategori keahlian tool & partner perusahaan.
+- `footer.*`: Deskripsi hak cipta dan CTA final.
+
+## 5. Deployment Info
+Build dapat dijalankan dengan command standar `npm run build` yang memicu Vite renderer untuk optimasi bundle. Deployment ready melalui platform statik atau lingkungan Google Apps Script secara terstruktur dengan output single file (jika di-webpack/inline) atau host HTML/JS standard.

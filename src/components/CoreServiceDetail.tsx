@@ -33,7 +33,10 @@ import {
   Search
 } from "lucide-react";
 
+import { useLanguage } from "../i18n";
+
 export default function CoreServiceDetail() {
+  const { t } = useLanguage();
   const [activeWorkflowStep, setActiveWorkflowStep] = useState<number>(0);
   const [selectedRegion, setSelectedRegion] = useState<"Semua" | "Jakarta" | "Surabaya" | "Medan">("Semua");
 
@@ -125,23 +128,23 @@ export default function CoreServiceDetail() {
   const workflowSteps = [
     {
       num: "01",
-      title: "Konsultasi Data Analyst",
-      desc: "Diskusi kebutuhan analisis data dan desain dashboard (NDA Friendly)."
+      title: t('core.wf.step1_title'),
+      desc: t('core.wf.step1_desc')
     },
     {
       num: "02",
-      title: "Scope of Work (SoW)",
-      desc: "Penentuan target analisis data dan sketsa rancangan visualisasi data."
+      title: t('core.wf.step2_title'),
+      desc: t('core.wf.step2_desc')
     },
     {
       num: "03",
-      title: "Eksekusi Analisis Data",
-      desc: "Proses cleaning, analisis data, hingga tahap akhir visualisasi data ke dalam dashboard."
+      title: t('core.wf.step3_title'),
+      desc: t('core.wf.step3_desc')
     },
     {
       num: "04",
-      title: "Review Dashboard",
-      desc: "Sesi revisi dashboard dan penyerahan aset akhir (Source File, File Dashboard, Laporan Analisis Data)."
+      title: t('core.wf.step4_title'),
+      desc: t('core.wf.step4_desc')
     }
   ];
 
@@ -158,7 +161,7 @@ export default function CoreServiceDetail() {
         <div className="flex flex-col mb-16 relative">
           
           <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-500/10 px-3 py-1 text-xs font-mono font-bold tracking-wider text-sky-400 border border-sky-500/20 self-start mb-5">
-            <Layers className="h-3.5 w-3.5 text-sky-400 rotate-12 animate-pulse" /> LAYANAN UTAMA KAMI
+            <Layers className="h-3.5 w-3.5 text-sky-400 rotate-12 animate-pulse" /> {t('core.badge')}
           </span>
 
           {/* 70/30 Grid layout wrapping description and compact preview */}
@@ -167,14 +170,14 @@ export default function CoreServiceDetail() {
             {/* Left Column (70% equivalent: lg:col-span-7) */}
             <div className="lg:col-span-7 text-left flex flex-col justify-center max-w-2xl">
               <h2 className="font-sans text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl leading-[1.1] text-left">
-                Jasa Analisis Data, Pembersihan Data, &{" "}
+                {t('core.title1')}
                 <span className="block mt-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent">
-                  Pembuatan Dashboard Profesional
+                  {t('core.title2')}
                 </span>
               </h2>
               
               <p className="mt-4 text-xs sm:text-sm text-slate-300 font-bold font-sans tracking-wide leading-relaxed text-left">
-                Jasa Analisis Data & Visualisasi Data: <span className="text-sky-400 font-extrabold">Ubah Data Anda Menjadi Dashboard Interaktif!</span>
+                {t('core.subtitle1')}<span className="text-sky-400 font-extrabold">{t('core.subtitle2')}</span>
               </p>
 
               <div className="mt-5 h-1 w-24 bg-gradient-to-r from-sky-500 via-indigo-500 to-sky-400 rounded-full shadow-[0_0_10px_rgba(56,189,248,0.25)]" />
@@ -189,7 +192,7 @@ export default function CoreServiceDetail() {
                   <TrendingUp className="h-3.5 w-3.5 text-emerald-400" />
                 </div>
                 <div>
-                  <div className="text-[8px] font-mono tracking-widest text-slate-500 uppercase leading-none">Pertumbuhan</div>
+                  <div className="text-[8px] font-mono tracking-widest text-slate-500 uppercase leading-none">{t('core.growth')}</div>
                   <div className="text-[11px] font-bold text-slate-100 font-mono leading-none mt-0.5">+42.5%</div>
                 </div>
                 <div className="h-4 w-10 flex items-end gap-0.5 pl-1.5 pb-0.5">
@@ -207,7 +210,7 @@ export default function CoreServiceDetail() {
                     <Database className="h-3.5 w-3.5 text-sky-400" />
                   </div>
                   <div>
-                    <div className="text-[8px] font-mono tracking-widest text-slate-450 uppercase leading-none">Akurasi</div>
+                    <div className="text-[8px] font-mono tracking-widest text-slate-450 uppercase leading-none">{t('core.accuracy')}</div>
                     <div className="text-[11px] font-bold text-slate-100 font-mono leading-none mt-0.5">99.98%</div>
                   </div>
                 </div>
@@ -273,11 +276,11 @@ export default function CoreServiceDetail() {
                 {/* compact KPI stats */}
                 <div className="grid grid-cols-2 gap-2 my-2.5">
                   <div className="bg-slate-950/60 p-2 rounded border border-slate-850/60">
-                    <span className="text-[8px] font-mono tracking-wider text-slate-500 block uppercase">Total Omset</span>
+                    <span className="text-[8px] font-mono tracking-wider text-slate-500 block uppercase">{t('core.revenue')}</span>
                     <span className="text-xs font-bold text-white font-mono mt-0.5 block truncate">{activeDashboardData.sales}</span>
                   </div>
                   <div className="bg-slate-950/60 p-2 rounded border border-slate-850/60">
-                    <span className="text-[8px] font-mono tracking-wider text-slate-500 block uppercase">Konversi</span>
+                    <span className="text-[8px] font-mono tracking-wider text-slate-500 block uppercase">{t('core.conversion')}</span>
                     <span className="text-xs font-bold text-white font-mono mt-0.5 block truncate">{activeDashboardData.conversion}</span>
                   </div>
                 </div>
@@ -336,7 +339,7 @@ export default function CoreServiceDetail() {
 
           {/* Tools Badges rendered safely below the grid row so they do not stretch the illustration box */}
           <div className="mt-8 pt-5 border-t border-slate-900/60 flex flex-wrap gap-2.5 justify-start items-center">
-            <span className="text-xs text-slate-400 font-mono font-semibold mr-1">Tools Utama:</span>
+            <span className="text-xs text-slate-400 font-mono font-semibold mr-1">{t('core.tools')}</span>
             
             <span className="inline-flex items-center gap-1.5 rounded-lg bg-sky-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-sky-400 border border-sky-500/20 hover:bg-sky-500/15 transition-colors">
               <img 
@@ -404,21 +407,21 @@ export default function CoreServiceDetail() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20">
           <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 md:p-8 backdrop-blur-sm flex flex-col justify-between hover:border-slate-700 transition-all">
             <p className="text-slate-300 text-sm md:text-base leading-relaxed font-sans">
-              Apakah Anda memiliki banyak tumpukan data namun kesulitan melakukan analisis data untuk menarik insight darinya? Anda membutuhkan keahlian seorang data analyst profesional. <strong>Worksense Analytics</strong> hadir sebagai penyedia jasa analisis data terpercaya yang berfokus pada layanan visualisasi data dan pembuatan dashboard interaktif (Business Intelligence).
+              {t('core.intro1_desc')}<strong>{t('core.intro1_bold')}</strong>{t('core.intro1_desc2')}
             </p>
             <div className="mt-6 flex items-center gap-2 text-xs text-sky-400 font-mono">
               <span className="h-2 w-2 rounded-full bg-sky-500 animate-ping" />
-              <span>Reliable Business Intelligence Specialist</span>
+              <span>{t('core.intro1_tag')}</span>
             </div>
           </div>
 
           <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 md:p-8 backdrop-blur-sm flex flex-col justify-between hover:border-slate-700 transition-all">
             <p className="text-slate-300 text-sm md:text-base leading-relaxed font-sans">
-              Dikerjakan langsung oleh tim data analyst dengan sertifikasi kompetensi global (<strong>Google Advanced Data Analytics</strong>, <strong>IBM Data Science</strong>, dan <strong>DataCamp</strong>), kami membantu UMKM, startup, hingga perusahaan skala besar (<strong>Enterprise</strong>) untuk menggali potensi bisnis melalui analisis data mendalam dan visualisasi data melalui dashboard yang mudah dipahami.
+              {t('core.intro2_desc1')}<strong>{t('core.intro2_bold1')}</strong>{t('core.intro2_desc2')}<strong>{t('core.intro2_bold2')}</strong>{t('core.intro2_desc3')}<strong>{t('core.intro2_bold3')}</strong>{t('core.intro2_desc4')}<strong>{t('core.intro2_bold4')}</strong>{t('core.intro2_desc5')}
             </p>
             <div className="mt-6 flex items-center gap-2 text-xs text-emerald-400 font-mono font-bold">
               <CheckCircle className="h-4 w-4" />
-              <span>Tim Bersertifikasi Lisensi Internasional</span>
+              <span>{t('core.intro2_tag')}</span>
             </div>
           </div>
         </div>
@@ -427,10 +430,10 @@ export default function CoreServiceDetail() {
         <div className="mb-24">
           <div className="text-center mb-12">
             <h3 className="text-xl font-bold text-white font-sans">
-              Solusi Terukur Khusus Dua Segmen Utama Bisnis:
+              {t('core.segment_title')}
             </h3>
             <p className="text-xs text-slate-500 font-mono mt-1 uppercase tracking-wider">
-              Scalable Analytics Architecture
+              {t('core.segment_subtitle')}
             </p>
           </div>
 
@@ -443,19 +446,19 @@ export default function CoreServiceDetail() {
               <div>
                 <div className="flex justify-between items-center mb-6">
                   <span className="inline-flex rounded-lg bg-indigo-500/10 px-3 py-1 text-xs font-semibold text-indigo-400 border border-indigo-500/25">
-                    Segmen Enterprise
+                    {t('core.ent.badge1')}
                   </span>
                   <span className="flex items-center gap-1.5 text-xs text-slate-500 font-mono">
-                    <Shield className="h-3.5 w-3.5 text-indigo-400" /> NDA Garansi Aman
+                    <Shield className="h-3.5 w-3.5 text-indigo-400" /> {t('core.ent.badge2')}
                   </span>
                 </div>
                 
                 <h4 className="font-sans text-xl font-bold text-white leading-snug">
-                  Layanan Analisis Data untuk Enterprise & Korporasi (Big Data & Complex Analytics)
+                  {t('core.ent.title')}
                 </h4>
                 
                 <p className="mt-3 text-slate-400 text-xs sm:text-sm leading-relaxed font-sans">
-                  Bagi perusahaan skala besar dengan volume data kompleks yang membutuhkan analisis data tingkat lanjut, tim data analyst kami siap meningkatkan efisiensi Anda.
+                  {t('core.ent.desc')}
                 </p>
 
                 <div className="mt-8 space-y-6">
@@ -465,9 +468,9 @@ export default function CoreServiceDetail() {
                       <BarChart3 className="h-5 w-5" />
                     </div>
                     <div>
-                      <h5 className="text-sm font-bold text-slate-200 font-sans">End-to-End Visualisasi Data & Dashboard</h5>
+                      <h5 className="text-sm font-bold text-slate-200 font-sans">{t('core.ent.p1_title')}</h5>
                       <p className="mt-1 text-xs text-slate-400 leading-relaxed font-sans">
-                        Jasa visualisasi data dan pembuatan <strong>Executive Dashboard interaktif</strong> menggunakan <strong>Power BI / Tableau</strong>. Dashboard ini memudahkan Anda memantau metrik bisnis (KPI) secara real-time.
+                        {t('core.ent.p1_desc')}
                       </p>
                     </div>
                   </div>
@@ -478,9 +481,9 @@ export default function CoreServiceDetail() {
                       <Database className="h-5 w-5" />
                     </div>
                     <div>
-                      <h5 className="text-sm font-bold text-slate-200 font-sans">Advanced Data Cleaning & Structuring</h5>
+                      <h5 className="text-sm font-bold text-slate-200 font-sans">{t('core.ent.p2_title')}</h5>
                       <p className="mt-1 text-xs text-slate-400 leading-relaxed font-sans">
-                        Sebelum proses analisis data dan visualisasi data dilakukan, data analyst kami akan membersihkan dan merapikan struktur data dari berbagai sumber (database SQL, sistem ERP, dan file eksternal).
+                        {t('core.ent.p2_desc')}
                       </p>
                     </div>
                   </div>
@@ -491,9 +494,9 @@ export default function CoreServiceDetail() {
                       <FileCheck2 className="h-5 w-5" />
                     </div>
                     <div>
-                      <h5 className="text-sm font-bold text-slate-200 font-sans">Strategic Business Reporting</h5>
+                      <h5 className="text-sm font-bold text-slate-200 font-sans">{t('core.ent.p3_title')}</h5>
                       <p className="mt-1 text-xs text-slate-400 leading-relaxed font-sans">
-                        Hasil analisis data komprehensif yang dirancang khusus untuk presentasi level eksekutif, melengkapi dashboard utama Anda dengan action-oriented insights tepercaya.
+                        {t('core.ent.p3_desc')}
                       </p>
                     </div>
                   </div>
@@ -501,7 +504,7 @@ export default function CoreServiceDetail() {
               </div>
 
               <div className="mt-8 border-t border-slate-900 pt-6 flex items-center justify-between text-xs font-mono text-slate-500">
-                <span>Output Utama: Power BI, Tableau, SQL query, DB config</span>
+                <span>{t('core.ent.output')}</span>
               </div>
             </div>
 
@@ -512,19 +515,19 @@ export default function CoreServiceDetail() {
               <div>
                 <div className="flex justify-between items-center mb-6">
                   <span className="inline-flex rounded-lg bg-sky-500/10 px-3 py-1 text-xs font-semibold text-sky-400 border border-sky-500/25">
-                    Segmen UMKM & Startup
+                    {t('core.umkm.badge1')}
                   </span>
                   <span className="inline-flex rounded bg-emerald-500/10 border border-emerald-500/25 px-2 py-0.5 text-[10px] text-emerald-400 font-bold uppercase font-mono">
-                    High Roi
+                    {t('core.umkm.badge2')}
                   </span>
                 </div>
                 
                 <h4 className="font-sans text-xl font-bold text-white leading-snug">
-                  Solusi Analisis Data untuk UMKM & Bisnis Berkembang (Startup)
+                  {t('core.umkm.title')}
                 </h4>
                 
                 <p className="mt-3 text-slate-400 text-xs sm:text-sm leading-relaxed font-sans">
-                  Kami menyediakan jasa analisis data untuk UMKM agar Anda mendapatkan insight bisnis yang berdaya guna tinggi layaknya memiliki tim data analyst internal berlisensi.
+                  {t('core.umkm.desc')}
                 </p>
 
                 <div className="mt-8 space-y-6">
@@ -534,9 +537,9 @@ export default function CoreServiceDetail() {
                       <TrendingUp className="h-5 w-5" />
                     </div>
                     <div>
-                      <h5 className="text-sm font-bold text-slate-200 font-sans">Analisis Data Tren Penjualan</h5>
+                      <h5 className="text-sm font-bold text-slate-200 font-sans">{t('core.umkm.p1_title')}</h5>
                       <p className="mt-1 text-xs text-slate-400 leading-relaxed font-sans">
-                        Data analyst kami akan melakukan analisis data untuk mengidentifikasi produk terlaris, puncak tren musiman, dan pola unik dari perilaku belanja pelanggan Anda.
+                        {t('core.umkm.p1_desc')}
                       </p>
                     </div>
                   </div>
@@ -547,9 +550,9 @@ export default function CoreServiceDetail() {
                       <FileSpreadsheet className="h-5 w-5" />
                     </div>
                     <div>
-                      <h5 className="text-sm font-bold text-slate-200 font-sans">Otomasi Visualisasi Data Excel</h5>
+                      <h5 className="text-sm font-bold text-slate-200 font-sans">{t('core.umkm.p2_title')}</h5>
                       <p className="mt-1 text-xs text-slate-400 leading-relaxed font-sans">
-                        Mengubah rutinitas rekap laporan manual yang memakan waktu menjadi dashboard otomatis yang ringkas, dinamis, dan rapi melalui proses visualisasi data makro/VBA yang efisien.
+                        {t('core.umkm.p2_desc')}
                       </p>
                     </div>
                   </div>
@@ -560,9 +563,9 @@ export default function CoreServiceDetail() {
                       <PieChart className="h-5 w-5" />
                     </div>
                     <div>
-                      <h5 className="text-sm font-bold text-slate-200 font-sans">Cost-Efficiency Analytics</h5>
+                      <h5 className="text-sm font-bold text-slate-200 font-sans">{t('core.umkm.p3_title')}</h5>
                       <p className="mt-1 text-xs text-slate-400 leading-relaxed font-sans">
-                        Melakukan analisis data historis mendalam untuk menemukan area inefisiensi pengeluaran dan pemborosan operasional melalui pembuatan dashboard pemantauan pengeluaran terintegrasi.
+                        {t('core.umkm.p3_desc')}
                       </p>
                     </div>
                   </div>
@@ -570,7 +573,7 @@ export default function CoreServiceDetail() {
               </div>
 
               <div className="mt-8 border-t border-slate-900 pt-6 flex items-center justify-between text-xs font-mono text-slate-500">
-                <span>Output Utama: Dynamic Excel, Google Sheets, PDF reports</span>
+                <span>{t('core.umkm.output')}</span>
               </div>
             </div>
 
@@ -589,16 +592,16 @@ export default function CoreServiceDetail() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {/* Tool Card 1 */}
+             {/* Tool Card 1 */}
             <div className="rounded-2xl border border-slate-850 bg-slate-900/40 p-6 flex flex-col items-center text-center group hover:border-sky-500/30 transition-all">
               <div className="h-12 w-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center mb-4 group-hover:bg-sky-500 group-hover:text-slate-950 transition-colors">
                 <Code2 className="h-6 w-6" />
               </div>
               <h4 className="font-bold text-slate-200 text-sm font-sans">
-                Data Wrangling & Analisis Data Dasar
+                {t('core.tools.title1')}
               </h4>
               <p className="mt-2 text-xs text-slate-400 leading-relaxed font-sans">
-                Pemrograman Python (kemampuan <strong>Pandas, NumPy</strong>) & Database <strong>SQL</strong> untuk kueri data mentah secara akurat, terstruktur, dan efisien.
+                {t('core.tools.desc1')}
               </p>
             </div>
 
@@ -608,10 +611,10 @@ export default function CoreServiceDetail() {
                 <BarChart3 className="h-6 w-6" />
               </div>
               <h4 className="font-bold text-slate-200 text-sm font-sans">
-                Platform Visualisasi Data (BI)
+                {t('core.tools.title2')}
               </h4>
               <p className="mt-2 text-xs text-slate-400 leading-relaxed font-sans">
-                Ahli berpengalaman dalam visualisasi data interaktif, merancang data modeling komparatif, dan pengembangan dashboard dinamis menggunakan <strong>Microsoft Power BI</strong> dan <strong>Tableau</strong>.
+                {t('core.tools.desc2')}
               </p>
             </div>
 
@@ -621,10 +624,10 @@ export default function CoreServiceDetail() {
                 <FileSpreadsheet className="h-6 w-6" />
               </div>
               <h4 className="font-bold text-slate-200 text-sm font-sans">
-                Spreadsheet untuk Analisis Data
+                {t('core.tools.title3')}
               </h4>
               <p className="mt-2 text-xs text-slate-400 leading-relaxed font-sans">
-                Pengolahan data tingkat lanjut menggunakan rumus canggih, macro/VBA script otomatis, optimalisasi data tabel, serta pembuatan dashboard <strong>Excel</strong> bernilai guna tinggi.
+                {t('core.tools.desc3')}
               </p>
             </div>
           </div>
@@ -634,10 +637,10 @@ export default function CoreServiceDetail() {
         <div className="mb-24">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h4 className="text-2xl font-bold text-white font-sans">
-              Alur Kerja Jasa Analisis Data Kami
+              {t('workflow.title')}
             </h4>
             <p className="mt-2 text-xs text-sky-400 font-mono tracking-widest uppercase">
-              4-Step Systematic Process Workflow
+              {t('core.wf.badge')}
             </p>
           </div>
 
@@ -667,46 +670,14 @@ export default function CoreServiceDetail() {
                   </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-slate-900/60 text-[10px] text-slate-500 font-mono">
-                  Sesi Terverifikasi
+                  {t('core.wf.verified')}
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ================= CALL TO ACTION SECTION ================= */}
-        <div className="relative rounded-3xl border border-slate-800 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-8 sm:p-12 text-center max-w-5xl mx-auto overflow-hidden shadow-2xl">
-          <div className="absolute inset-0 bg-radial-gradient-to-b from-sky-500/5 to-transparent pointer-events-none" />
-          
-          <span className="inline-flex items-center gap-1.5 text-xs font-bold font-mono text-emerald-400 bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-500/20 mb-4 uppercase">
-            ⚡ Hubungi Fastwork Sekarang
-          </span>
 
-          <h3 className="font-sans text-2xl sm:text-3xl font-extrabold text-white">
-            Pesan Jasa Analisis Data Sekarang!
-          </h3>
-
-          <p className="mt-4 text-xs sm:text-sm text-slate-300 leading-relaxed font-sans max-w-3xl mx-auto">
-            Jangan biarkan data Anda terbuang sia-sia. Setiap perusahaan butuh analisis data yang tepat. Silakan hubungi tim data analyst kami via <strong>CHAT Fastwork</strong> sekarang sebelum melakukan pemesanan! Mari berdiskusi agar data analyst kami dapat memberikan solusi jasa analisis data, visualisasi data, dan pembuatan dashboard terbaik untuk kelangsungan pertumbuhan bisnis Anda.
-          </p>
-
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="https://fastwork.id/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-sky-500 hover:bg-sky-400 px-6 py-4 text-sm font-bold text-slate-950 transition-all font-sans shadow-lg shadow-sky-500/20"
-            >
-              <MessageSquare className="h-4 w-4" /> Hubungi Kami di Fastwork Chat
-            </a>
-            <a
-              href="#simulator"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 hover:bg-slate-850 px-6 py-4 text-sm font-bold text-white border border-slate-850 transition-all font-sans"
-            >
-              Coba Simulasi Dashboard <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
 
       </div>
     </section>

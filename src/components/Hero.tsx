@@ -5,8 +5,11 @@
 
 import React from "react";
 import { Sparkles, MessageSquare, ArrowRight, BarChart3, Database, ShieldCheck, Cpu } from "lucide-react";
+import { useLanguage } from "../i18n";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative overflow-hidden bg-slate-950 pt-16 pb-20 md:pt-28 md:pb-32">
       {/* Decorative gradient backgrounds */}
@@ -19,24 +22,24 @@ export default function Hero() {
           <div className="lg:col-span-7 flex flex-col items-start">
             <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/5 px-3 py-1 text-xs font-semibold text-sky-400">
               <Sparkles className="h-3.5 w-3.5" />
-              <span>Dukungan Pengambilan Keputusan Bisnis Lebih Cerdas</span>
+              <span>{t('hero.badge')}</span>
             </div>
 
             <h1 className="mt-6 font-sans text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
-              Ubah Data Menjadi{" "}
+              {t('hero.title_prefix')}{" "}
               <span className="block mt-2 bg-gradient-to-r from-sky-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent">
-                Insight Jelas & Terarah
+                {t('hero.title_highlight')}
               </span>
             </h1>
 
             <p className="mt-6 text-sm text-slate-300 md:text-base leading-relaxed font-sans max-w-2xl">
-              <strong>Worksense Analytics</strong> membantu bisnis mengubah data menjadi insight yang jelas, terarah, dan dapat ditindaklanjuti. Kami menggabungkan analisis data, visualisasi, dan pemahaman bisnis untuk mendukung pengambilan keputusan yang lebih cerdas. Dengan pendekatan yang sederhana namun powerful, kami memastikan setiap data memiliki makna dan dampak nyata bagi pertumbuhan bisnis.
+              <strong>Worksense Analytics</strong> {t('hero.subtitle').split('Kami merombak')[1] ? 'Kami merombak' + t('hero.subtitle').split('Kami merombak')[1] : t('hero.subtitle')}
             </p>
 
             <div className="mt-5 border-l-2 border-sky-500 pl-4 py-1.5 bg-slate-900/65 pr-4 rounded-r-xl max-w-2xl text-slate-400 text-xs">
-              <p className="font-semibold text-slate-200">Salah Satu Layanan Unggulan Kami:</p>
+              <p className="font-semibold text-slate-200">{t('hero.service_badge')}</p>
               <p className="mt-1 font-sans">
-                Jasa Pembersihan Data (Data Cleaning), Analisis Data Eksploratif, & Pembuatan Visualisasi Dashboard Interaktif Profesional.
+                {t('hero.service_desc')}
               </p>
             </div>
 
@@ -56,26 +59,9 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Actions CTA */}
-            <div className="mt-10 flex flex-col sm:flex-row flex-wrap gap-4 w-full">
-              <a
-                href="https://fastwork.id/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex justify-center items-center gap-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 px-6 py-3.5 text-sm font-bold text-slate-900 shadow-xl shadow-sky-500/20 transition-all hover:scale-[1.03] active:scale-[0.98] w-full sm:w-auto"
-              >
-                <MessageSquare className="h-4 w-4" />
-                Chat Fastwork Sekarang
-              </a>
-              <a
-                href="#simulator"
-                className="inline-flex justify-center items-center gap-2 rounded-xl border border-slate-700 bg-slate-900/60 backdrop-blur px-6 py-3.5 text-sm font-bold text-slate-300 hover:text-white hover:border-slate-500 transition-all active:scale-[0.98] w-full sm:w-auto"
-              >
-                Coba Live Simulator
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
+
           </div>
+
 
           {/* Interactive Hero Graphic (Previewing visual charts dashboard mockup) */}
           <div className="lg:col-span-5 relative mt-8 lg:mt-0">
@@ -126,14 +112,14 @@ export default function Hero() {
               {/* Abstract charts simulation in hero card */}
               <div className="rounded-xl bg-slate-950/80 border border-slate-800 p-4">
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-xs font-bold text-slate-300 font-sans">Tren Hasil Insight Bisnis</span>
+                  <span className="text-xs font-bold text-slate-300 font-sans">{t('hero.trend_label')}</span>
                   <span className="text-[10px] text-slate-500 font-mono">Live Data Stream</span>
                 </div>
                 <div className="flex h-24 items-end gap-1.5">
-                  <div className="w-full bg-slate-800 rounded-md hover:bg-sky-500/80 transition-all cursor-pointer" style={{ height: "45%" }} />
-                  <div className="w-full bg-slate-800 rounded-md hover:bg-sky-500/80 transition-all cursor-pointer" style={{ height: "65%" }} />
+                  <div className="w-full chart-bar-inactive rounded-md hover:bg-sky-500/80 transition-all cursor-pointer" style={{ height: "45%" }} />
+                  <div className="w-full chart-bar-inactive rounded-md hover:bg-sky-500/80 transition-all cursor-pointer" style={{ height: "65%" }} />
                   <div className="w-full bg-sky-500 rounded-md hover:bg-sky-400 transition-all cursor-pointer" style={{ height: "85%" }} />
-                  <div className="w-full bg-slate-800 rounded-md hover:bg-indigo-500/80 transition-all cursor-pointer" style={{ height: "50%" }} />
+                  <div className="w-full chart-bar-inactive rounded-md hover:bg-indigo-500/80 transition-all cursor-pointer" style={{ height: "50%" }} />
                   <div className="w-full bg-indigo-500 rounded-md hover:bg-indigo-400 transition-all cursor-pointer" style={{ height: "95%" }} />
                 </div>
               </div>
@@ -141,7 +127,7 @@ export default function Hero() {
               {/* Testimonial preview inside hero */}
               <div className="mt-4 rounded-xl bg-gradient-to-r from-sky-950/40 to-indigo-950/30 border border-slate-800/60 p-3 text-center">
                 <p className="text-[11px] italic text-slate-300 font-sans">
-                  "Menembus batas laporan manual Excel yang memakan waktu hingga menjadi visualisasi berharga"
+                  {t('hero.quote')}
                 </p>
               </div>
             </div>

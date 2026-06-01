@@ -7,7 +7,7 @@
 }
 
 html, body {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100%;
 }
 
@@ -74,12 +74,22 @@ html.light .bg-slate-900,
 html.light .bg-slate-900\/60,
 html.light .bg-slate-900\/40,
 html.light .bg-slate-900\/80,
-html.light .bg-slate-900\/90 {
+html.light .bg-slate-900\/90,
+html.light .bg-slate-900\/65,
+html.light .bg-slate-850,
+html.light .hover\:bg-slate-850:hover,
+html.light .bg-slate-800,
+html.light .hover\:bg-slate-800:hover,
+html.light .bg-slate-700,
+html.light .hover\:bg-slate-700:hover {
   background-color: #ffffff !important;
   border-color: #e2e8f0 !important; /* slate-200 */
 }
 
 /* Deep background structures and list items */
+html.light .bg-slate-650,
+html.light .bg-slate-950\/95,
+html.light .bg-slate-950\/85,
 html.light .bg-slate-950\/80,
 html.light .bg-slate-950\/70,
 html.light .bg-slate-950\/60,
@@ -95,30 +105,51 @@ html.light .bg-slate-950\/15 {
 html.light .text-white,
 html.light .text-slate-100,
 html.light .text-slate-200,
-html.light .text-slate-300 {
+html.light .text-slate-300,
+html.light .hover\:text-white:hover,
+html.light .hover\:text-slate-100:hover,
+html.light .hover\:text-slate-200:hover,
+html.light .hover\:text-slate-300:hover {
   color: #0f172a !important; /* slate-900 */
 }
 
-html.light .text-slate-400 {
+html.light .text-slate-400,
+html.light .text-slate-450 {
   color: #475569 !important; /* slate-600 */
 }
 
-html.light .text-slate-500 {
+html.light .text-slate-500,
+html.light .text-slate-550 {
   color: #64748b !important; /* slate-500 */
+}
+
+html.light .text-slate-600,
+html.light .text-slate-700,
+html.light .text-slate-800 {
+  color: #94a3b8 !important; /* slate-400 */
 }
 
 html.light .border-slate-800,
 html.light .border-slate-850,
 html.light .border-slate-900,
+html.light .border-slate-900\/60,
+html.light .border-slate-900\/80,
 html.light .border-slate-700,
+html.light .border-slate-700\/50,
 html.light .border-slate-705,
+html.light .border-slate-705\/80,
 html.light .border-slate-850\/60,
 html.light .border-slate-850\/40,
 html.light .border-slate-805,
 html.light .border-slate-800\/80,
 html.light .border-slate-800\/60,
+html.light .border-slate-800\/50,
 html.light .border-slate-800\/40,
-html.light .border-slate-800\/30 {
+html.light .border-slate-800\/30,
+html.light .hover\:border-slate-800:hover,
+html.light .hover\:border-slate-700:hover,
+html.light .hover\:border-slate-850:hover,
+html.light .hover\:border-slate-900:hover {
   border-color: #cbd5e1 !important; /* slate-300 */
 }
 
@@ -130,6 +161,14 @@ html.light h4,
 html.light h5,
 html.light h6 {
   color: #0f172a !important; /* slate-900 */
+}
+
+/* Custom elements */
+.chart-bar-inactive {
+  background-color: #1e293b; /* slate-800 */
+}
+html.light .chart-bar-inactive {
+  background-color: #cbd5e1 !important; /* slate-300 */
 }
 
 /* Chat text color fixes for bubble logs and inputs */

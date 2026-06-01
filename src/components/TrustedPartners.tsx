@@ -4,8 +4,10 @@
  */
 
 import React from "react";
+import { useLanguage } from "../i18n";
 
 export default function TrustedPartners() {
+  const { t } = useLanguage();
   return (
     <section className="bg-slate-900/60 border-y border-slate-800/80 py-8 lg:py-12 relative overflow-hidden">
       {/* Subtle blueprint decorative background network mesh */}
@@ -23,7 +25,7 @@ export default function TrustedPartners() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <span className="inline-block tracking-[0.15em] font-mono font-black text-xs text-slate-400 uppercase bg-slate-950/20 border border-slate-800 px-4 py-1.5 rounded-full select-none">
-            TRUSTED PARTNERS:
+            {t('partners.badge')}
           </span>
         </div>
 
