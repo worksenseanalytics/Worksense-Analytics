@@ -93,7 +93,7 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
 
       {/* Mobile nav panel */}
       {isOpen && (
-        <div className="md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-4 space-y-1">
+        <div className="md:hidden absolute top-20 left-0 w-full bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-4 space-y-1 shadow-2xl">
           <a
             href="#services"
             onClick={() => setIsOpen(false)}

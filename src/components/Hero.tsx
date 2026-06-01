@@ -8,7 +8,7 @@ import { Sparkles, MessageSquare, ArrowRight, BarChart3, Database, ShieldCheck, 
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-slate-950 pt-20 pb-24 md:pt-28 md:pb-32">
+    <section className="relative overflow-hidden bg-slate-950 pt-16 pb-20 md:pt-28 md:pb-32">
       {/* Decorative gradient backgrounds */}
       <div className="absolute top-0 left-1/4 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-sky-500/10 blur-[120px]" />
       <div className="absolute right-10 bottom-10 h-[500px] w-[500px] rounded-full bg-indigo-500/5 blur-[150px]" />
@@ -22,7 +22,7 @@ export default function Hero() {
               <span>Dukungan Pengambilan Keputusan Bisnis Lebih Cerdas</span>
             </div>
 
-            <h1 className="mt-6 font-sans text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl leading-[1.1]">
+            <h1 className="mt-6 font-sans text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
               Ubah Data Menjadi{" "}
               <span className="block mt-2 bg-gradient-to-r from-sky-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent">
                 Insight Jelas & Terarah
@@ -57,19 +57,19 @@ export default function Hero() {
             </div>
 
             {/* Actions CTA */}
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-col sm:flex-row flex-wrap gap-4 w-full">
               <a
                 href="https://fastwork.id/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 px-6 py-3.5 text-sm font-bold text-slate-900 shadow-xl shadow-sky-500/20 transition-all hover:scale-[1.03] active:scale-[0.98]"
+                className="inline-flex justify-center items-center gap-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 px-6 py-3.5 text-sm font-bold text-slate-900 shadow-xl shadow-sky-500/20 transition-all hover:scale-[1.03] active:scale-[0.98] w-full sm:w-auto"
               >
                 <MessageSquare className="h-4 w-4" />
                 Chat Fastwork Sekarang
               </a>
               <a
                 href="#simulator"
-                className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900/60 backdrop-blur px-6 py-3.5 text-sm font-bold text-slate-300 hover:text-white hover:border-slate-500 transition-all active:scale-[0.98]"
+                className="inline-flex justify-center items-center gap-2 rounded-xl border border-slate-700 bg-slate-900/60 backdrop-blur px-6 py-3.5 text-sm font-bold text-slate-300 hover:text-white hover:border-slate-500 transition-all active:scale-[0.98] w-full sm:w-auto"
               >
                 Coba Live Simulator
                 <ArrowRight className="h-4 w-4" />

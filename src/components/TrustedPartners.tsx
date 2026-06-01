@@ -7,7 +7,7 @@ import React from "react";
 
 export default function TrustedPartners() {
   return (
-    <section className="bg-slate-900/60 border-y border-slate-800/80 py-12 relative overflow-hidden">
+    <section className="bg-slate-900/60 border-y border-slate-800/80 py-8 lg:py-12 relative overflow-hidden">
       {/* Subtle blueprint decorative background network mesh */}
       <div className="absolute inset-0 opacity-5 pointer-events-none mix-blend-overlay">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">

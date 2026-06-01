@@ -146,7 +146,7 @@ export default function CoreServiceDetail() {
   ];
 
   return (
-    <section id="jasa-analisis" className="bg-slate-950 py-24 pb-20 relative border-t border-slate-900 overflow-hidden">
+    <section id="jasa-analisis" className="bg-slate-950 py-16 md:py-24 pb-16 md:pb-20 relative border-t border-slate-900 overflow-hidden">
       {/* Visual background accents and grid styling */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(56,189,248,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(56,189,248,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />

@@ -237,7 +237,7 @@ export default function App() {
       <CoreServiceDetail />
 
       {/* GLOBAL CERTIFICATION CREDENTIALS GRID SECTION */}
-      <section className="bg-slate-900 border-t border-slate-800 py-16 relative">
+      <section className="bg-slate-900 border-t border-slate-800 py-12 md:py-16 relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.05),transparent_50%)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
@@ -311,7 +311,7 @@ export default function App() {
       </section>
 
       {/* INTERACTIVE DEMO: PERBANDINGAN DATA SEBELUM & SESUDAH CLEANING + DASHBOARD SIMULATION */}
-      <section id="simulator" className="bg-slate-950 py-20 border-t border-slate-900 relative">
+      <section id="simulator" className="bg-slate-950 py-16 md:py-20 border-t border-slate-900 relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(56,189,248,0.06),transparent_60%)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
@@ -684,7 +684,7 @@ export default function App() {
       </section>
 
       {/* CORE CAPABILITIES & REAL-TIME INDUSTRY TOOLS SECTION */}
-      <section id="tools" className="bg-slate-900/40 border-y border-slate-900 py-20">
+      <section id="tools" className="bg-slate-900/40 border-y border-slate-900 py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-mono font-bold uppercase text-sky-400">Standardisasi Kelas Dunia</span>
@@ -735,7 +735,7 @@ export default function App() {
       </section>
 
       {/* WORKFLOW PIPELINE IN-DETAIL SECTION */}
-      <section id="workflow" className="bg-slate-950 py-20">
+      <section id="workflow" className="bg-slate-950 py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-mono font-bold uppercase text-sky-400">Professional Pipeline</span>
@@ -810,7 +810,7 @@ export default function App() {
       </section>
 
       {/* CORE INTEGRATION: DYNAMIC REAL CHATBOT INTERACTIVE CONSULTATION */}
-      <section id="consultant" className="bg-slate-900 py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+      <section id="consultant" className="bg-slate-900 py-16 md:py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
         <div className="mx-auto max-w-5xl">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-wider uppercase text-sky-400">
