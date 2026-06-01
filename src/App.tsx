@@ -62,6 +62,7 @@ import Logo from "./components/Logo";
 import CoreServiceDetail from "./components/CoreServiceDetail";
 import TrustedPartners from "./components/TrustedPartners";
 import Testimonials from "./components/Testimonials";
+import FAQ from "./components/FAQ";
 import { SIMULATION_DATASETS, INDUSTRY_TOOLS, PROJECT_TECH_STACK } from "./data";
 import { ChatMessage, DirtyRecord, CleanRecord } from "./types";
 import { useLanguage } from "./i18n";
@@ -310,6 +311,9 @@ export default function App() {
       {/* CLIENT TESTIMONIALS */}
       <Testimonials />
 
+      {/* FREQUENTLY ASKED QUESTIONS */}
+      <FAQ />
+
       {/* FINAL CONCLUDING TRUST & CONTACT OUTREACH CALL-TO-ACTION */}
       <section id="contact" className="bg-slate-950 py-24 border-t border-slate-900 relative">
         <div className="absolute top-1/2 left-1/2 -ml-[300px] -mt-[300px] h-[600px] w-[600px] rounded-full bg-sky-500/5 blur-[120px] pointer-events-none" />
@@ -342,7 +346,9 @@ export default function App() {
             </a>
             
             <a
-              href="mailto:worksenseanalytics@gmail.com"
+              href="mailto:worksenseanalytics@gmail.com?subject=Konsultasi%20Layanan%20Data%20Analytics&body=Halo%20Tim%20Worksense%20Analytics!%0A%0ASaya%20tertarik%20untuk%20berkonsultasi%20mengenai%20layanan%20analisis%20data%20dan%20pembuatan%20dashboard%20untuk%20bisnis%20saya."
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 hover:bg-slate-800 px-8 py-4 text-sm font-bold text-white border border-slate-700 transition-all hover:scale-105"
             >
               <Send className="h-4.5 w-4.5 text-sky-400" />

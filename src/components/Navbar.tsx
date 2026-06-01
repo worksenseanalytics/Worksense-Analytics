@@ -49,6 +49,9 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
             <a href="#testimonials" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               {t("nav.testimonials")}
             </a>
+            <a href="#faq" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+              {t("nav.faq")}
+            </a>
             <a href="#contact" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               {t("nav.contact_section")}
             </a>
@@ -137,6 +140,13 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
             className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
           >
             {t("nav.testimonials")}
+          </a>
+          <a
+            href="#faq"
+            onClick={() => setIsOpen(false)}
+            className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
+          >
+            {t("nav.faq")}
           </a>
           <a
             href="#contact"

@@ -21,6 +21,7 @@ const dictionary: Record<Language, Record<string, string>> = {
     'nav.light_mode': 'Mode Cerah',
     'nav.contact_section': 'Hubungi Kami',
     'nav.testimonials': 'Testimoni',
+    'nav.faq': 'FAQ',
     'nav.chat': 'Chat Sekarang',
 
     'hero.badge': 'Dukungan Pengambilan Keputusan Bisnis Lebih Cerdas',
@@ -144,6 +145,18 @@ const dictionary: Record<Language, Record<string, string>> = {
     'testi.3.name': 'Bakti Satria',
     'testi.3.role': 'CEO Tech Startup',
 
+    'faq.badge': 'PERTANYAAN UMUM',
+    'faq.title': 'Tanya Jawab Seputar Layanan',
+    'faq.desc': 'Temukan jawaban cepat atas pertanyaan yang sering diajukan klien mengenai harga, pengerjaan, dan keamanan data.',
+    'faq.1.q': 'Apakah data perusahaan / bisnis saya dijamin kerahasiaannya?',
+    'faq.1.a': 'Tentu. Sebagai lembaga analisis profesional, Worksense Analytics bersedia menandatangani perjanjian Non-Disclosure Agreement (NDA) sebelum pekerjaan dimulai untuk menjamin perlindungan 100% terhadap seluruh data rahasia bisnis Anda.',
+    'faq.2.q': 'Bagaimana skema harga untuk pembuatan Dashboard (Power BI / Tableau)?',
+    'faq.2.a': 'Skema harga sangat bergantung pada tingkat kerumitan data (jumlah sumber data, perlunya pembersihan data tambahan, dan kompleksitas visual yang dibutuhkan). Kami sangat merekomendasikan Anda untuk langsung menghubungi kami agar bisa mendiskusikan anggaran dan scope yang tepat.',
+    'faq.3.q': 'Berapa lama waktu pengerjaan untuk proyek analisis / visualisasi dasar?',
+    'faq.3.a': 'Untuk proyek dengan skala kecil (basic cleaning dan dashboard sederhana untuk 1-2 tabel data), pengerjaan standar biasanya selesai antara 2 hingga 5 hari kerja semenjak data final diterima dan requirements disepakati bersama.',
+    'faq.4.q': 'Apakah layanan ini bisa hanya perbaikan dashboard / file lama tanpa buat baru?',
+    'faq.4.a': 'Sangat bisa. Kami sering menerima permintaan untuk optimasi file Excel (VBA Macro yang rusak) atau re-desain dashboard eksisting yang lambat/tidak responsif. Hubungi kami untuk konsultasi problem spesifik Anda.',
+
     'footer.title': 'Hubungi Kami & Konsultasi Sekarang',
     'footer.desc1': 'Jangan biarkan data bisnis berharga Anda terbuang sia-sia dan mengendap tanpa arti. Setiap keputusan logistik dan penjualan memerlukan analisis data yang matang dan akurat.',
     'footer.desc2': 'Mari berdiskusi agar data analyst bersertifikat global kami memberikan rancangan solusi visual terbaik yang mendongkrak margin keuntungan operasional Anda.',
@@ -240,6 +253,7 @@ const dictionary: Record<Language, Record<string, string>> = {
     'nav.light_mode': 'Light Mode',
     'nav.contact_section': 'Contact Us',
     'nav.testimonials': 'Testimonials',
+    'nav.faq': 'FAQ',
     'nav.chat': 'Chat Now',
 
     'hero.badge': 'Smarter Business Decision Support',
@@ -362,6 +376,18 @@ const dictionary: Record<Language, Record<string, string>> = {
     'testi.3.text': '"The global certifications claimed by this team are truly proven. We at the Enterprise level received a highly satisfying and precise Tableau Dashboard."',
     'testi.3.name': 'Bakti Satria',
     'testi.3.role': 'CEO Tech Startup',
+
+    'faq.badge': 'FREQUENTLY ASKED QUESTIONS',
+    'faq.title': 'Questions About Our Services',
+    'faq.desc': 'Find quick answers to common questions clients ask about pricing, delivery, and data security.',
+    'faq.1.q': 'Is my company / business data guaranteed to be confidential?',
+    'faq.1.a': 'Absolutely. As a professional analytical agency, Worksense Analytics is willing to sign a Non-Disclosure Agreement (NDA) before work begins to guarantee 100% protection of all your confidential business data.',
+    'faq.2.q': 'What is the pricing scheme for Dashboard creation (Power BI / Tableau)?',
+    'faq.2.a': 'The pricing scheme heavily depends on the complexity of the data (number of data sources, need for additional data cleaning, and required visual complexity). We highly recommend contacting us directly so we can discuss the appropriate budget and scope.',
+    'faq.3.q': 'What is the estimated delivery time for a basic analysis / visualization project?',
+    'faq.3.a': 'For small-scale projects (basic cleaning and simple dashboards for 1-2 data tables), standard delivery is typically completed between 2 to 5 working days after the final data is received and requirements are mutually agreed upon.',
+    'faq.4.q': 'Can this service just fix old dashboards / files without creating new ones?',
+    'faq.4.a': 'Absolutely. We often receive requests to optimize Excel files (broken VBA Macros) or redesign sluggish/unresponsive existing dashboards. Contact us to discuss your specific problem.',
 
     'footer.title': 'Contact Us & Consult Now',
     'footer.desc1': 'Do not let your valuable business data go to waste and settle without meaning. Every logistics and sales decision requires mature and accurate data analysis.',
