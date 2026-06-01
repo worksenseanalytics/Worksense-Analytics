@@ -6,6 +6,11 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 @layer utilities {
   /* Elegant glassmorphism panel styling */
   .glass-card {
