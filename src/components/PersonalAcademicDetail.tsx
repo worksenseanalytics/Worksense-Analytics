@@ -44,6 +44,51 @@ export default function PersonalAcademicDetail() {
     }
   ];
 
+  const pricingTiers = [
+    {
+      id: "basic",
+      name: t('per.pricing.tier1.name'),
+      desc: t('per.pricing.tier1.desc'),
+      price: t('per.pricing.tier1.price'),
+      highlight: false,
+      whatsappMessage: "Halo tim Worksense Analytics, saya ingin konsultasi mengenai paket Basic/Entry untuk Akademik/UMKM. Boleh dibantu?",
+      features: [
+        { text: t('per.pricing.tier1.f1'), included: true },
+        { text: t('per.pricing.tier1.f2'), included: true },
+        { text: t('per.pricing.tier1.f3'), included: true },
+        { text: t('per.pricing.tier1.f4'), included: true },
+      ]
+    },
+    {
+      id: "standard",
+      name: t('per.pricing.tier2.name'),
+      desc: t('per.pricing.tier2.desc'),
+      price: t('per.pricing.tier2.price'),
+      highlight: true,
+      whatsappMessage: "Halo tim Worksense Analytics, saya ingin konsultasi mengenai paket Standard/Riset untuk olah data tesis/skripsi. Boleh dibantu?",
+      features: [
+        { text: t('per.pricing.tier2.f1'), included: true },
+        { text: t('per.pricing.tier2.f2'), included: true },
+        { text: t('per.pricing.tier2.f3'), included: true },
+        { text: t('per.pricing.tier2.f4'), included: true },
+      ]
+    },
+    {
+      id: "premium",
+      name: t('per.pricing.tier3.name'),
+      desc: t('per.pricing.tier3.desc'),
+      price: t('per.pricing.tier3.price'),
+      highlight: false,
+      whatsappMessage: "Halo tim Worksense Analytics, saya ingin konsultasi mengenai paket Premium/UMKM untuk pembuatan dashboard/pembukuan. Boleh dibantu?",
+      features: [
+        { text: t('per.pricing.tier3.f1'), included: true },
+        { text: t('per.pricing.tier3.f2'), included: true },
+        { text: t('per.pricing.tier3.f3'), included: true },
+        { text: t('per.pricing.tier3.f4'), included: true },
+      ]
+    }
+  ];
+
   return (
     <section id="jasa-personal" className="bg-slate-950 py-16 md:py-24 pb-16 md:pb-20 relative border-t border-slate-900 overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(99,102,241,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(99,102,241,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
@@ -56,7 +101,7 @@ export default function PersonalAcademicDetail() {
         <div className="flex flex-col mb-16 relative">
           
           <span className="inline-flex items-center gap-1.5 rounded-full bg-indigo-500/10 px-3 py-1 text-xs font-mono font-bold tracking-wider text-indigo-400 border border-indigo-500/20 self-start mb-5">
-            <GraduationCap className="h-3.5 w-3.5 text-indigo-400 animate-pulse" /> {t('per.badge')}
+            <GraduationCap className="h-3.5 w-3.5 text-indigo-400 " /> {t('per.badge')}
           </span>
 
           <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 lg:gap-10 items-center">
@@ -123,7 +168,7 @@ export default function PersonalAcademicDetail() {
                      <div className="h-10 w-10 rounded-full bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center animate-[bounce_3s_ease-in-out_infinite]">
                         <FileSpreadsheet className="h-5 w-5 text-indigo-400" />
                      </div>
-                     <Zap className="h-4 w-4 text-slate-600 animate-pulse" />
+                     <Zap className="h-4 w-4 text-slate-600 " />
                      <div className="h-10 w-10 rounded-full bg-violet-500/10 border border-violet-500/30 flex items-center justify-center animate-[bounce_3s_ease-in-out_infinite_0.5s]">
                         <LineChart className="h-5 w-5 text-violet-400" />
                      </div>
@@ -164,7 +209,7 @@ export default function PersonalAcademicDetail() {
               {t('per.intro1_desc')}<strong>{t('per.intro1_bold')}</strong>{t('per.intro1_desc2')}
             </p>
             <div className="mt-6 flex items-center gap-2 text-xs text-indigo-400 font-mono">
-              <span className="h-2 w-2 rounded-full bg-indigo-500 animate-ping" />
+              <span className="h-2 w-2 rounded-full bg-indigo-500 " />
               <span>{t('per.intro1_tag')}</span>
             </div>
           </div>
@@ -306,6 +351,75 @@ export default function PersonalAcademicDetail() {
                 <div className="mt-6 pt-4 border-t border-slate-800 text-[10px] text-slate-500 font-mono">
                   {t('per.wf.verified')}
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* PRICING */}
+        <div className="mt-32 max-w-6xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-indigo-500/10 px-3 py-1 text-[10px] font-mono font-bold tracking-widest text-indigo-400 border border-indigo-500/20 mb-4 uppercase">
+              {t('per.pricing.badge')}
+            </span>
+            <h4 className="text-3xl md:text-4xl font-extrabold text-white font-sans">{t('per.pricing.title')}</h4>
+            <p className="mt-4 text-sm sm:text-base text-slate-400 leading-relaxed font-sans">{t('per.pricing.subtitle')}</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {pricingTiers.map((tier, idx) => (
+              <div 
+                key={idx}
+                className={`relative rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 ${
+                  tier.highlight 
+                    ? "bg-gradient-to-b from-indigo-900/40 to-slate-900/80 border-2 border-indigo-500/50 shadow-2xl shadow-indigo-500/10 transform md:-translate-y-4" 
+                    : "bg-slate-900/50 border border-slate-800 hover:border-slate-700"
+                }`}
+              >
+                {tier.highlight && (
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-indigo-500 to-violet-500 text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest py-1.5 px-4 rounded-full shadow-lg">
+                    Highest Value
+                  </div>
+                )}
+                
+                <div>
+                  <h5 className="font-bold text-slate-100 text-xl font-sans mb-2">{tier.name}</h5>
+                  <p className="text-xs text-slate-400 font-sans leading-relaxed min-h-[40px]">{tier.desc}</p>
+                  
+                  <div className="my-6 pb-6 border-b border-slate-800">
+                    <span className="text-3xl font-extrabold text-white tracking-tight">{tier.price}</span>
+                  </div>
+
+                  <ul className="space-y-4 mb-8">
+                    {tier.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-3">
+                        {feat.included ? (
+                          <div className="mt-0.5 h-4 w-4 rounded-full bg-indigo-500/10 flex items-center justify-center shrink-0">
+                            <CheckCircle className="h-3 w-3 text-indigo-400" />
+                          </div>
+                        ) : (
+                          <div className="mt-0.5 h-4 w-4 shrink-0 flex items-center justify-center">
+                            <div className="h-1.5 w-1.5 rounded-full bg-slate-700" />
+                          </div>
+                        )}
+                        <span className={`text-sm font-sans ${feat.included ? 'text-slate-300' : 'text-slate-600'}`}>{feat.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <button 
+                  onClick={() => {
+                    import('./ContactModal').then(({ openContactModal }) => openContactModal(tier.whatsappMessage));
+                  }}
+                  className={`block w-full text-center py-3.5 rounded-xl text-sm font-bold transition-all shadow-lg hover:shadow-xl ${
+                    tier.highlight 
+                      ? "bg-indigo-500 text-white hover:bg-indigo-600 hover:shadow-indigo-500/25" 
+                      : "bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white"
+                  }`}
+                >
+                  {t('per.pricing.cta')}
+                </button>
               </div>
             ))}
           </div>

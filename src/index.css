@@ -58,7 +58,7 @@ html.light {
 
 html.light body,
 html.light .bg-slate-950 {
-  background-color: #f8fafc !important; /* slate-50 */
+  background-color: #f1f5f9 !important; /* slate-100 for better contrast against white panels */
   color: #0f172a !important; /* slate-900 */
 }
 
@@ -71,14 +71,23 @@ html.light .sticky {
 
 /* Sidebar and general containers */
 html.light .bg-slate-900,
+html.light .bg-slate-900\/95,
 html.light .bg-slate-900\/60,
 html.light .bg-slate-900\/40,
 html.light .bg-slate-900\/80,
 html.light .bg-slate-900\/90,
 html.light .bg-slate-900\/65,
+html.light .bg-slate-900\/50,
+html.light .bg-slate-900\/30,
+html.light .bg-slate-900\/20,
+html.light .bg-slate-900\/10,
 html.light .bg-slate-850,
 html.light .hover\:bg-slate-850:hover,
 html.light .bg-slate-800,
+html.light .bg-slate-800\/80,
+html.light .bg-slate-800\/50,
+html.light .bg-slate-800\/30,
+html.light .hover\:bg-slate-800\/50:hover,
 html.light .hover\:bg-slate-800:hover,
 html.light .bg-slate-700,
 html.light .hover\:bg-slate-700:hover {
@@ -88,34 +97,51 @@ html.light .hover\:bg-slate-700:hover {
 
 /* Deep background structures and list items */
 html.light .bg-slate-650,
+html.light .bg-slate-950\/98,
 html.light .bg-slate-950\/95,
 html.light .bg-slate-950\/85,
 html.light .bg-slate-950\/80,
 html.light .bg-slate-950\/70,
 html.light .bg-slate-950\/60,
 html.light .bg-slate-950\/65,
+html.light .bg-slate-950\/50,
 html.light .bg-slate-950\/40,
 html.light .bg-slate-950\/30,
 html.light .bg-slate-950\/20,
 html.light .bg-slate-950\/15 {
-  background-color: #f1f5f9 !important; /* slate-100 */
+  background-color: #e2e8f0 !important; /* slate-200 */
   border-color: #cbd5e1 !important; /* slate-300 */
 }
 
+html.light .text-slate-300,
+html.light .hover\:text-slate-300:hover {
+  color: #334155 !important; /* slate-700 */
+}
+
 html.light .text-white,
+html.light .text-slate-50,
 html.light .text-slate-100,
 html.light .text-slate-200,
-html.light .text-slate-300,
 html.light .hover\:text-white:hover,
 html.light .hover\:text-slate-100:hover,
 html.light .hover\:text-slate-200:hover,
-html.light .hover\:text-slate-300:hover {
+html.light .group:hover .group-hover\:text-white,
+html.light .group:hover .group-hover\:text-slate-100 {
   color: #0f172a !important; /* slate-900 */
+}
+
+html.light .bg-sky-500.text-white,
+html.light .bg-sky-500 .text-white,
+html.light .bg-indigo-500.text-white,
+html.light .bg-purple-500.text-white,
+html.light .bg-emerald-500.text-white,
+html.light .bg-rose-500.text-white {
+  color: #ffffff !important;
 }
 
 html.light .text-slate-400,
 html.light .text-slate-450 {
-  color: #475569 !important; /* slate-600 */
+  color: #334155 !important; /* slate-700 */
 }
 
 html.light .text-slate-500,
@@ -162,6 +188,28 @@ html.light h5,
 html.light h6 {
   color: #0f172a !important; /* slate-900 */
 }
+
+html.light .text-sky-400, html.light .group-hover\:text-sky-400, html.light .group:hover .group-hover\:text-sky-400 { color: #0284c7 !important; }
+html.light .text-indigo-400, html.light .group-hover\:text-indigo-400, html.light .group:hover .group-hover\:text-indigo-400 { color: #4f46e5 !important; }
+html.light .text-violet-400, html.light .group-hover\:text-violet-400, html.light .group:hover .group-hover\:text-violet-400 { color: #7c3aed !important; }
+html.light .text-emerald-400, html.light .group-hover\:text-emerald-400, html.light .group:hover .group-hover\:text-emerald-400 { color: #059669 !important; }
+html.light .text-rose-400, html.light .group-hover\:text-rose-400, html.light .group:hover .group-hover\:text-rose-400 { color: #e11d48 !important; }
+html.light .text-amber-500, html.light .text-amber-400,
+html.light .text-yellow-500, html.light .text-yellow-400, 
+html.light .group-hover\:text-yellow-400, html.light .group:hover .group-hover\:text-yellow-400,
+html.light .group-hover\:text-amber-400, html.light .group:hover .group-hover\:text-amber-400,
+html.light .text-orange-400, html.light .group-hover\:text-orange-400, html.light .group:hover .group-hover\:text-orange-400 { color: #b45309 !important; }
+html.light .text-fuchsia-400, html.light .group-hover\:text-fuchsia-400, html.light .group:hover .group-hover\:text-fuchsia-400 { color: #c026d3 !important; }
+
+html.light .from-yellow-300 { --tw-gradient-from: #d97706 var(--tw-gradient-from-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+html.light .via-amber-400 { --tw-gradient-via: #b45309 var(--tw-gradient-via-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to); }
+html.light .to-yellow-300 { --tw-gradient-to: #d97706 var(--tw-gradient-to-position); }
+
+html.light .bg-sky-950\/65 { background-color: #e0f2fe !important; border-color: #bae6fd !important; }
+
+html.light .from-indigo-900\/40 { --tw-gradient-from: #e0e7ff var(--tw-gradient-from-position); --tw-gradient-to: rgba(224, 231, 255, 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+html.light .to-slate-900\/80 { --tw-gradient-to: #f1f5f9 var(--tw-gradient-to-position); }
+html.light .border-indigo-500\/50 { border-color: #818cf8 !important; }
 
 /* Custom elements */
 .chart-bar-inactive {
@@ -221,22 +269,22 @@ html.light .text-sky-500 {
 }
 
 /* Custom shadow improvements for cards */
-html.light .rounded-2xl,
-html.light .rounded-xl,
-html.light .rounded-lg {
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05) !important;
+html.light .glass-card,
+html.light .dark-glass-card,
+html.light section > div > div > .rounded-2xl {
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.01) !important;
 }
 
 /* Fix specific simulator & terminal container contrasts in light mode */
 html.light #simulator,
 html.light .bg-slate-950.text-slate-100 {
-  background-color: #f8fafc !important;
+  background-color: #f1f5f9 !important;
   color: #0f172a !important;
 }
 
 html.light .bg-slate-950\/60,
 html.light .bg-slate-950\/70 {
-  background-color: #f1f5f9 !important;
+  background-color: #e2e8f0 !important;
 }
 
 html.light td, html.light th {
@@ -246,4 +294,21 @@ html.light td, html.light th {
 html.light thead {
   background-color: #e2e8f0 !important;
 }
+
+/* Overrides for Portfolio Gradients in light mode */
+html.light .from-sky-900\/50 { --tw-gradient-from: #e0f2fe var(--tw-gradient-from-position); --tw-gradient-to: rgba(224, 242, 254, 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+html.light .to-sky-950\/20 { --tw-gradient-to: #f0f9ff var(--tw-gradient-to-position); }
+html.light .border-sky-800\/50 { border-color: #bae6fd !important; }
+
+html.light .from-emerald-900\/50 { --tw-gradient-from: #d1fae5 var(--tw-gradient-from-position); --tw-gradient-to: rgba(209, 250, 229, 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+html.light .to-emerald-950\/20 { --tw-gradient-to: #ecfdf5 var(--tw-gradient-to-position); }
+html.light .border-emerald-800\/50 { border-color: #a7f3d0 !important; }
+
+html.light .from-amber-900\/50 { --tw-gradient-from: #fef3c7 var(--tw-gradient-from-position); --tw-gradient-to: rgba(254, 243, 199, 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+html.light .to-amber-950\/20 { --tw-gradient-to: #fffbeb var(--tw-gradient-to-position); }
+html.light .border-amber-800\/50 { border-color: #fde68a !important; }
+
+html.light .from-indigo-900\/50 { --tw-gradient-from: #e0e7ff var(--tw-gradient-from-position); --tw-gradient-to: rgba(224, 231, 255, 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+html.light .to-indigo-950\/20 { --tw-gradient-to: #eef2ff var(--tw-gradient-to-position); }
+html.light .border-indigo-800\/50 { border-color: #c7d2fe !important; }
 

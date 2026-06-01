@@ -67,6 +67,8 @@ import TrustedPartners from "./components/TrustedPartners";
 import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
 import ServicesOverview from "./components/ServicesOverview";
+import Portfolio from "./components/Portfolio";
+import ContactModal from "./components/ContactModal";
 import { SIMULATION_DATASETS, INDUSTRY_TOOLS, PROJECT_TECH_STACK } from "./data";
 import { ChatMessage, DirtyRecord, CleanRecord } from "./types";
 import { useLanguage } from "./i18n";
@@ -139,7 +141,7 @@ export default function App() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-flex items-center gap-1 text-xs font-mono font-bold uppercase tracking-wider text-sky-400 bg-sky-950/65 px-3 py-1 rounded-full border border-sky-500/20">
-              <Award className="h-3.5 w-3.5 text-amber-500 animate-pulse" /> {t('cert.badge')}
+              <Award className="h-3.5 w-3.5 text-amber-500 " /> {t('cert.badge')}
             </span>
             <h2 className="mt-3 font-sans text-3xl font-extrabold text-white">
               {t('cert.title')}
@@ -333,6 +335,9 @@ export default function App() {
         </div>
       </section>
 
+      {/* PORTFOLIO / CASE STUDIES */}
+      <Portfolio />
+
       {/* CLIENT TESTIMONIALS */}
       <Testimonials />
 
@@ -437,6 +442,7 @@ export default function App() {
           </p>
         </div>
       </footer>
+      <ContactModal />
     </div>
   );
 }

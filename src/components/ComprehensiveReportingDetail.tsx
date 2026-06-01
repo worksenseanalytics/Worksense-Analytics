@@ -54,7 +54,7 @@ export default function ComprehensiveReportingDetail() {
         <div className="flex flex-col mb-16 relative">
           
           <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-500/10 px-3 py-1 text-xs font-mono font-bold tracking-wider text-rose-400 border border-rose-500/20 self-start mb-5">
-            <Presentation className="h-3.5 w-3.5 text-rose-400 animate-pulse" /> {t('rep.badge')}
+            <Presentation className="h-3.5 w-3.5 text-rose-400 " /> {t('rep.badge')}
           </span>
 
           <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 lg:gap-10 items-center">
@@ -177,7 +177,7 @@ export default function ComprehensiveReportingDetail() {
               {t('rep.intro1_desc')}<strong>{t('rep.intro1_bold')}</strong>{t('rep.intro1_desc2')}
             </p>
             <div className="mt-6 flex items-center gap-2 text-xs text-rose-400 font-mono">
-              <span className="h-2 w-2 rounded-full bg-rose-500 animate-ping" />
+              <span className="h-2 w-2 rounded-full bg-rose-500 " />
               <span>{t('rep.intro1_tag')}</span>
             </div>
           </div>
@@ -322,6 +322,18 @@ export default function ComprehensiveReportingDetail() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* CTA BUTTON */}
+        <div className="mt-20 flex justify-center">
+          <button
+            onClick={() => {
+              import('./ContactModal').then(({ openContactModal }) => openContactModal("Halo tim Worksense Analytics, saya tertarik dengan layanan pembuatan Pitch Deck Eksekutif dan Comprehensive Reporting. Boleh diskusi lebih lanjut?"));
+            }}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-rose-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-rose-500/25 transition-all hover:bg-rose-400 hover:shadow-rose-500/40"
+          >
+            {t('per.pricing.cta')}
+          </button>
         </div>
 
       </div>

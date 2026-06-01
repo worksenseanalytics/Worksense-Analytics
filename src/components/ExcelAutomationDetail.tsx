@@ -53,7 +53,7 @@ export default function ExcelAutomationDetail() {
         <div className="flex flex-col mb-16 relative">
           
           <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/10 px-3 py-1 text-xs font-mono font-bold tracking-wider text-amber-400 border border-amber-500/20 self-start mb-5">
-            <Zap className="h-3.5 w-3.5 text-amber-400 animate-pulse" /> {t('ex.badge')}
+            <Zap className="h-3.5 w-3.5 text-amber-400 " /> {t('ex.badge')}
           </span>
 
           <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 lg:gap-10 items-center">
@@ -161,7 +161,7 @@ export default function ExcelAutomationDetail() {
               {t('ex.intro1_desc')}<strong>{t('ex.intro1_bold')}</strong>{t('ex.intro1_desc2')}
             </p>
             <div className="mt-6 flex items-center gap-2 text-xs text-amber-400 font-mono">
-              <span className="h-2 w-2 rounded-full bg-amber-500 animate-ping" />
+              <span className="h-2 w-2 rounded-full bg-amber-500 " />
               <span>{t('ex.intro1_tag')}</span>
             </div>
           </div>
@@ -306,6 +306,18 @@ export default function ExcelAutomationDetail() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* CTA BUTTON */}
+        <div className="mt-20 flex justify-center">
+          <button
+            onClick={() => {
+              import('./ContactModal').then(({ openContactModal }) => openContactModal("Halo tim Worksense Analytics, saya butuh bantuan terkait otomatisasi laporan menggunakan Excel VBA & Macro. Boleh diskusi lebih lanjut untuk workflow perusahaan saya?"));
+            }}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-amber-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-amber-500/25 transition-all hover:bg-amber-400 hover:shadow-amber-500/40"
+          >
+            {t('per.pricing.cta')}
+          </button>
         </div>
 
       </div>

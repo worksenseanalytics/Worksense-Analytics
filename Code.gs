@@ -1,5 +1,6 @@
 /**
  * Server-side Google Apps Script for serving the React Dashboard
+ * Last Updated: Dashboard (Sticky Nav Services Light Mode Color/Contrast Mappings)
  */
 
 function doGet(e) {

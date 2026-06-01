@@ -54,7 +54,7 @@ export default function EnterpriseSolutionDetail() {
         <div className="flex flex-col mb-16 relative">
           
           <span className="inline-flex items-center gap-1.5 rounded-full bg-yellow-500/10 px-3 py-1 text-xs font-mono font-bold tracking-wider text-yellow-400 border border-yellow-500/20 self-start mb-5">
-            <Crown className="h-3.5 w-3.5 text-yellow-400 animate-pulse" /> {t('ent.badge')}
+            <Crown className="h-3.5 w-3.5 text-yellow-400 " /> {t('ent.badge')}
           </span>
 
           <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 lg:gap-10 items-center">
@@ -134,8 +134,8 @@ export default function EnterpriseSolutionDetail() {
                     <polygon points="75,15 85,15 85,25 75,25" fill="#fde68a" />
                     
                     {/* Signal Pulses */}
-                    <circle cx="30" cy="15" r="1.5" fill="#fde68a" className="animate-pulse" />
-                    <circle cx="60" cy="25" r="1.5" fill="#fde68a" className="animate-pulse" style={{ animationDelay: '0.4s' }} />
+                    <circle cx="30" cy="15" r="1.5" fill="#fde68a" className="" />
+                    <circle cx="60" cy="25" r="1.5" fill="#fde68a" className="" style={{ animationDelay: '0.4s' }} />
                   </svg>
                 </div>
                 
@@ -172,7 +172,7 @@ export default function EnterpriseSolutionDetail() {
               {t('ent.intro1_desc')}<strong>{t('ent.intro1_bold')}</strong>{t('ent.intro1_desc2')}
             </p>
             <div className="mt-6 flex items-center gap-2 text-xs text-yellow-400 font-mono">
-              <span className="h-2 w-2 rounded-full bg-yellow-500 animate-ping" />
+              <span className="h-2 w-2 rounded-full bg-yellow-500 " />
               <span>{t('ent.intro1_tag')}</span>
             </div>
           </div>
@@ -317,6 +317,18 @@ export default function EnterpriseSolutionDetail() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* CTA BUTTON */}
+        <div className="mt-20 flex justify-center">
+          <button
+            onClick={() => {
+              import('./ContactModal').then(({ openContactModal }) => openContactModal("Halo tim Worksense Analytics, saya tertarik untuk mengetahui lebih detail tentang paket Enterprise All-in-One Data Ecosystem. Boleh jadwalkan konsultasi?"));
+            }}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-yellow-500 px-8 py-3.5 text-sm font-bold text-slate-900 shadow-lg shadow-yellow-500/25 transition-all hover:bg-yellow-400 hover:shadow-yellow-500/40"
+          >
+            {t('per.pricing.cta')}
+          </button>
         </div>
 
       </div>

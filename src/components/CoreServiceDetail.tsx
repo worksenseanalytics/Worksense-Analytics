@@ -161,7 +161,7 @@ export default function CoreServiceDetail() {
         <div className="flex flex-col mb-16 relative">
           
           <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-500/10 px-3 py-1 text-xs font-mono font-bold tracking-wider text-sky-400 border border-sky-500/20 self-start mb-5">
-            <Layers className="h-3.5 w-3.5 text-sky-400 rotate-12 animate-pulse" /> {t('core.badge')}
+            <Layers className="h-3.5 w-3.5 text-sky-400 rotate-12 " /> {t('core.badge')}
           </span>
 
           {/* 70/30 Grid layout wrapping description and compact preview */}
@@ -199,7 +199,7 @@ export default function CoreServiceDetail() {
                   <div className="w-[3px] bg-emerald-500/30 rounded-full h-[30%]" />
                   <div className="w-[3px] bg-emerald-500/40 rounded-full h-[50%]" />
                   <div className="w-[3px] bg-emerald-500/60 rounded-full h-[70%]" />
-                  <div className="w-[3px] bg-emerald-500 rounded-full h-[100%] animate-pulse" />
+                  <div className="w-[3px] bg-emerald-500 rounded-full h-[100%] " />
                 </div>
               </div>
 
@@ -222,7 +222,7 @@ export default function CoreServiceDetail() {
               {/* Floating Widget 3: Bottom-Left Interactive latency indicator bubble */}
               <div className="hidden md:flex absolute bottom-5 -left-12 bg-slate-950/85 px-2 py-1 rounded-full border border-slate-800/60 items-center gap-1.5 shadow-xl font-mono text-[9px] text-sky-400 z-10 hover:-translate-x-1 transition-all select-none">
                 <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75" />
+                  <span className=" absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-sky-500" />
                 </span>
                 <span>API: 12ms</span>
@@ -410,7 +410,7 @@ export default function CoreServiceDetail() {
               {t('core.intro1_desc')}<strong>{t('core.intro1_bold')}</strong>{t('core.intro1_desc2')}
             </p>
             <div className="mt-6 flex items-center gap-2 text-xs text-sky-400 font-mono">
-              <span className="h-2 w-2 rounded-full bg-sky-500 animate-ping" />
+              <span className="h-2 w-2 rounded-full bg-sky-500 " />
               <span>{t('core.intro1_tag')}</span>
             </div>
           </div>
@@ -584,10 +584,10 @@ export default function CoreServiceDetail() {
         <div className="mb-24">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h3 className="text-2xl font-bold text-white font-sans">
-              Keahlian Data Analyst & Tools Visualisasi Data Kami
+              {t('core.tools.title')}
             </h3>
             <p className="mt-2 text-sm text-slate-400 font-sans">
-              Layanan jasa analisis data kami dikerjakan bersama data analyst terpercaya yang menguasai perangkat lunak global terbaik di industri data:
+              {t('core.tools.desc')}
             </p>
           </div>
 
@@ -677,7 +677,17 @@ export default function CoreServiceDetail() {
           </div>
         </div>
 
-
+        {/* CTA BUTTON */}
+        <div className="mt-20 flex justify-center">
+          <button
+            onClick={() => {
+              import('./ContactModal').then(({ openContactModal }) => openContactModal("Halo tim Worksense Analytics, saya tertarik untuk konsultasi mengenai Jasa Analisis Data & Pembuatan Dashboard BI untuk perusahaan saya. Boleh diskusi lebih lanjut?"));
+            }}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-sky-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-sky-500/25 transition-all hover:bg-sky-400 hover:shadow-sky-500/40"
+          >
+            {t('per.pricing.cta')}
+          </button>
+        </div>
 
       </div>
     </section>

@@ -29,7 +29,7 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
                 Worksense<span className="text-sky-400"> Analytics</span>
               </span>
               <div className="flex gap-1.5 items-center mt-0.5">
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500 "></span>
                 <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Data Specialist Team</span>
               </div>
             </div>
@@ -45,6 +45,9 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
             </a>
             <a href="#workflow" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               {t("nav.workflow")}
+            </a>
+            <a href="#portofolio" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+              {t("nav.portfolio")}
             </a>
             <a href="#testimonials" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               {t("nav.testimonials")}
@@ -81,7 +84,7 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
 
             <a
               id="nav-whatsapp-cta"
-              href="https://wa.me/6282126574799?text=Halo%20Tim%20Worksense%20Analytics!%20Saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20layanan%20analisis%20data%20dan%20pembuatan%20dashboard%20untuk%20bisnis%20saya."
+              href="https://wa.me/6282126574799?text=Halo%20tim%20Worksense%20Analytics,%20saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20layanan%20analisis%20data%20dan%20pembuatan%20dashboard%20untuk%20bisnis%20saya."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 px-4 py-2 text-xs font-semibold text-slate-900 shadow-md shadow-emerald-500/15 transition-all hover:scale-105"
@@ -133,6 +136,13 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
             className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
           >
             {t("nav.workflow")}
+          </a>
+          <a
+            href="#portofolio"
+            onClick={() => setIsOpen(false)}
+            className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
+          >
+            {t("nav.portfolio")}
           </a>
           <a
             href="#testimonials"

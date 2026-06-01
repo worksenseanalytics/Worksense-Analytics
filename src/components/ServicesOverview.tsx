@@ -8,6 +8,7 @@ import {
   Crown,
   GraduationCap,
   ChevronLeft,
+  Search,
   X
 } from 'lucide-react';
 import { useLanguage } from '../i18n';
@@ -16,6 +17,7 @@ export default function ServicesOverview() {
   const { t } = useLanguage();
   const [isSticky, setIsSticky] = useState(false);
   const [isSideNavOpen, setIsSideNavOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -96,6 +98,11 @@ export default function ServicesOverview() {
     }
   ];
 
+  const filteredServices = services.filter(svc => 
+    svc.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    svc.desc.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   const scrollTo = (id: string, e: React.MouseEvent) => {
     e.preventDefault();
     setIsSideNavOpen(false);
@@ -116,24 +123,53 @@ export default function ServicesOverview() {
             <p className="mt-3 text-sm md:text-base text-slate-400 max-w-2xl mx-auto">{t('overview.subtitle')}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {services.map((svc) => (
-              <a 
-                href={`#${svc.id}`}
-                key={svc.id}
-                onClick={(e) => scrollTo(svc.id, e)}
-                className={`text-left rounded-xl border border-slate-800 bg-slate-900/40 p-5 md:p-6 flex flex-col justify-between transition-all duration-300 hover:border-slate-600 ${svc.hoverBg} group shadow-lg block`}
+          <div className="max-w-xl mx-auto mb-10 relative group">
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <Search className="h-5 w-5 text-slate-500 group-focus-within:text-emerald-400 transition-colors" />
+            </div>
+            <input 
+              type="text" 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder={t('overview.search_placeholder')}
+              className="w-full bg-slate-900 border border-slate-700/80 rounded-2xl py-3.5 pl-12 pr-4 text-sm font-sans text-slate-200 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 shadow-inner transition-all placeholder:text-slate-500"
+            />
+            {searchQuery && (
+              <button 
+                onClick={() => setSearchQuery('')}
+                className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-500 hover:text-slate-300 transition-colors"
+                aria-label="Tutup pencarian"
               >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className={`p-2.5 rounded-lg bg-slate-800/80 group-hover:bg-slate-950 transition-colors ${svc.borderColor} border`}>
-                    {svc.icon}
-                  </div>
-                  <h3 className={`font-bold text-slate-100 group-hover:${svc.textColor} transition-colors tracking-tight text-sm md:text-base`}>{svc.title}</h3>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-sans mt-2">{svc.desc}</p>
-              </a>
-            ))}
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
+
+          {filteredServices.length === 0 ? (
+            <div className="text-center py-16 border border-dashed border-slate-800 rounded-3xl bg-slate-900/20">
+              <p className="text-slate-400 font-sans text-sm">{t('overview.search_empty')} "<strong>{searchQuery}</strong>".</p>
+              <button onClick={() => setSearchQuery('')} className="mt-4 text-emerald-400 hover:text-emerald-300 text-xs font-bold tracking-wide uppercase transition-colors">{t('overview.search_reset')}</button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredServices.map((svc) => (
+                <a 
+                  href={`#${svc.id}`}
+                  key={svc.id}
+                  onClick={(e) => scrollTo(svc.id, e)}
+                  className={`text-left rounded-xl border border-slate-800 bg-slate-900/40 p-5 md:p-6 flex flex-col justify-between transition-all duration-300 hover:border-slate-600 ${svc.hoverBg} group shadow-lg block`}
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className={`p-2.5 rounded-lg bg-slate-800/80 group-hover:bg-slate-950 transition-colors ${svc.borderColor} border`}>
+                      {svc.icon}
+                    </div>
+                    <h3 className={`font-bold text-slate-100 group-hover:${svc.textColor} transition-colors tracking-tight text-sm md:text-base`}>{svc.title}</h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-sans mt-2">{svc.desc}</p>
+                </a>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

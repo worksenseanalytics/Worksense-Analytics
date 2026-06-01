@@ -33,7 +33,7 @@ export default function Hero() {
             </h1>
 
             <p className="mt-6 text-sm text-slate-300 md:text-base leading-relaxed font-sans max-w-2xl">
-              <strong>Worksense Analytics</strong> {t('hero.subtitle').split('Kami merombak')[1] ? 'Kami merombak' + t('hero.subtitle').split('Kami merombak')[1] : t('hero.subtitle')}
+              {t('hero.subtitle')}
             </p>
 
             <div className="mt-5 border-l-2 border-sky-500 pl-4 py-1.5 bg-slate-900/65 pr-4 rounded-r-xl max-w-2xl text-slate-400 text-xs">
@@ -70,7 +70,7 @@ export default function Hero() {
             {/* Capsule Pill (Top Center element from standard blueprint) */}
             <div className="absolute -top-14 left-[52%] -translate-x-1/2 w-48 h-9 rounded-full border border-indigo-400/30 bg-slate-950/80 shadow-[0_0_20px_rgba(99,102,241,0.2)] flex items-center justify-between px-3.5 backdrop-blur-md z-20">
               <div className="flex gap-1.5 items-center">
-                <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 animate-pulse" />
+                <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 " />
                 <span className="font-mono text-[9px] tracking-widest text-indigo-300 font-bold uppercase">KPI STREAM</span>
               </div>
               <div className="h-3 w-px bg-slate-800" />

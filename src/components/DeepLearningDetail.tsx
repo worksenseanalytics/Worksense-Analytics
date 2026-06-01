@@ -54,7 +54,7 @@ export default function DeepLearningDetail() {
         <div className="flex flex-col mb-16 relative">
           
           <span className="inline-flex items-center gap-1.5 rounded-full bg-purple-500/10 px-3 py-1 text-xs font-mono font-bold tracking-wider text-purple-400 border border-purple-500/20 self-start mb-5">
-            <BrainCircuit className="h-3.5 w-3.5 text-purple-400 animate-pulse" /> {t('dl.badge')}
+            <BrainCircuit className="h-3.5 w-3.5 text-purple-400 " /> {t('dl.badge')}
           </span>
 
           <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 lg:gap-10 items-center">
@@ -153,8 +153,8 @@ export default function DeepLearningDetail() {
                     <path d="M 65 30 L 90 15 M 65 30 L 90 25" stroke="#d8b4fe" strokeWidth="0.5" strokeOpacity="0.8" />
                     
                     {/* Active pulse */}
-                    <circle cx="40" cy="15" r="3" fill="#d8b4fe" className="animate-pulse" />
-                    <circle cx="65" cy="20" r="3" fill="#d8b4fe" className="animate-pulse" style={{ animationDelay: '0.2s' }} />
+                    <circle cx="40" cy="15" r="3" fill="#d8b4fe" className="" />
+                    <circle cx="65" cy="20" r="3" fill="#d8b4fe" className="" style={{ animationDelay: '0.2s' }} />
                   </svg>
                 </div>
                 
@@ -195,7 +195,7 @@ export default function DeepLearningDetail() {
               {t('dl.intro1_desc')}<strong>{t('dl.intro1_bold')}</strong>{t('dl.intro1_desc2')}
             </p>
             <div className="mt-6 flex items-center gap-2 text-xs text-fuchsia-400 font-mono">
-              <span className="h-2 w-2 rounded-full bg-fuchsia-500 animate-ping" />
+              <span className="h-2 w-2 rounded-full bg-fuchsia-500 " />
               <span>{t('dl.intro1_tag')}</span>
             </div>
           </div>
@@ -340,6 +340,18 @@ export default function DeepLearningDetail() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* CTA BUTTON */}
+        <div className="mt-20 flex justify-center">
+          <button
+            onClick={() => {
+              import('./ContactModal').then(({ openContactModal }) => openContactModal("Halo tim Worksense Analytics, saya ingin berdiskusi mengenai prospek layanan Deep Learning, NLP atau Computer Vision untuk kebutuhan sistem kami. Boleh minta waktu konsultasi?"));
+            }}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-purple-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-purple-500/25 transition-all hover:bg-purple-400 hover:shadow-purple-500/40"
+          >
+            {t('per.pricing.cta')}
+          </button>
         </div>
 
       </div>

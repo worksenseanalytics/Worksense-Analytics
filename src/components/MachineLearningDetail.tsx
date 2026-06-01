@@ -54,7 +54,7 @@ export default function MachineLearningDetail() {
         <div className="flex flex-col mb-16 relative">
           
           <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-mono font-bold tracking-wider text-emerald-400 border border-emerald-500/20 self-start mb-5">
-            <BrainCircuit className="h-3.5 w-3.5 text-emerald-400 animate-pulse" /> {t('ml.badge')}
+            <BrainCircuit className="h-3.5 w-3.5 text-emerald-400 " /> {t('ml.badge')}
           </span>
 
           <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 lg:gap-10 items-center">
@@ -121,7 +121,7 @@ export default function MachineLearningDetail() {
                     <path d="M 0 30 Q 15 25 30 20 T 50 15" fill="none" stroke="#64748b" strokeWidth="1" strokeDasharray="2 2" />
                     <path d="M 50 15 Q 70 20 85 10 T 100 5" fill="none" stroke="#10b981" strokeWidth="1.5" />
                     <circle cx="50" cy="15" r="1.5" fill="#f8fafc" />
-                    <circle cx="100" cy="5" r="2" fill="#10b981" className="animate-pulse" />
+                    <circle cx="100" cy="5" r="2" fill="#10b981" className="" />
                   </svg>
                 </div>
                 
@@ -162,7 +162,7 @@ export default function MachineLearningDetail() {
               {t('ml.intro1_desc')}<strong>{t('ml.intro1_bold')}</strong>{t('ml.intro1_desc2')}
             </p>
             <div className="mt-6 flex items-center gap-2 text-xs text-emerald-400 font-mono">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
+              <span className="h-2 w-2 rounded-full bg-emerald-500 " />
               <span>{t('ml.intro1_tag')}</span>
             </div>
           </div>
@@ -307,6 +307,18 @@ export default function MachineLearningDetail() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* CTA BUTTON */}
+        <div className="mt-20 flex justify-center">
+          <button
+            onClick={() => {
+              import('./ContactModal').then(({ openContactModal }) => openContactModal("Halo tim Worksense Analytics, saya ingin konsultasi mengenai implementasi layanan Predictive Analytics & Machine Learning. Boleh diskusi lebih lanjut?"));
+            }}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-emerald-500/25 transition-all hover:bg-emerald-400 hover:shadow-emerald-500/40"
+          >
+            {t('per.pricing.cta')}
+          </button>
         </div>
 
       </div>

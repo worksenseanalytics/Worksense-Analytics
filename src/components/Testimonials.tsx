@@ -21,8 +21,8 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[1, 2, 3].map((num) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[1, 2, 3, 4, 5].map((num) => (
             <div key={num} className="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-8 relative flex flex-col justify-between shadow-xl shadow-black/20 hover:bg-slate-800 transition-colors">
               <div>
                 <div className="flex gap-1 mb-6">
