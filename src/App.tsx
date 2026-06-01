@@ -35,10 +35,7 @@ import {
   ShieldAlert,
   HelpCircle,
   Clock,
-  Instagram,
-  Briefcase,
-  Globe,
-  LayoutGrid
+  Instagram
 } from "lucide-react";
 import {
   ResponsiveContainer,
@@ -365,16 +362,16 @@ export default function App() {
                 <Instagram className="h-4 w-4 text-pink-500" />
                 <span className="text-sm font-semibold">Instagram</span>
               </a>
-              <a href="https://fastwork.id/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-sky-500/50 transition-all text-slate-400 hover:text-white">
-                <Briefcase className="h-4 w-4 text-sky-500" />
+              <a href="https://fastwork.id/user/worksense.analytics?source=app_marketplace_user-profile" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-sky-500/50 transition-all text-slate-400 hover:text-white">
+                <img src="/logos/fastwork.png" alt="Fastwork" className="w-4 h-4 rounded-sm" />
                 <span className="text-sm font-semibold">Fastwork</span>
               </a>
               <a href="https://upwork.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-green-500/50 transition-all text-slate-400 hover:text-white">
-                <Globe className="h-4 w-4 text-green-500" />
+                <img src="/logos/upwork.png" alt="Upwork" className="w-4 h-4 rounded-full" />
                 <span className="text-sm font-semibold">Upwork</span>
               </a>
               <a href="https://fiverr.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-emerald-500/50 transition-all text-slate-400 hover:text-white">
-                <LayoutGrid className="h-4 w-4 text-emerald-500" />
+                <img src="/logos/fiverr.png" alt="Fiverr" className="w-4 h-4 rounded-full" />
                 <span className="text-sm font-semibold">Fiverr</span>
               </a>
             </div>

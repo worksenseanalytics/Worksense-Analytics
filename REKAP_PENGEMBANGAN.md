@@ -29,7 +29,8 @@ Platform menggunakan arsitektur frontend dengan Tailwind CSS, Recharts, Vite (bu
 - **Halaman Hubungi Kami (Contact Section)**:
   - Telah mengubah bagian section penutup (sebelumnya CTA Fastwork) menjadi section **Hubungi Kami** (Contact Section).
   - Menyertakan dua metode komunikasi direct: link WhatsApp dan link Email (`worksenseanalytics@gmail.com`), keduanya kini dilengkapi dengan parameter terisi otomatis (template pesan/subject/body) dan `target="_blank"` agar lebih mudah dibuka.
-  - Memasukkan *platform links* (Instagram: `https://www.instagram.com/worksense.analytics/`, Fastwork, Upwork, Fiverr) menggunakan visualisasi tombol yang simpel dan elegan (`Also Find Us On`).
+  - Memasukkan *platform links* (Instagram: `https://www.instagram.com/worksense.analytics/`, Fastwork: `https://fastwork.id/user/worksense.analytics?source=app_marketplace_user-profile`, Upwork, Fiverr).
+  - Mengganti icon platform Fastwork, Upwork, dan Fiverr menggunakan resolusi logo asli visualisasi `<img />` yang di-fetch dan disimpan ke dalam folder statik sistem aplikasi (`/public/logos/`).
   - Opsi navigasi untuk 'Hubungi Kami' (`#contact`) juga disematkan di komponen Navbar untuk desktop dan mobile.
 - **Section Testimoni (Testimonials Section)**:
   - Telah menambahkan komponen `Testimonials.tsx` sebelum halaman "Hubungi Kami" yang menampilkan ulasan positif fiktif dari beragam level klien (Operational Manager, Finance Director, CEO).
