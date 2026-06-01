@@ -1,0 +1,714 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import React, { useState } from "react";
+import { 
+  Database, 
+  Sparkles, 
+  BarChart3, 
+  Layers, 
+  CheckCircle, 
+  ArrowRight,
+  TrendingUp,
+  FileCheck2,
+  PieChart,
+  Code2,
+  MessageSquare,
+  Shield,
+  FileSpreadsheet,
+  Award,
+  HelpCircle,
+  Clock,
+  Briefcase,
+  DollarSign,
+  Users,
+  Percent,
+  ShoppingCart,
+  ArrowUpRight,
+  ArrowDownRight,
+  Filter,
+  Calendar,
+  Search
+} from "lucide-react";
+
+export default function CoreServiceDetail() {
+  const [activeWorkflowStep, setActiveWorkflowStep] = useState<number>(0);
+  const [selectedRegion, setSelectedRegion] = useState<"Semua" | "Jakarta" | "Surabaya" | "Medan">("Semua");
+
+  const regionData = {
+    Semua: {
+      sales: "Rp 1.428.500.000",
+      salesGrowth: "+18.4%",
+      margin: "42.8%",
+      conversion: "3.24%",
+      orders: "14.820",
+      trendPath: "M 0 50 Q 30 35 60 45 T 120 15 T 180 35 T 240 10 T 300 25 T 360 5 T 420 20 L 420 80 L 0 80 Z",
+      trendLine: "M 0 50 Q 30 35 60 45 T 120 15 T 180 35 T 240 10 T 300 25 T 360 5 T 420 20",
+      categories: [
+        { name: "F&B Solusi", value: "35%", width: "w-[35%]", color: "bg-sky-500" },
+        { name: "Fashion & Retail", value: "28%", width: "w-[28%]", color: "bg-indigo-500" },
+        { name: "SaaS & Agensi", value: "20%", width: "w-[20%]", color: "bg-purple-500" },
+        { name: "Lain-lain", value: "17%", width: "w-[17%]", color: "bg-slate-650" }
+      ],
+      transactions: [
+        { id: "TX-9011", desc: "PT Makmur Sentosa", category: "Enterprise", val: "Rp 145.030.000", status: "Success" },
+        { id: "TX-9012", desc: "Kopi Sedap Mantap", category: "UMKM", val: "Rp 12.450.000", status: "Success" },
+        { id: "TX-9013", desc: "SaaS Tech Indonesia", category: "Enterprise", val: "Rp 85.000.000", status: "Pending" }
+      ]
+    },
+    Jakarta: {
+      sales: "Rp 842.100.000",
+      salesGrowth: "+22.1%",
+      margin: "44.5%",
+      conversion: "3.48%",
+      orders: "8.910",
+      trendPath: "M 0 45 Q 30 25 60 40 T 120 5 T 180 25 T 240 5 T 300 15 T 360 0 T 420 10 L 420 80 L 0 80 Z",
+      trendLine: "M 0 45 Q 30 25 60 40 T 120 5 T 180 25 T 240 5 T 300 15 T 360 0 T 420 10",
+      categories: [
+        { name: "F&B Solusi", value: "30%", width: "w-[30%]", color: "bg-sky-500" },
+        { name: "Fashion & Retail", value: "35%", width: "w-[35%]", color: "bg-indigo-500" },
+        { name: "SaaS & Agensi", value: "22%", width: "w-[22%]", color: "bg-purple-500" },
+        { name: "Lain-lain", value: "13%", width: "w-[13%]", color: "bg-slate-650" }
+      ],
+      transactions: [
+        { id: "TX-9011", desc: "PT Makmur Sentosa", category: "Enterprise", val: "Rp 145.030.000", status: "Success" },
+        { id: "TX-9013", desc: "SaaS Tech Indonesia", category: "Enterprise", val: "Rp 85.000.000", status: "Pending" },
+        { id: "TX-9014", desc: "Butik Cantik Jakarta", category: "UMKM", val: "Rp 24.500.000", status: "Success" }
+      ]
+    },
+    Surabaya: {
+      sales: "Rp 385.200.000",
+      salesGrowth: "+12.8%",
+      margin: "39.2%",
+      conversion: "2.90%",
+      orders: "4.120",
+      trendPath: "M 0 60 Q 30 45 60 55 T 120 25 T 180 45 T 240 20 T 300 35 T 360 15 T 420 30 L 420 80 L 0 80 Z",
+      trendLine: "M 0 60 Q 30 45 60 55 T 120 25 T 180 45 T 240 20 T 300 35 T 360 15 T 420 30",
+      categories: [
+        { name: "F&B Solusi", value: "42%", width: "w-[42%]", color: "bg-sky-500" },
+        { name: "Fashion & Retail", value: "18%", width: "w-[18%]", color: "bg-indigo-500" },
+        { name: "SaaS & Agensi", value: "15%", width: "w-[15%]", color: "bg-purple-500" },
+        { name: "Lain-lain", value: "25%", width: "w-[25%]", color: "bg-slate-650" }
+      ],
+      transactions: [
+        { id: "TX-9012", desc: "Kopi Sedap Mantap", category: "UMKM", val: "Rp 12.450.000", status: "Success" },
+        { id: "TX-9015", desc: "Distributor Surabaya", category: "Enterprise", val: "Rp 98.000.000", status: "Success" },
+        { id: "TX-9016", desc: "Pecel Madiun Sby", category: "UMKM", val: "Rp 5.200.000", status: "Success" }
+      ]
+    },
+    Medan: {
+      sales: "Rp 201.200.000",
+      salesGrowth: "+15.2%",
+      margin: "41.0%",
+      conversion: "3.05%",
+      orders: "1.790",
+      trendPath: "M 0 70 Q 30 55 60 65 T 120 35 T 180 55 T 240 30 T 300 45 T 360 25 T 420 40 L 420 80 L 0 80 Z",
+      trendLine: "M 0 70 Q 30 55 60 65 T 120 35 T 180 55 T 240 30 T 300 45 T 360 25 T 420 40",
+      categories: [
+        { name: "F&B Solusi", value: "32%", width: "w-[32%]", color: "bg-sky-500" },
+        { name: "Fashion & Retail", value: "22%", width: "w-[22%]", color: "bg-indigo-500" },
+        { name: "SaaS & Agensi", value: "25%", width: "w-[25%]", color: "bg-purple-500" },
+        { name: "Lain-lain", value: "21%", width: "w-[21%]", color: "bg-slate-650" }
+      ],
+      transactions: [
+        { id: "TX-9017", desc: "Medan SaaS Center", category: "Enterprise", val: "Rp 64.000.000", status: "Success" },
+        { id: "TX-9018", desc: "Kopi Gayo Medan", category: "UMKM", val: "Rp 14.200.000", status: "Success" },
+        { id: "TX-9019", desc: "Sinar Terang Group", category: "Enterprise", val: "Rp 110.000.000", status: "Pending" }
+      ]
+    }
+  };
+
+  const activeDashboardData = regionData[selectedRegion];
+
+  const workflowSteps = [
+    {
+      num: "01",
+      title: "Konsultasi Data Analyst",
+      desc: "Diskusi kebutuhan analisis data dan desain dashboard (NDA Friendly)."
+    },
+    {
+      num: "02",
+      title: "Scope of Work (SoW)",
+      desc: "Penentuan target analisis data dan sketsa rancangan visualisasi data."
+    },
+    {
+      num: "03",
+      title: "Eksekusi Analisis Data",
+      desc: "Proses cleaning, analisis data, hingga tahap akhir visualisasi data ke dalam dashboard."
+    },
+    {
+      num: "04",
+      title: "Review Dashboard",
+      desc: "Sesi revisi dashboard dan penyerahan aset akhir (Source File, File Dashboard, Laporan Analisis Data)."
+    }
+  ];
+
+  return (
+    <section id="jasa-analisis" className="bg-slate-950 py-24 pb-20 relative border-t border-slate-900 overflow-hidden">
+      {/* Visual background accents and grid styling */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(56,189,248,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(56,189,248,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/3 left-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        {/* ================= HEADER SECTION WITH EXTRA COMPACT EYE-CANDY ILLUSTRATION ================= */}
+        <div className="flex flex-col mb-16 relative">
+          
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-500/10 px-3 py-1 text-xs font-mono font-bold tracking-wider text-sky-400 border border-sky-500/20 self-start mb-5">
+            <Layers className="h-3.5 w-3.5 text-sky-400 rotate-12 animate-pulse" /> LAYANAN UTAMA KAMI
+          </span>
+
+          {/* 70/30 Grid layout wrapping description and compact preview */}
+          <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 lg:gap-10 items-center">
+            
+            {/* Left Column (70% equivalent: lg:col-span-7) */}
+            <div className="lg:col-span-7 text-left flex flex-col justify-center max-w-2xl">
+              <h2 className="font-sans text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl leading-[1.1] text-left">
+                Jasa Analisis Data, Pembersihan Data, &{" "}
+                <span className="block mt-1 bg-gradient-to-r from-sky-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent">
+                  Pembuatan Dashboard Profesional
+                </span>
+              </h2>
+              
+              <p className="mt-4 text-xs sm:text-sm text-slate-300 font-bold font-sans tracking-wide leading-relaxed text-left">
+                Jasa Analisis Data & Visualisasi Data: <span className="text-sky-400 font-extrabold">Ubah Data Anda Menjadi Dashboard Interaktif!</span>
+              </p>
+
+              <div className="mt-5 h-1 w-24 bg-gradient-to-r from-sky-500 via-indigo-500 to-sky-400 rounded-full shadow-[0_0_10px_rgba(56,189,248,0.25)]" />
+            </div>
+
+            {/* Right Column (30% equivalent) - Compact container with elegant floating data illustration nodes */}
+            <div className="lg:col-span-3 relative flex items-center justify-center self-center w-[360px] max-w-full">
+              
+              {/* Floating Widget 1: Top-Left Growth Tracker pill */}
+              <div className="hidden md:flex absolute -top-8 -left-6 bg-slate-950/95 border border-slate-800/80 rounded-xl p-2.5 items-center gap-2 shadow-2xl z-20 hover:scale-105 transition-all cursor-pointer select-none">
+                <div className="h-6 w-6 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                  <TrendingUp className="h-3.5 w-3.5 text-emerald-400" />
+                </div>
+                <div>
+                  <div className="text-[8px] font-mono tracking-widest text-slate-500 uppercase leading-none">Pertumbuhan</div>
+                  <div className="text-[11px] font-bold text-slate-100 font-mono leading-none mt-0.5">+42.5%</div>
+                </div>
+                <div className="h-4 w-10 flex items-end gap-0.5 pl-1.5 pb-0.5">
+                  <div className="w-[3px] bg-emerald-500/30 rounded-full h-[30%]" />
+                  <div className="w-[3px] bg-emerald-500/40 rounded-full h-[50%]" />
+                  <div className="w-[3px] bg-emerald-500/60 rounded-full h-[70%]" />
+                  <div className="w-[3px] bg-emerald-500 rounded-full h-[100%] animate-pulse" />
+                </div>
+              </div>
+
+              {/* Floating Widget 2: Bottom-Right Database/Uptime Indicator pill */}
+              <div className="hidden md:flex absolute -bottom-7 -right-5 bg-slate-950/95 border border-slate-800/80 rounded-xl p-2.5 flex-col gap-1 shadow-2xl z-20 hover:scale-105 transition-all cursor-pointer select-none">
+                <div className="flex items-center gap-2">
+                  <div className="h-6 w-6 rounded-lg bg-sky-500/10 flex items-center justify-center">
+                    <Database className="h-3.5 w-3.5 text-sky-400" />
+                  </div>
+                  <div>
+                    <div className="text-[8px] font-mono tracking-widest text-slate-450 uppercase leading-none">Akurasi</div>
+                    <div className="text-[11px] font-bold text-slate-100 font-mono leading-none mt-0.5">99.98%</div>
+                  </div>
+                </div>
+                <div className="w-full h-1 bg-slate-900 rounded-full overflow-hidden mt-0.5">
+                  <div className="h-full bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full" style={{ width: '99.98%' }} />
+                </div>
+              </div>
+
+              {/* Floating Widget 3: Bottom-Left Interactive latency indicator bubble */}
+              <div className="hidden md:flex absolute bottom-5 -left-12 bg-slate-950/85 px-2 py-1 rounded-full border border-slate-800/60 items-center gap-1.5 shadow-xl font-mono text-[9px] text-sky-400 z-10 hover:-translate-x-1 transition-all select-none">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-sky-500" />
+                </span>
+                <span>API: 12ms</span>
+              </div>
+
+              {/* Connector lines to give it a blueprint visual layout */}
+              <svg className="hidden md:block absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" xmlns="http://www.w3.org/2000/svg">
+                {/* Upper connection */}
+                <path d="M -10 10 L 40 40" stroke="rgba(148, 163, 184, 0.15)" strokeWidth="1" strokeDasharray="3 3" />
+                {/* Lower connection */}
+                <path d="M 330 220 L 370 245" stroke="rgba(148, 163, 184, 0.15)" strokeWidth="1" strokeDasharray="3 3" />
+              </svg>
+
+              {/* Core Dashboard Card */}
+              <div className="w-full bg-slate-900/40 rounded-xl border border-slate-800/80 p-4.5 backdrop-blur-sm shadow-xl flex flex-col justify-between relative overflow-hidden h-[260px] hover:border-slate-705 transition-all select-none">
+                {/* Top Gloss Highlight */}
+                <div className="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-sky-400 via-indigo-500 to-sky-300" />
+                
+                {/* compact dashboard header */}
+                <div className="flex items-center justify-between pb-2 border-b border-slate-800/30">
+                  <div className="flex items-center gap-2">
+                    <div className="h-6 w-6 rounded bg-gradient-to-br from-sky-400 to-indigo-500 flex items-center justify-center text-[10px] text-slate-950 font-sans font-bold">
+                      BI
+                    </div>
+                    <div>
+                      <h4 className="text-[11px] font-bold text-slate-200 leading-none">BI Preview</h4>
+                      <p className="text-[9px] text-slate-500 font-mono mt-0.5">{selectedRegion}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex bg-slate-950/80 p-1 rounded border border-slate-850">
+                    {(["Semua", "Jakarta", "Sby", "Medan"] as const).map((reg) => {
+                      const regValue = reg === "Sby" ? "Surabaya" : reg;
+                      return (
+                        <button
+                          key={reg}
+                          onClick={() => setSelectedRegion(regValue as any)}
+                          className={`px-1.5 py-0.5 rounded text-[8px] font-mono font-bold transition-all cursor-pointer ${
+                            selectedRegion === regValue
+                              ? "bg-sky-500/20 text-sky-400 font-extrabold"
+                              : "text-slate-500 hover:text-slate-300"
+                          }`}
+                        >
+                          {reg}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* compact KPI stats */}
+                <div className="grid grid-cols-2 gap-2 my-2.5">
+                  <div className="bg-slate-950/60 p-2 rounded border border-slate-850/60">
+                    <span className="text-[8px] font-mono tracking-wider text-slate-500 block uppercase">Total Omset</span>
+                    <span className="text-xs font-bold text-white font-mono mt-0.5 block truncate">{activeDashboardData.sales}</span>
+                  </div>
+                  <div className="bg-slate-950/60 p-2 rounded border border-slate-850/60">
+                    <span className="text-[8px] font-mono tracking-wider text-slate-500 block uppercase">Konversi</span>
+                    <span className="text-xs font-bold text-white font-mono mt-0.5 block truncate">{activeDashboardData.conversion}</span>
+                  </div>
+                </div>
+
+                {/* compact micro-bar-chart instead of sparkline to match custom request */}
+                <div className="relative h-20 bg-slate-950/70 rounded p-1.5 border border-slate-850/60 overflow-hidden flex flex-col justify-end">
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:0.6rem_0.6rem] pointer-events-none" />
+                  
+                  <div className="flex h-16 items-end gap-1.5 relative z-10 px-1">
+                    {selectedRegion === "Semua" ? (
+                      <>
+                        <div className="w-full bg-slate-800 rounded-sm hover:bg-sky-500/80 transition-all cursor-pointer" style={{ height: "45%" }} />
+                        <div className="w-full bg-slate-800 rounded-sm hover:bg-sky-500/80 transition-all cursor-pointer" style={{ height: "65%" }} />
+                        <div className="w-full bg-sky-500 rounded-sm hover:bg-sky-450 transition-all cursor-pointer" style={{ height: "85%" }} />
+                        <div className="w-full bg-slate-800 rounded-sm hover:bg-indigo-500/80 transition-all cursor-pointer" style={{ height: "50%" }} />
+                        <div className="w-full bg-indigo-500 rounded-sm hover:bg-indigo-400 transition-all cursor-pointer" style={{ height: "95%" }} />
+                      </>
+                    ) : selectedRegion === "Jakarta" ? (
+                      <>
+                        <div className="w-full bg-slate-800 rounded-sm hover:bg-sky-500/80 transition-all cursor-pointer" style={{ height: "30%" }} />
+                        <div className="w-full bg-slate-800 rounded-sm hover:bg-sky-500/80 transition-all cursor-pointer" style={{ height: "50%" }} />
+                        <div className="w-full bg-sky-500 rounded-sm hover:bg-sky-450 transition-all cursor-pointer" style={{ height: "95%" }} />
+                        <div className="w-full bg-slate-800 rounded-sm hover:bg-indigo-500/80 transition-all cursor-pointer" style={{ height: "40%" }} />
+                        <div className="w-full bg-indigo-500 rounded-sm hover:bg-indigo-400 transition-all cursor-pointer" style={{ height: "80%" }} />
+                      </>
+                    ) : selectedRegion === "Surabaya" ? (
+                      <>
+                        <div className="w-full bg-slate-800 rounded-sm hover:bg-sky-500/80 transition-all cursor-pointer" style={{ height: "55%" }} />
+                        <div className="w-full bg-slate-800 rounded-sm hover:bg-sky-500/80 transition-all cursor-pointer" style={{ height: "45%" }} />
+                        <div className="w-full bg-sky-500 rounded-sm hover:bg-sky-450 transition-all cursor-pointer" style={{ height: "70%" }} />
+                        <div className="w-full bg-slate-800 rounded-sm hover:bg-indigo-500/80 transition-all cursor-pointer" style={{ height: "60%" }} />
+                        <div className="w-full bg-indigo-500 rounded-sm hover:bg-indigo-400 transition-all cursor-pointer" style={{ height: "90%" }} />
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-full bg-slate-800 rounded-sm hover:bg-sky-500/80 transition-all cursor-pointer" style={{ height: "25%" }} />
+                        <div className="w-full bg-slate-800 rounded-sm hover:bg-sky-500/80 transition-all cursor-pointer" style={{ height: "70%" }} />
+                        <div className="w-full bg-sky-500 rounded-sm hover:bg-sky-450 transition-all cursor-pointer" style={{ height: "80%" }} />
+                        <div className="w-full bg-slate-800 rounded-sm hover:bg-indigo-500/80 transition-all cursor-pointer" style={{ height: "35%" }} />
+                        <div className="w-full bg-indigo-500 rounded-sm hover:bg-indigo-400 transition-all cursor-pointer" style={{ height: "75%" }} />
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                {/* bottom micro categorization progress bar */}
+                <div className="mt-1.5 pb-1 border-t border-slate-850/40 leading-none">
+                  <div className="h-1.5 w-full bg-slate-950 rounded-full overflow-hidden mt-2.5">
+                    <div className="h-full bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full transition-all duration-500" style={{ width: activeDashboardData.categories[0].value }} />
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          {/* Tools Badges rendered safely below the grid row so they do not stretch the illustration box */}
+          <div className="mt-8 pt-5 border-t border-slate-900/60 flex flex-wrap gap-2.5 justify-start items-center">
+            <span className="text-xs text-slate-400 font-mono font-semibold mr-1">Tools Utama:</span>
+            
+            <span className="inline-flex items-center gap-1.5 rounded-lg bg-sky-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-sky-400 border border-sky-500/20 hover:bg-sky-500/15 transition-colors">
+              <img 
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" 
+                alt="Python" 
+                className="h-3.5 w-3.5 object-contain" 
+                referrerPolicy="no-referrer" 
+              />
+              Python
+            </span>
+            
+            <span className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-indigo-400 border border-indigo-500/20 hover:bg-indigo-500/15 transition-colors">
+              <img 
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" 
+                alt="SQL" 
+                className="h-3.5 w-3.5 object-contain" 
+                referrerPolicy="no-referrer" 
+              />
+              SQL Database
+            </span>
+            
+            <span className="inline-flex items-center gap-1.5 rounded-lg bg-yellow-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-yellow-505 border border-yellow-500/20 hover:bg-yellow-500/15 transition-colors">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" 
+                alt="Power BI" 
+                className="h-3.5 w-3.5 object-contain" 
+                referrerPolicy="no-referrer" 
+              />
+              Power BI
+            </span>
+            
+            <span className="inline-flex items-center gap-1.5 rounded-lg bg-cyan-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-cyan-400 border border-cyan-500/20 hover:bg-cyan-500/15 transition-colors">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png" 
+                alt="Tableau" 
+                className="h-3.5 w-3.5 object-contain" 
+                referrerPolicy="no-referrer" 
+              />
+              Tableau
+            </span>
+
+            <span className="inline-flex items-center gap-1.5 rounded-lg bg-purple-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-purple-400 border border-purple-500/20 hover:bg-purple-500/15 transition-colors">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/d/df/Google_Sheets_2020_Logo.svg" 
+                alt="Google Sheets" 
+                className="h-3.5 w-3.5 object-contain" 
+                referrerPolicy="no-referrer" 
+              />
+              Sheets
+            </span>
+            
+            <span className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/15 transition-colors">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%85%93present%29.svg" 
+                alt="Excel VBA" 
+                className="h-3.5 w-3.5 object-contain" 
+                referrerPolicy="no-referrer" 
+              />
+              Excel VBA
+            </span>
+          </div>
+        </div>
+
+        {/* ================= INTRO PROFILE CARDS ================= */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20">
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 md:p-8 backdrop-blur-sm flex flex-col justify-between hover:border-slate-700 transition-all">
+            <p className="text-slate-300 text-sm md:text-base leading-relaxed font-sans">
+              Apakah Anda memiliki banyak tumpukan data namun kesulitan melakukan analisis data untuk menarik insight darinya? Anda membutuhkan keahlian seorang data analyst profesional. <strong>Worksense Analytics</strong> hadir sebagai penyedia jasa analisis data terpercaya yang berfokus pada layanan visualisasi data dan pembuatan dashboard interaktif (Business Intelligence).
+            </p>
+            <div className="mt-6 flex items-center gap-2 text-xs text-sky-400 font-mono">
+              <span className="h-2 w-2 rounded-full bg-sky-500 animate-ping" />
+              <span>Reliable Business Intelligence Specialist</span>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 md:p-8 backdrop-blur-sm flex flex-col justify-between hover:border-slate-700 transition-all">
+            <p className="text-slate-300 text-sm md:text-base leading-relaxed font-sans">
+              Dikerjakan langsung oleh tim data analyst dengan sertifikasi kompetensi global (<strong>Google Advanced Data Analytics</strong>, <strong>IBM Data Science</strong>, dan <strong>DataCamp</strong>), kami membantu UMKM, startup, hingga perusahaan skala besar (<strong>Enterprise</strong>) untuk menggali potensi bisnis melalui analisis data mendalam dan visualisasi data melalui dashboard yang mudah dipahami.
+            </p>
+            <div className="mt-6 flex items-center gap-2 text-xs text-emerald-400 font-mono font-bold">
+              <CheckCircle className="h-4 w-4" />
+              <span>Tim Bersertifikasi Lisensi Internasional</span>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= SEGMENT SOLUTIONS ================= */}
+        <div className="mb-24">
+          <div className="text-center mb-12">
+            <h3 className="text-xl font-bold text-white font-sans">
+              Solusi Terukur Khusus Dua Segmen Utama Bisnis:
+            </h3>
+            <p className="text-xs text-slate-500 font-mono mt-1 uppercase tracking-wider">
+              Scalable Analytics Architecture
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            {/* SEGMENT 1: ENTERPRISE & KORPORAT */}
+            <div className="relative rounded-2xl border border-slate-800 bg-slate-950 p-6 sm:p-8 flex flex-col justify-between hover:border-slate-705/80 transition-all shadow-xl group">
+              <div className="absolute top-0 right-0 -mr-2 -mt-2 h-20 w-20 opacity-5 group-hover:opacity-10 transition-opacity bg-indigo-500 blur-xl rounded-full" />
+              
+              <div>
+                <div className="flex justify-between items-center mb-6">
+                  <span className="inline-flex rounded-lg bg-indigo-500/10 px-3 py-1 text-xs font-semibold text-indigo-400 border border-indigo-500/25">
+                    Segmen Enterprise
+                  </span>
+                  <span className="flex items-center gap-1.5 text-xs text-slate-500 font-mono">
+                    <Shield className="h-3.5 w-3.5 text-indigo-400" /> NDA Garansi Aman
+                  </span>
+                </div>
+                
+                <h4 className="font-sans text-xl font-bold text-white leading-snug">
+                  Layanan Analisis Data untuk Enterprise & Korporasi (Big Data & Complex Analytics)
+                </h4>
+                
+                <p className="mt-3 text-slate-400 text-xs sm:text-sm leading-relaxed font-sans">
+                  Bagi perusahaan skala besar dengan volume data kompleks yang membutuhkan analisis data tingkat lanjut, tim data analyst kami siap meningkatkan efisiensi Anda.
+                </p>
+
+                <div className="mt-8 space-y-6">
+                  {/* Point 1.1 */}
+                  <div className="flex gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400">
+                      <BarChart3 className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h5 className="text-sm font-bold text-slate-200 font-sans">End-to-End Visualisasi Data & Dashboard</h5>
+                      <p className="mt-1 text-xs text-slate-400 leading-relaxed font-sans">
+                        Jasa visualisasi data dan pembuatan <strong>Executive Dashboard interaktif</strong> menggunakan <strong>Power BI / Tableau</strong>. Dashboard ini memudahkan Anda memantau metrik bisnis (KPI) secara real-time.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Point 1.2 */}
+                  <div className="flex gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400">
+                      <Database className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h5 className="text-sm font-bold text-slate-200 font-sans">Advanced Data Cleaning & Structuring</h5>
+                      <p className="mt-1 text-xs text-slate-400 leading-relaxed font-sans">
+                        Sebelum proses analisis data dan visualisasi data dilakukan, data analyst kami akan membersihkan dan merapikan struktur data dari berbagai sumber (database SQL, sistem ERP, dan file eksternal).
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Point 1.3 */}
+                  <div className="flex gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400">
+                      <FileCheck2 className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h5 className="text-sm font-bold text-slate-200 font-sans">Strategic Business Reporting</h5>
+                      <p className="mt-1 text-xs text-slate-400 leading-relaxed font-sans">
+                        Hasil analisis data komprehensif yang dirancang khusus untuk presentasi level eksekutif, melengkapi dashboard utama Anda dengan action-oriented insights tepercaya.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 border-t border-slate-900 pt-6 flex items-center justify-between text-xs font-mono text-slate-500">
+                <span>Output Utama: Power BI, Tableau, SQL query, DB config</span>
+              </div>
+            </div>
+
+            {/* SEGMENT 2: UMKM & STARTUP */}
+            <div className="relative rounded-2xl border border-slate-800 bg-slate-950 p-6 sm:p-8 flex flex-col justify-between hover:border-slate-705/80 transition-all shadow-xl group">
+              <div className="absolute top-0 right-0 -mr-2 -mt-2 h-20 w-20 opacity-5 group-hover:opacity-10 transition-opacity bg-sky-500 blur-xl rounded-full" />
+              
+              <div>
+                <div className="flex justify-between items-center mb-6">
+                  <span className="inline-flex rounded-lg bg-sky-500/10 px-3 py-1 text-xs font-semibold text-sky-400 border border-sky-500/25">
+                    Segmen UMKM & Startup
+                  </span>
+                  <span className="inline-flex rounded bg-emerald-500/10 border border-emerald-500/25 px-2 py-0.5 text-[10px] text-emerald-400 font-bold uppercase font-mono">
+                    High Roi
+                  </span>
+                </div>
+                
+                <h4 className="font-sans text-xl font-bold text-white leading-snug">
+                  Solusi Analisis Data untuk UMKM & Bisnis Berkembang (Startup)
+                </h4>
+                
+                <p className="mt-3 text-slate-400 text-xs sm:text-sm leading-relaxed font-sans">
+                  Kami menyediakan jasa analisis data untuk UMKM agar Anda mendapatkan insight bisnis yang berdaya guna tinggi layaknya memiliki tim data analyst internal berlisensi.
+                </p>
+
+                <div className="mt-8 space-y-6">
+                  {/* Point 2.1 */}
+                  <div className="flex gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400">
+                      <TrendingUp className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h5 className="text-sm font-bold text-slate-200 font-sans">Analisis Data Tren Penjualan</h5>
+                      <p className="mt-1 text-xs text-slate-400 leading-relaxed font-sans">
+                        Data analyst kami akan melakukan analisis data untuk mengidentifikasi produk terlaris, puncak tren musiman, dan pola unik dari perilaku belanja pelanggan Anda.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Point 2.2 */}
+                  <div className="flex gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400">
+                      <FileSpreadsheet className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h5 className="text-sm font-bold text-slate-200 font-sans">Otomasi Visualisasi Data Excel</h5>
+                      <p className="mt-1 text-xs text-slate-400 leading-relaxed font-sans">
+                        Mengubah rutinitas rekap laporan manual yang memakan waktu menjadi dashboard otomatis yang ringkas, dinamis, dan rapi melalui proses visualisasi data makro/VBA yang efisien.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Point 2.3 */}
+                  <div className="flex gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400">
+                      <PieChart className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h5 className="text-sm font-bold text-slate-200 font-sans">Cost-Efficiency Analytics</h5>
+                      <p className="mt-1 text-xs text-slate-400 leading-relaxed font-sans">
+                        Melakukan analisis data historis mendalam untuk menemukan area inefisiensi pengeluaran dan pemborosan operasional melalui pembuatan dashboard pemantauan pengeluaran terintegrasi.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 border-t border-slate-900 pt-6 flex items-center justify-between text-xs font-mono text-slate-500">
+                <span>Output Utama: Dynamic Excel, Google Sheets, PDF reports</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* ================= TOOLS & TECH STACK ================= */}
+        <div className="mb-24">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h3 className="text-2xl font-bold text-white font-sans">
+              Keahlian Data Analyst & Tools Visualisasi Data Kami
+            </h3>
+            <p className="mt-2 text-sm text-slate-400 font-sans">
+              Layanan jasa analisis data kami dikerjakan bersama data analyst terpercaya yang menguasai perangkat lunak global terbaik di industri data:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {/* Tool Card 1 */}
+            <div className="rounded-2xl border border-slate-850 bg-slate-900/40 p-6 flex flex-col items-center text-center group hover:border-sky-500/30 transition-all">
+              <div className="h-12 w-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center mb-4 group-hover:bg-sky-500 group-hover:text-slate-950 transition-colors">
+                <Code2 className="h-6 w-6" />
+              </div>
+              <h4 className="font-bold text-slate-200 text-sm font-sans">
+                Data Wrangling & Analisis Data Dasar
+              </h4>
+              <p className="mt-2 text-xs text-slate-400 leading-relaxed font-sans">
+                Pemrograman Python (kemampuan <strong>Pandas, NumPy</strong>) & Database <strong>SQL</strong> untuk kueri data mentah secara akurat, terstruktur, dan efisien.
+              </p>
+            </div>
+
+            {/* Tool Card 2 */}
+            <div className="rounded-2xl border border-slate-850 bg-slate-900/40 p-6 flex flex-col items-center text-center group hover:border-sky-500/30 transition-all">
+              <div className="h-12 w-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center mb-4 group-hover:bg-sky-500 group-hover:text-slate-950 transition-colors">
+                <BarChart3 className="h-6 w-6" />
+              </div>
+              <h4 className="font-bold text-slate-200 text-sm font-sans">
+                Platform Visualisasi Data (BI)
+              </h4>
+              <p className="mt-2 text-xs text-slate-400 leading-relaxed font-sans">
+                Ahli berpengalaman dalam visualisasi data interaktif, merancang data modeling komparatif, dan pengembangan dashboard dinamis menggunakan <strong>Microsoft Power BI</strong> dan <strong>Tableau</strong>.
+              </p>
+            </div>
+
+            {/* Tool Card 3 */}
+            <div className="rounded-2xl border border-slate-850 bg-slate-900/40 p-6 flex flex-col items-center text-center group hover:border-sky-500/30 transition-all">
+              <div className="h-12 w-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center mb-4 group-hover:bg-sky-500 group-hover:text-slate-950 transition-colors">
+                <FileSpreadsheet className="h-6 w-6" />
+              </div>
+              <h4 className="font-bold text-slate-200 text-sm font-sans">
+                Spreadsheet untuk Analisis Data
+              </h4>
+              <p className="mt-2 text-xs text-slate-400 leading-relaxed font-sans">
+                Pengolahan data tingkat lanjut menggunakan rumus canggih, macro/VBA script otomatis, optimalisasi data tabel, serta pembuatan dashboard <strong>Excel</strong> bernilai guna tinggi.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= ALUR KERJA INTERACTIVE TIMELINE ================= */}
+        <div className="mb-24">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h4 className="text-2xl font-bold text-white font-sans">
+              Alur Kerja Jasa Analisis Data Kami
+            </h4>
+            <p className="mt-2 text-xs text-sky-400 font-mono tracking-widest uppercase">
+              4-Step Systematic Process Workflow
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {workflowSteps.map((step, idx) => (
+              <div 
+                key={idx}
+                onMouseEnter={() => setActiveWorkflowStep(idx)}
+                className={`rounded-2xl border p-6 flex flex-col justify-between transition-all duration-300 relative overflow-hidden group cursor-pointer ${
+                  activeWorkflowStep === idx 
+                    ? "bg-slate-900 border-sky-500/40 shadow-lg shadow-sky-500/5 translate-y-[-4px]" 
+                    : "bg-slate-950 border-slate-900 hover:border-slate-800"
+                }`}
+              >
+                <div>
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="font-mono text-3xl font-extrabold text-slate-800 group-hover:text-sky-500/10 transition-colors">
+                      {step.num}
+                    </span>
+                    <span className={`h-2 w-2 rounded-full ${activeWorkflowStep === idx ? "bg-sky-400" : "bg-slate-800"}`} />
+                  </div>
+                  <h5 className="font-bold text-slate-100 text-sm sm:text-base font-sans group-hover:text-sky-400 transition-colors">
+                    {step.title}
+                  </h5>
+                  <p className="mt-2 text-xs text-slate-400 leading-relaxed font-sans">
+                    {step.desc}
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-slate-900/60 text-[10px] text-slate-500 font-mono">
+                  Sesi Terverifikasi
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ================= CALL TO ACTION SECTION ================= */}
+        <div className="relative rounded-3xl border border-slate-800 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-8 sm:p-12 text-center max-w-5xl mx-auto overflow-hidden shadow-2xl">
+          <div className="absolute inset-0 bg-radial-gradient-to-b from-sky-500/5 to-transparent pointer-events-none" />
+          
+          <span className="inline-flex items-center gap-1.5 text-xs font-bold font-mono text-emerald-400 bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-500/20 mb-4 uppercase">
+            ⚡ Hubungi Fastwork Sekarang
+          </span>
+
+          <h3 className="font-sans text-2xl sm:text-3xl font-extrabold text-white">
+            Pesan Jasa Analisis Data Sekarang!
+          </h3>
+
+          <p className="mt-4 text-xs sm:text-sm text-slate-300 leading-relaxed font-sans max-w-3xl mx-auto">
+            Jangan biarkan data Anda terbuang sia-sia. Setiap perusahaan butuh analisis data yang tepat. Silakan hubungi tim data analyst kami via <strong>CHAT Fastwork</strong> sekarang sebelum melakukan pemesanan! Mari berdiskusi agar data analyst kami dapat memberikan solusi jasa analisis data, visualisasi data, dan pembuatan dashboard terbaik untuk kelangsungan pertumbuhan bisnis Anda.
+          </p>
+
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="https://fastwork.id/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-sky-500 hover:bg-sky-400 px-6 py-4 text-sm font-bold text-slate-950 transition-all font-sans shadow-lg shadow-sky-500/20"
+            >
+              <MessageSquare className="h-4 w-4" /> Hubungi Kami di Fastwork Chat
+            </a>
+            <a
+              href="#simulator"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 hover:bg-slate-850 px-6 py-4 text-sm font-bold text-white border border-slate-850 transition-all font-sans"
+            >
+              Coba Simulasi Dashboard <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}

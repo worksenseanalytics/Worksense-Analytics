@@ -1,0 +1,6 @@
+{
+  "name": "Worksense Analytics",
+  "description": "Worksense Analytics membantu bisnis mengubah data menjadi insight yang jelas, terarah, dan dapat ditindaklanjuti melalui gabungan analisis, visualisasi, dan pemahaman bisnis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
