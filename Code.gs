@@ -1,6 +1,6 @@
 /**
  * Server-side Google Apps Script for serving the React Dashboard
- * Last Updated: Penambahan Lab Simulator Budget Kalkulator & Statistik Akademik (Slovin formula, estimasi margin UMKM, pembersih database CSV) yang sepenuhnya interaktif
+ * Last Updated: Penambahan Lab Simulator Budget Kalkulator & Statistik Akademik serta optimalisasi layout spacing agar kontainer ilustrasi bergeser ke kiri dan lebih rapat ke judul layanan.
  */
 
 function doGet(e) {

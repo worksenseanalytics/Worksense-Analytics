@@ -157,7 +157,7 @@ export default function PersonalAcademicDetail() {
               <div className="mt-5 h-1 w-24 bg-gradient-to-r from-indigo-500 via-violet-500 to-indigo-400 rounded-full shadow-[0_0_10px_rgba(99,102,241,0.25)]" />
             </div>
 
-            <div className="lg:col-span-3 relative flex flex-col items-center justify-center self-center w-[360px] max-w-full mt-6 lg:mt-0">
+            <div className="lg:col-span-3 lg:-ml-12 lg:mr-auto relative flex flex-col items-center justify-center self-center w-[360px] max-w-full mt-6 lg:mt-0">
               
               {/* BUDGET / CONFIDENCE STATUS INDICATOR */}
               <div className="hidden md:flex absolute -top-8 -right-6 bg-slate-950/95 border border-slate-800/80 rounded-xl p-2.5 items-center gap-2 shadow-2xl z-20 hover:scale-105 transition-all cursor-pointer select-none">

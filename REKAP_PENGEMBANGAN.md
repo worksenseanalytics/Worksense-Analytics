@@ -202,6 +202,9 @@ Platform menggunakan arsitektur frontend dengan Tailwind CSS, Recharts, Vite (bu
       - Menyediakan tab kalkulator estimasi target laba bersih dan proyeksi omset bulanan berskala UMKM (SME Margin Estimator) berdasarkan variabel kuantitas order harian dan rata-rata keranjang belanja (Average Order Value).
       - Mengintegrasikan mesin pembersih spreadsheet csv/xlsx rancangan kustom (Tidy Machine) lengkap dengan log aktivitas sanitasi data (imputasi outlier, penanganan missing values, standar z-score) secara dinamis.
       - Menambahkan elemen interaktif status indicator LED, progress bar, target bimbingan konsultasi ahli, serta label mata uang lokal yang presisi.
+    - **Optimasi Penyelarasan Layout Spacing Kontainer Ilustrasi**:
+      - Memodifikasi letak koordinat wrapper kontainer simulator/ilustrasi interaktif di sepanjang detail 8 layanan premium agar tergeser lebih ke kiri (`lg:-ml-12`) dan berada di posisi yang seimbang serta rapat dengan judul layanan.
+      - Menghilangkan ruang kosong berlebih (excessive whitespace layout gap) pada resolusi monitor widescreen demi kesalarasan visual (visual cohesion) yang tinggi.
 
 ## 4. Konvensi Bahasa / Translation Key Naming
 Semua teks yang muncul di aplikasi dimanage menggunakan prefix komponen di `i18n.tsx`:

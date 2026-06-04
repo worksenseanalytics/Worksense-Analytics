@@ -185,7 +185,7 @@ export default function CoreServiceDetail() {
             </div>
 
             {/* Right Column (30% equivalent) - Compact container with elegant floating data illustration nodes */}
-            <div className="lg:col-span-3 relative flex items-center justify-center self-center w-[360px] max-w-full">
+            <div className="lg:col-span-3 lg:-ml-12 lg:mr-auto relative flex items-center justify-center self-center w-[360px] max-w-full">
               
               {/* Floating Widget 1: Top-Left Growth Tracker pill */}
               <div className="hidden md:flex absolute -top-8 -left-6 bg-slate-950/95 border border-slate-800/80 rounded-xl p-2.5 items-center gap-2 shadow-2xl z-20 hover:scale-105 transition-all cursor-pointer select-none">
