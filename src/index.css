@@ -6,6 +6,10 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   overflow-x: clip;
   max-width: 100%;
@@ -51,6 +55,21 @@ html, body {
   background: #94a3b8;
 }
 
+/* Custom premium styling for Dark Mode layout & backgrounds to establish supreme depth */
+html:not(.light) {
+  color-scheme: dark;
+}
+
+html:not(.light) body,
+html:not(.light) .bg-slate-950 {
+  background-color: #151e33 !important; /* Unified Navy-Slate Dark Mode Base (Aligned with Service 2) */
+  color: #f8fafc !important; /* Slate-50 */
+}
+
+html:not(.light) .bg-slate-900 {
+  background-color: #151e33 !important; /* Unified Navy-Slate Dark Mode Base (Aligned with Service 2) */
+}
+
 /* Light mode rules mapping slate colors to beautiful corporate soft-light palette */
 html.light {
   color-scheme: light;
@@ -58,60 +77,92 @@ html.light {
 
 html.light body,
 html.light .bg-slate-950 {
-  background-color: #f1f5f9 !important; /* slate-100 for better contrast against white panels */
+  background-color: #F8FAFC !important; /* Base color: Slate-50 */
   color: #0f172a !important; /* slate-900 */
 }
 
 /* Subtle page border/header adjustment */
 html.light nav,
 html.light .sticky {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  border-bottom-color: #e2e8f0 !important; /* slate-200 */
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom-color: #E2E8F0 !important; /* slate-200 */
 }
 
-/* Sidebar and general containers */
-html.light .bg-slate-900,
-html.light .bg-slate-900\/95,
-html.light .bg-slate-900\/60,
-html.light .bg-slate-900\/40,
-html.light .bg-slate-900\/80,
-html.light .bg-slate-900\/90,
-html.light .bg-slate-900\/65,
-html.light .bg-slate-900\/50,
-html.light .bg-slate-900\/30,
-html.light .bg-slate-900\/20,
-html.light .bg-slate-900\/10,
-html.light .bg-slate-850,
-html.light .hover\:bg-slate-850:hover,
-html.light .bg-slate-800,
-html.light .bg-slate-800\/80,
-html.light .bg-slate-800\/50,
-html.light .bg-slate-800\/30,
-html.light .hover\:bg-slate-800\/50:hover,
-html.light .hover\:bg-slate-800:hover,
-html.light .bg-slate-700,
-html.light .hover\:bg-slate-700:hover {
+/* Sidebar and general containers in Light Mode */
+html.light .bg-slate-900 {
   background-color: #ffffff !important;
-  border-color: #e2e8f0 !important; /* slate-200 */
+  border-color: #E2E8F0 !important;
 }
 
-/* Deep background structures and list items */
-html.light .bg-slate-650,
-html.light .bg-slate-950\/98,
-html.light .bg-slate-950\/95,
-html.light .bg-slate-950\/85,
-html.light .bg-slate-950\/80,
-html.light .bg-slate-950\/70,
-html.light .bg-slate-950\/60,
-html.light .bg-slate-950\/65,
-html.light .bg-slate-950\/50,
-html.light .bg-slate-950\/40,
-html.light .bg-slate-950\/30,
-html.light .bg-slate-950\/20,
-html.light .bg-slate-950\/15 {
-  background-color: #e2e8f0 !important; /* slate-200 */
-  border-color: #cbd5e1 !important; /* slate-300 */
+/* Opacities of bg-slate-900 mapped cleanly to preserve soft layers and transparencies */
+html.light .bg-slate-900\/95 { background-color: rgba(255, 255, 255, 0.95) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-900\/90 { background-color: rgba(255, 255, 255, 0.90) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-900\/80 { background-color: rgba(255, 255, 255, 0.80) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-900\/65 { background-color: rgba(255, 255, 255, 0.65) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-900\/60 { background-color: rgba(255, 255, 255, 0.60) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-900\/50 { background-color: rgba(255, 255, 255, 0.50) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-900\/40 { background-color: rgba(255, 255, 255, 0.40) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-900\/30 { background-color: rgba(248, 250, 252, 0.50) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-900\/20 { background-color: rgba(248, 250, 252, 0.40) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-900\/10 { background-color: rgba(15, 23, 42, 0.03) !important; border-color: rgba(15, 23, 42, 0.06) !important; }
+
+/* Mid level containers (cards, panels, items) */
+html.light .bg-slate-850 {
+  background-color: #ffffff !important;
+  border-color: #E2E8F0 !important;
 }
+
+html.light .hover\:bg-slate-850:hover {
+  background-color: #F8FAFC !important;
+}
+
+html.light .bg-slate-800 {
+  background-color: #ffffff !important;
+  border-color: #E2E8F0 !important;
+}
+
+/* Semi-transparent state of bg-slate-800 often used for badges, nested cards, or selected tabs */
+html.light .bg-slate-800\/80 { background-color: rgba(255, 255, 255, 0.90) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-800\/50 { background-color: rgba(248, 250, 252, 0.60) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-800\/30 { background-color: rgba(15, 23, 42, 0.03) !important; border-color: rgba(15, 23, 42, 0.06) !important; }
+
+html.light .hover\:bg-slate-800\/50:hover {
+  background-color: rgba(248, 250, 252, 0.8) !important;
+}
+
+html.light .hover\:bg-slate-800:hover {
+  background-color: #F8FAFC !important;
+}
+
+/* Accent fields and secondary sections */
+html.light .bg-slate-700 {
+  background-color: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+}
+
+html.light .hover\:bg-slate-700:hover {
+  background-color: #E2E8F0 !important;
+}
+
+/* Deep background structures and list items in Light Mode */
+html.light .bg-slate-650 {
+  background-color: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+}
+
+/* Handle light mode representation for solid overlay of deep dark container (bg-slate-950 variations) */
+html.light .bg-slate-950\/98 { background-color: rgba(255, 255, 255, 0.98) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-950\/95 { background-color: rgba(255, 255, 255, 0.95) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-950\/85 { background-color: rgba(255, 255, 255, 0.85) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-950\/80 { background-color: rgba(255, 255, 255, 0.80) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-950\/70 { background-color: rgba(255, 255, 255, 0.70) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-950\/65 { background-color: rgba(255, 255, 255, 0.65) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-950\/60 { background-color: rgba(248, 250, 252, 0.90) !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-950\/50 { background-color: #F8FAFC !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-950\/40 { background-color: #F8FAFC !important; border-color: #E2E8F0 !important; }
+html.light .bg-slate-950\/30 { background-color: rgba(15, 23, 42, 0.03) !important; border-color: rgba(15, 23, 42, 0.06) !important; }
+html.light .bg-slate-950\/20 { background-color: rgba(15, 23, 42, 0.02) !important; border-color: rgba(15, 23, 42, 0.05) !important; }
+html.light .bg-slate-950\/15 { background-color: rgba(15, 23, 42, 0.015) !important; border-color: rgba(15, 23, 42, 0.04) !important; }
 
 html.light .text-slate-300,
 html.light .hover\:text-slate-300:hover {
@@ -141,18 +192,19 @@ html.light .bg-rose-500.text-white {
 
 html.light .text-slate-400,
 html.light .text-slate-450 {
-  color: #334155 !important; /* slate-700 */
+  color: #475569 !important; /* slate-600 */
 }
 
 html.light .text-slate-500,
 html.light .text-slate-550 {
-  color: #64748b !important; /* slate-500 */
+  color: #334155 !important; /* slate-700 */
 }
 
 html.light .text-slate-600,
 html.light .text-slate-700,
-html.light .text-slate-800 {
-  color: #94a3b8 !important; /* slate-400 */
+html.light .text-slate-800,
+html.light .text-slate-900 {
+  color: #1e293b !important; /* slate-800 - much crisper and highly legible */
 }
 
 html.light .border-slate-800,
@@ -161,7 +213,6 @@ html.light .border-slate-900,
 html.light .border-slate-900\/60,
 html.light .border-slate-900\/80,
 html.light .border-slate-700,
-html.light .border-slate-700\/50,
 html.light .border-slate-705,
 html.light .border-slate-705\/80,
 html.light .border-slate-850\/60,
@@ -176,17 +227,71 @@ html.light .hover\:border-slate-800:hover,
 html.light .hover\:border-slate-700:hover,
 html.light .hover\:border-slate-850:hover,
 html.light .hover\:border-slate-900:hover {
-  border-color: #cbd5e1 !important; /* slate-300 */
+  border-color: #E2E8F0 !important; /* slate-200 */
 }
 
-/* Ensure headings & titles stand out in deep color */
+/* Ensure headings & titles stand out in deep color with razor sharp solid/flat shadow (no fuzzy blur) */
 html.light h1,
-html.light h2,
+html.light h2 {
+  color: #0f172a !important; /* slate-900 */
+  text-shadow: 1px 1px 0px rgba(15, 23, 42, 0.15) !important;
+}
+
 html.light h3,
 html.light h4,
 html.light h5,
 html.light h6 {
   color: #0f172a !important; /* slate-900 */
+  text-shadow: none !important; /* completely disable shadow on smaller elements to keep them crispy and readable */
+}
+
+/* Ensure nested text gradients retain absolute transparency and clip correctly with zero muddy shadows */
+html.light .bg-clip-text,
+html.light .text-transparent,
+html.light [class*="bg-clip-text"],
+html.light [class*="text-transparent"] {
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: transparent !important;
+  text-shadow: none !important;
+}
+
+/* Precise light-mode gradient colors to prevent text disappearing, ensuring maximum readability */
+html.light .from-yellow-300.via-amber-400.to-yellow-300 {
+  background-image: linear-gradient(to right, #c2410c, #b45309, #c2410c) !important;
+}
+
+html.light .from-amber-400.via-orange-400.to-amber-400 {
+  background-image: linear-gradient(to right, #b45309, #ea580c, #b45309) !important;
+}
+
+html.light .from-indigo-400.via-violet-400.to-indigo-300 {
+  background-image: linear-gradient(to right, #4f46e5, #7c3aed, #4f46e5) !important;
+}
+
+html.light .from-emerald-400.via-teal-400.to-emerald-400 {
+  background-image: linear-gradient(to right, #059669, #0d9488, #059669) !important;
+}
+
+html.light .from-sky-400.via-indigo-400.to-sky-400 {
+  background-image: linear-gradient(to right, #0284c7, #4f46e5, #0284c7) !important;
+}
+
+html.light .from-rose-400.via-red-400.to-rose-400 {
+  background-image: linear-gradient(to right, #be123c, #dc2626, #be123c) !important;
+}
+
+html.light .from-fuchsia-400.via-purple-400.to-fuchsia-400 {
+  background-image: linear-gradient(to right, #c026d3, #7c3aed, #c026d3) !important;
+}
+
+/* Premium clean layout for tool badges in light mode */
+html.light span.inline-flex.font-mono.border,
+html.light .font-mono.px-2\.5.py-1,
+html.light span.inline-flex.items-center.rounded-lg.px-2\.5,
+html.light span.inline-flex.items-center.gap-1\.5.rounded-lg.border {
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05) !important;
+  border-color: #E2E8F0 !important;
 }
 
 html.light .text-sky-400, html.light .group-hover\:text-sky-400, html.light .group:hover .group-hover\:text-sky-400 { color: #0284c7 !important; }
@@ -272,19 +377,19 @@ html.light .text-sky-500 {
 html.light .glass-card,
 html.light .dark-glass-card,
 html.light section > div > div > .rounded-2xl {
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.01) !important;
+  box-shadow: 0 4px 12px -1px rgba(15, 23, 42, 0.16), 0 2px 6px -1px rgba(15, 23, 42, 0.22) !important;
 }
 
 /* Fix specific simulator & terminal container contrasts in light mode */
 html.light #simulator,
 html.light .bg-slate-950.text-slate-100 {
-  background-color: #f1f5f9 !important;
+  background-color: #FFFFFF !important;
   color: #0f172a !important;
 }
 
 html.light .bg-slate-950\/60,
 html.light .bg-slate-950\/70 {
-  background-color: #e2e8f0 !important;
+  background-color: #E2E8F0 !important;
 }
 
 html.light td, html.light th {
@@ -292,7 +397,7 @@ html.light td, html.light th {
 }
 
 html.light thead {
-  background-color: #e2e8f0 !important;
+  background-color: #E2E8F0 !important;
 }
 
 /* Overrides for Portfolio Gradients in light mode */
@@ -311,4 +416,132 @@ html.light .border-amber-800\/50 { border-color: #fde68a !important; }
 html.light .from-indigo-900\/50 { --tw-gradient-from: #e0e7ff var(--tw-gradient-from-position); --tw-gradient-to: rgba(224, 231, 255, 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
 html.light .to-indigo-950\/20 { --tw-gradient-to: #eef2ff var(--tw-gradient-to-position); }
 html.light .border-indigo-800\/50 { border-color: #c7d2fe !important; }
+
+/* ================= CUSTOM OVERRIDES LIGHT MODE - CORE SERVICES ================= */
+/* Menjadikan warna background bagian-bagian detail seragam menggunakan Slate-50 (#F8FAFC) */
+html.light #jasa-analisis,
+html.light #jasa-machine-learning,
+html.light #jasa-otomatisasi-excel,
+html.light #jasa-deep-learning,
+html.light #jasa-reporting,
+html.light #jasa-enterprise,
+html.light #jasa-personal,
+html.light #jasa-mlops {
+  background-color: #F8FAFC !important; /* Base color: Slate-50 */
+}
+
+/* Memperbaiki pola garis latar belakang (grid lines) di mode terang */
+html.light section[id^="jasa-"] > div:first-child,
+html.light section:nth-of-type(5) > div:first-child,
+html.light #jasa-machine-learning > div:first-child,
+html.light #jasa-otomatisasi-excel > div:first-child,
+html.light #jasa-deep-learning > div:first-child,
+html.light #jasa-reporting > div:first-child,
+html.light #jasa-enterprise > div:first-child,
+html.light #jasa-personal > div:first-child,
+html.light #jasa-mlops > div:first-child {
+  opacity: 0.6 !important;
+  background-image: linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px) !important;
+}
+
+/* Mengatur intensitas gradient radial lencana pada mode terang */
+html.light section:nth-of-type(5) > div:nth-of-type(1) {
+  background-image: radial-gradient(circle at top, rgba(99, 102, 241, 0.08), transparent 60%) !important;
+}
+
+/* Penyesuaian bayangan dan border kartu-kartu di mode terang agar kontras dan elegan */
+html.light section .rounded-3xl:not(button):not(a),
+html.light section .rounded-2xl:not(button):not(a),
+html.light section .rounded-xl:not(button):not(a) {
+  background-color: #ffffff !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 4px 12px -1px rgba(15, 23, 42, 0.16), 0 2px 6px -1px rgba(15, 23, 42, 0.22) !important;
+}
+
+/* Membedakan warna langkah alur kerja yang AKTIF (Active Workflow Step) vs PASIF di mode terang */
+html.light .border-emerald-500\/40 {
+  border-color: #10b981 !important;
+  background-color: #f0fdf4 !important; /* Emerald active light bg */
+}
+html.light .border-amber-500\/40 {
+  border-color: #f59e0b !important;
+  background-color: #fffbeb !important; /* Amber active light bg */
+}
+html.light .border-purple-500\/40 {
+  border-color: #a855f7 !important;
+  background-color: #faf5ff !important; /* Purple active light bg */
+}
+html.light .border-rose-500\/40 {
+  border-color: #f43f5e !important;
+  background-color: #fff1f2 !important; /* Rose active light bg */
+}
+html.light .border-yellow-500\/40 {
+  border-color: #eab308 !important;
+  background-color: #fefce8 !important; /* Yellow active light bg */
+}
+html.light .border-indigo-505\/40,
+html.light .border-indigo-500\/40 {
+  border-color: #6366f1 !important;
+  background-color: #eef2ff !important; /* Indigo active light bg */
+}
+html.light .border-teal-500\/40 {
+  border-color: #14b8a6 !important;
+  background-color: #f0fdfa !important; /* Teal active light bg */
+}
+
+/* Transisi hover state untuk mode terang */
+html.light .hover\:border-slate-700:hover {
+  border-color: #E2E8F0 !important;
+  background-color: #ffffff !important;
+}
+
+/* Remove dark background gradient on Kutipan Integritas card inside AboutUs to guarantee perfect visibility */
+html.light section#about .bg-gradient-to-r.from-slate-900 {
+  background-image: none !important;
+  background-color: #ffffff !important;
+  border-color: #E2E8F0 !important;
+}
+
+/* Premium light mode styling for the Hero Mockup Testimonial preview to ensure crisp contrast and elegance */
+html.light section:first-of-type .bg-gradient-to-r.from-sky-950\/40.to-indigo-950\/30 {
+  background-image: linear-gradient(to right, #f0f9ff, #eef2ff) !important;
+  background-color: #eef2ff !important;
+  border-color: #bae6fd !important;
+}
+
+html.light section:first-of-type .bg-gradient-to-r.from-sky-950\/40.to-indigo-950\/30 p {
+  color: #1e293b !important; /* Slate-800 for pristine editorial readability */
+}
+
+/* --- Interactive Model Simulator Keyframe Animations --- */
+@keyframes scan {
+  0% {
+    top: 5%;
+    opacity: 0.1;
+  }
+  15% {
+    opacity: 0.75;
+  }
+  85% {
+    opacity: 0.75;
+  }
+  100% {
+    top: 95%;
+    opacity: 0.1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-150px) skewX(-12deg);
+  }
+  30% {
+    transform: translateX(350px) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(350px) skewX(-12deg);
+  }
+}
+
 

@@ -63,10 +63,12 @@ import DeepLearningDetail from "./components/DeepLearningDetail";
 import ComprehensiveReportingDetail from "./components/ComprehensiveReportingDetail";
 import EnterpriseSolutionDetail from "./components/EnterpriseSolutionDetail";
 import PersonalAcademicDetail from "./components/PersonalAcademicDetail";
+import MlOpsDetail from "./components/MlOpsDetail";
 import TrustedPartners from "./components/TrustedPartners";
 import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
 import ServicesOverview from "./components/ServicesOverview";
+import AboutUs from "./components/AboutUs";
 import Portfolio from "./components/Portfolio";
 import ContactModal from "./components/ContactModal";
 import { SIMULATION_DATASETS, INDUSTRY_TOOLS, PROJECT_TECH_STACK } from "./data";
@@ -114,26 +116,8 @@ export default function App() {
       {/* QUICK LINKS / SERVICE CATALOG (Sticky Nav & Bento Grid) */}
       <ServicesOverview />
 
-      {/* Jasa Utama ke-1: Pembersihan Data, EDA, & Dashboard Interaktif */}
-      <CoreServiceDetail />
-
-      {/* Jasa Utama ke-2: Machine Learning & Prediktif Modeling */}
-      <MachineLearningDetail />
-
-      {/* Jasa Utama ke-3: Excel, Google Sheets, & VBA Automation */}
-      <ExcelAutomationDetail />
-
-      {/* Jasa Utama ke-4: Deep Learning & Generative AI */}
-      <DeepLearningDetail />
-
-      {/* Jasa Utama ke-5: Reporting Komprehensif & Pitch Deck Eksekutif */}
-      <ComprehensiveReportingDetail />
-
-      {/* Jasa Utama ke-6: Enterprise All-in-One Data Ecosystem */}
-      <EnterpriseSolutionDetail />
-
-      {/* Jasa Utama ke-7: Solusi Personal, Riset Akademik & UMKM */}
-      <PersonalAcademicDetail />
+      {/* ABOUT US SECTION - PROFILE DAN MATRIKS KEUNGGULAN */}
+      <AboutUs />
 
       {/* GLOBAL CERTIFICATION CREDENTIALS GRID SECTION */}
       <section className="bg-slate-900 border-t border-slate-800 py-12 md:py-16 relative">
@@ -209,6 +193,30 @@ export default function App() {
         </div>
       </section>
 
+      {/* Jasa Utama ke-1: Pembersihan Data, EDA, & Dashboard Interaktif (Pondasi Data & Insight) */}
+      <CoreServiceDetail />
+
+      {/* Jasa Utama ke-2: Excel, Google Sheets, & VBA Automation (Otomatisasi Solusi Produktivitas) */}
+      <ExcelAutomationDetail />
+
+      {/* Jasa Utama ke-3: Reporting Komprehensif & Pitch Deck Eksekutif (Presentasi & Pengambilan Keputusan) */}
+      <ComprehensiveReportingDetail />
+
+      {/* Jasa Utama ke-4: Machine Learning & Prediktif Modeling (Sains Data Lanjutan) */}
+      <MachineLearningDetail />
+
+      {/* Jasa Utama ke-5: Deep Learning & Generative AI (Kecerdasan Buatan Modern) */}
+      <DeepLearningDetail />
+
+      {/* Jasa Utama ke-6: MLOps & AI Deployment (Integrasi Produksi AI & Skalabilitas) */}
+      <MlOpsDetail />
+
+      {/* Jasa Utama ke-7: Enterprise All-in-One Data Ecosystem (Sistem Skala Korporasi) */}
+      <EnterpriseSolutionDetail />
+
+      {/* Jasa Utama ke-8: Solusi Personal, Riset Akademik & UMKM (Dukungan Segmentasi Khusus) */}
+      <PersonalAcademicDetail />
+
       {/* CORE CAPABILITIES & REAL-TIME INDUSTRY TOOLS SECTION */}
       <section id="tools" className="bg-slate-900/40 border-y border-slate-900 py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -239,6 +247,9 @@ export default function App() {
                       {tool.variant === "powerbi" && <BarChart3 className="h-4 w-4" />}
                       {tool.variant === "tableau" && <Layers className="h-4 w-4" />}
                       {tool.variant === "excel" && <FileSpreadsheet className="h-4 w-4" />}
+                      {tool.variant === "gas" && <Flame className="h-4 w-4" />}
+                      {tool.variant === "bigquery" && <Database className="h-4 w-4" />}
+                      {tool.variant === "d3" && <Code className="h-4 w-4" />}
                     </div>
                   </div>
 

@@ -132,6 +132,27 @@ export const INDUSTRY_TOOLS = [
     description: "Pivot tables, VBA automation, dan Dashboard dashboard dinamis yang portabel tanpa biaya lisensi platform tambahan.",
     variant: "excel",
     icon: "FileSpreadsheet"
+  },
+  {
+    name: "Google Apps Script (GAS) & Workspace Automation",
+    category: "Otomatisasi & Integrasi",
+    description: "Integrasi cerdas Google Sheets, Forms, Gmail, dan Calendar secara serverless, serta mendeploy App Dashboard murni di ekosistem Google Workspace.",
+    variant: "gas",
+    icon: "Flame"
+  },
+  {
+    name: "Google BigQuery & Cloud Warehouse",
+    category: "Data Platform & Storage",
+    description: "Penyimpanan data skala besar berbasis cloud untuk analisis real-time secepat kilat dengan optimalisasi alokasi query data korporat.",
+    variant: "bigquery",
+    icon: "Database"
+  },
+  {
+    name: "d3.js & Custom Data Visualization",
+    category: "Visualisasi Interaktif",
+    description: "Pembuatan grafik kustom interaktif tingkat tinggi menggunakan SVG murni untuk menceritakan kisah di balik data dengan presisi maksimal.",
+    variant: "d3",
+    icon: "Code"
   }
 ];
 

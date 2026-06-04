@@ -9,7 +9,8 @@ import {
   GraduationCap,
   ChevronLeft,
   Search,
-  X
+  X,
+  Server
 } from 'lucide-react';
 import { useLanguage } from '../i18n';
 
@@ -43,15 +44,6 @@ export default function ServicesOverview() {
       textColor: "text-sky-400"
     },
     {
-      id: "jasa-machine-learning",
-      icon: <BrainCircuit className="h-5 w-5 text-emerald-400" />,
-      title: t('overview.s2'),
-      desc: t('overview.s2_desc'),
-      borderColor: "border-emerald-500/30",
-      hoverBg: "hover:bg-emerald-500/10",
-      textColor: "text-emerald-400"
-    },
-    {
       id: "jasa-otomatisasi-excel",
       icon: <Zap className="h-5 w-5 text-amber-400" />,
       title: t('overview.s3'),
@@ -59,6 +51,24 @@ export default function ServicesOverview() {
       borderColor: "border-amber-500/30",
       hoverBg: "hover:bg-amber-500/10",
       textColor: "text-amber-400"
+    },
+    {
+      id: "jasa-reporting",
+      icon: <Presentation className="h-5 w-5 text-rose-400" />,
+      title: t('overview.s5'),
+      desc: t('overview.s5_desc'),
+      borderColor: "border-rose-500/30",
+      hoverBg: "hover:bg-rose-500/10",
+      textColor: "text-rose-400"
+    },
+    {
+      id: "jasa-machine-learning",
+      icon: <BrainCircuit className="h-5 w-5 text-emerald-400" />,
+      title: t('overview.s2'),
+      desc: t('overview.s2_desc'),
+      borderColor: "border-emerald-500/30",
+      hoverBg: "hover:bg-emerald-500/10",
+      textColor: "text-emerald-400"
     },
     {
       id: "jasa-deep-learning",
@@ -70,13 +80,13 @@ export default function ServicesOverview() {
       textColor: "text-fuchsia-400"
     },
     {
-      id: "jasa-reporting",
-      icon: <Presentation className="h-5 w-5 text-rose-400" />,
-      title: t('overview.s5'),
-      desc: t('overview.s5_desc'),
-      borderColor: "border-rose-500/30",
-      hoverBg: "hover:bg-rose-500/10",
-      textColor: "text-rose-400"
+      id: "jasa-mlops",
+      icon: <Server className="h-5 w-5 text-teal-400" />,
+      title: t('overview.s8'),
+      desc: t('overview.s8_desc'),
+      borderColor: "border-teal-500/30",
+      hoverBg: "hover:bg-teal-500/10",
+      textColor: "text-teal-400"
     },
     {
       id: "jasa-enterprise",

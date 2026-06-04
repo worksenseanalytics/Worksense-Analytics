@@ -36,8 +36,9 @@ import {
 import { useLanguage } from "../i18n";
 
 export default function CoreServiceDetail() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeWorkflowStep, setActiveWorkflowStep] = useState<number>(0);
+  const isId = language === "id";
   const [selectedRegion, setSelectedRegion] = useState<"Semua" | "Jakarta" | "Surabaya" | "Medan">("Semua");
 
   const regionData = {
@@ -503,7 +504,7 @@ export default function CoreServiceDetail() {
                 </div>
               </div>
 
-              <div className="mt-8 border-t border-slate-900 pt-6 flex items-center justify-between text-xs font-mono text-slate-500">
+              <div className="mt-8 border-t border-slate-800/80 pt-6 flex items-center justify-between text-xs font-mono text-slate-500">
                 <span>{t('core.ent.output')}</span>
               </div>
             </div>
@@ -572,7 +573,7 @@ export default function CoreServiceDetail() {
                 </div>
               </div>
 
-              <div className="mt-8 border-t border-slate-900 pt-6 flex items-center justify-between text-xs font-mono text-slate-500">
+              <div className="mt-8 border-t border-slate-800/80 pt-6 flex items-center justify-between text-xs font-mono text-slate-500">
                 <span>{t('core.umkm.output')}</span>
               </div>
             </div>
@@ -651,8 +652,8 @@ export default function CoreServiceDetail() {
                 onMouseEnter={() => setActiveWorkflowStep(idx)}
                 className={`rounded-2xl border p-6 flex flex-col justify-between transition-all duration-300 relative overflow-hidden group cursor-pointer ${
                   activeWorkflowStep === idx 
-                    ? "bg-slate-900 border-sky-500/40 shadow-lg shadow-sky-500/5 translate-y-[-4px]" 
-                    : "bg-slate-950 border-slate-900 hover:border-slate-800"
+                    ? "bg-slate-900/80 border-sky-500/60 shadow-lg shadow-sky-500/10 translate-y-[-4px]" 
+                    : "bg-slate-900/60 border-slate-800 hover:border-slate-700/80 hover:bg-slate-900/80"
                 }`}
               >
                 <div>
@@ -669,11 +670,73 @@ export default function CoreServiceDetail() {
                     {step.desc}
                   </p>
                 </div>
-                <div className="mt-6 pt-4 border-t border-slate-900/60 text-[10px] text-slate-500 font-mono">
+                <div className="mt-6 pt-4 border-t border-slate-800/50 text-[10px] text-slate-500 font-mono">
                   {t('core.wf.verified')}
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* CAPABILITIES & METRICS BENTO IN-DEEP */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch my-20 text-left">
+          <div className="col-span-full rounded-3xl border border-slate-800/60 dark-glass-card p-6 md:p-8 flex flex-col justify-between">
+            <div>
+              <span className="text-[10px] font-mono tracking-wider text-sky-400 uppercase font-bold px-2.5 py-0.5 rounded-full bg-sky-500/10 border border-sky-500/20">
+                {isId ? "PRESTASI ANALISIS DATA & BUSINESS INTELLIGENCE" : "DATA ANALYSIS & BI TECH STACK"}
+              </span>
+              <h3 className="mt-3 text-xl md:text-2xl font-bold font-sans text-slate-100">
+                {isId ? "Ekosistem Tools Analisis Data & BI Utama Kami:" : "Our Core Data Analysis & BI Tools:"}
+              </h3>
+              
+              <div className="mt-6 space-y-4">
+                {[
+                  {
+                    title: isId ? "Pembuatan Dashboard Lintas Platform (Power BI & Looker Studio)" : "Multi-Platform Dashboard Design (Power BI & Looker Studio)",
+                    desc: isId ? "Menghubungkan berbagai sumber data mentah (API, SQL, Sheet) ke dashboard eksekutif interaktif yang dioptimalkan untuk keputusan bisnis real-time." : "Connecting raw data sources (APIs, SQL, Sheets) to interactive executive dashboards optimized for real-time business decisions."
+                  },
+                  {
+                    title: isId ? "Pembersihan Data Intensif & Skrip Analitik Dinamis" : "Intensive Data Cleansing & Dynamic Analytics Scripts",
+                    desc: isId ? "Menggunakan Python, PostgreSQL, dan d3.js untuk merancang visualisasi data kustom, agregasi matriks keuangan, dan korelasi tren yang andal." : "Using Python, PostgreSQL, and d3.js to design custom data visualizations, financial metric aggregations, and robust trend correlations."
+                  }
+                ].map((feat) => (
+                  <div key={feat.title} className="flex gap-3 text-left">
+                    <div className="mt-1 h-5 w-5 rounded-md bg-sky-500/10 text-sky-400 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle className="h-3 w-3" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs md:text-sm font-bold text-slate-200">{feat.title}</h4>
+                      <p className="text-xs text-slate-400 mt-1 leading-relaxed">{feat.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Tools logos row with actual logos */}
+            <div className="mt-8 pt-4 border-t border-slate-900 flex flex-wrap items-center gap-x-6 gap-y-3 text-[10px] font-mono text-slate-500 justify-start">
+              <span className="text-slate-350 font-bold">Standard Ecosystem:</span>
+              <span className="flex items-center gap-1.5 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded text-slate-300 font-bold">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" className="h-3.5 w-3.5 object-contain" referrerPolicy="no-referrer" />
+                Microsoft Power BI
+              </span>
+              <span className="flex items-center gap-1.5 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded text-slate-300 font-bold">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png" alt="Tableau" className="h-3.5 w-[36px] object-contain" referrerPolicy="no-referrer" />
+                Tableau
+              </span>
+              <span className="flex items-center gap-1.5 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded text-slate-300 font-bold">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Google_Looker_Studio_Logo.svg" alt="Looker Studio" className="h-3.5 w-3.5 object-contain" referrerPolicy="no-referrer" />
+                Google Looker Studio
+              </span>
+              <span className="flex items-center gap-1.5 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded text-slate-300 font-bold">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" className="h-3.5 w-3.5 object-contain" referrerPolicy="no-referrer" />
+                PostgreSQL
+              </span>
+              <span className="flex items-center gap-1.5 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded text-slate-300 font-bold">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="h-3.5 w-3.5 object-contain" referrerPolicy="no-referrer" />
+                Python
+              </span>
+            </div>
           </div>
         </div>
 
@@ -683,9 +746,9 @@ export default function CoreServiceDetail() {
             onClick={() => {
               import('./ContactModal').then(({ openContactModal }) => openContactModal("Halo tim Worksense Analytics, saya tertarik untuk konsultasi mengenai Jasa Analisis Data & Pembuatan Dashboard BI untuk perusahaan saya. Boleh diskusi lebih lanjut?"));
             }}
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-sky-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-sky-500/25 transition-all hover:bg-sky-400 hover:shadow-sky-500/40"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-sky-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-sky-500/25 transition-all hover:bg-sky-400 hover:shadow-sky-500/40 cursor-pointer"
           >
-            {t('per.pricing.cta')}
+            {isId ? "Mulai Konsultasi Analisis Data & BI" : "Start Free Data Analysis & BI Consultation"}
           </button>
         </div>
 

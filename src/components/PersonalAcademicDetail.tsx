@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { 
   GraduationCap, 
   Store, 
@@ -12,14 +12,50 @@ import {
   FileSpreadsheet,
   Laptop,
   LineChart,
-  Smartphone
+  Smartphone,
+  Play,
+  RefreshCw,
+  Sliders,
+  Database,
+  Sparkles,
+  HelpCircle,
+  Activity
 } from "lucide-react";
 
 import { useLanguage } from "../i18n";
 
 export default function PersonalAcademicDetail() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeWorkflowStep, setActiveWorkflowStep] = useState<number>(0);
+  const [activeTab, setActiveTab ] = useState<"academic_stats" | "sme_budget" | "tidy_machine">("academic_stats");
+  const [population, setPopulation] = useState<number>(1200);
+  const [marginOfError, setMarginOfError] = useState<number>(5); // as percentage
+  const [avgOrderVal, setAvgOrderVal] = useState<number>(150000); // rupiah
+  const [dailySales, setDailySales] = useState<number>(12);
+  const [progress, setProgress] = useState<number>(100);
+  const [isProcessing, setIsProcessing] = useState<boolean>(false);
+  const isId = language === "id";
+
+  useEffect(() => {
+    if (isProcessing) {
+      const interval = setInterval(() => {
+        setProgress((prev) => {
+          if (prev >= 100) {
+            setIsProcessing(false);
+            clearInterval(interval);
+            return 100;
+          }
+          return Math.min(100, prev + 8);
+        });
+      }, 60);
+      return () => clearInterval(interval);
+    }
+  }, [isProcessing]);
+
+  const handleTriggerSim = () => {
+    setIsProcessing(true);
+    setProgress(0);
+  };
 
   const workflowSteps = [
     {
@@ -121,65 +157,265 @@ export default function PersonalAcademicDetail() {
               <div className="mt-5 h-1 w-24 bg-gradient-to-r from-indigo-500 via-violet-500 to-indigo-400 rounded-full shadow-[0_0_10px_rgba(99,102,241,0.25)]" />
             </div>
 
-            <div className="lg:col-span-3 relative flex items-center justify-center self-center w-[360px] max-w-full mt-6 lg:mt-0">
+            <div className="lg:col-span-3 relative flex flex-col items-center justify-center self-center w-[360px] max-w-full mt-6 lg:mt-0">
               
-              <div className="hidden md:flex absolute -top-8 -right-6 bg-slate-900/95 border border-slate-800/80 rounded-xl p-2.5 items-center gap-2 shadow-2xl z-20 hover:scale-105 transition-all cursor-pointer select-none">
+              {/* BUDGET / CONFIDENCE STATUS INDICATOR */}
+              <div className="hidden md:flex absolute -top-8 -right-6 bg-slate-950/95 border border-slate-800/80 rounded-xl p-2.5 items-center gap-2 shadow-2xl z-20 hover:scale-105 transition-all cursor-pointer select-none">
                 <div className="h-6 w-6 rounded-lg bg-indigo-500/10 flex items-center justify-center">
-                  <CheckCircle className="h-3.5 w-3.5 text-indigo-400" />
+                  <Calculator className="h-3.5 w-3.5 text-indigo-400 animate-pulse" />
                 </div>
                 <div>
                   <div className="text-[8px] font-mono tracking-widest text-slate-500 uppercase leading-none">{t('per.scale')}</div>
-                  <div className="text-[11px] font-bold text-slate-100 font-mono leading-none mt-0.5">Budget Friendly</div>
+                  <div className="text-[11px] font-bold text-slate-100 font-mono leading-none mt-0.5">
+                    {activeTab === "academic_stats" ? `${100 - marginOfError}% Conf.` : activeTab === "sme_budget" ? "92% ROI Profit" : "100% Validated"}
+                  </div>
                 </div>
               </div>
 
-              <div className="hidden md:flex absolute -bottom-7 -left-5 bg-slate-900/95 border border-slate-800/80 rounded-xl p-2.5 flex-col gap-1 shadow-2xl z-20 hover:scale-105 transition-all cursor-pointer select-none">
+              {/* INTEGRATION STATUS INDICATOR */}
+              <div className="hidden md:flex absolute -bottom-7 -left-5 bg-slate-950/95 border border-slate-800/80 rounded-xl p-2.5 flex-col gap-1 shadow-2xl z-20 hover:scale-105 transition-all cursor-pointer select-none">
                 <div className="flex items-center gap-2">
                   <div className="h-6 w-6 rounded-lg bg-violet-500/10 flex items-center justify-center">
                     <Users className="h-3.5 w-3.5 text-violet-400" />
                   </div>
                   <div>
-                    <div className="text-[8px] font-mono tracking-widest text-slate-450 uppercase leading-none">{t('per.integration')}</div>
-                    <div className="text-[11px] font-bold text-slate-100 font-mono leading-none mt-0.5">1-on-1 Consultation</div>
+                    <div className="text-[8px] font-mono tracking-widest text-slate-400 uppercase leading-none">{t('per.integration')}</div>
+                    <div className="text-[11px] font-bold text-slate-100 font-mono leading-none mt-0.5">
+                      {isProcessing ? `${progress}% ${isId ? "Proses" : "Cleaned"}` : (isId ? "Bimbingan Ahli" : "Consultant Ready")}
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="w-full bg-slate-900/40 rounded-xl border border-slate-800/80 p-4.5 backdrop-blur-sm shadow-xl flex flex-col justify-between relative overflow-hidden h-[260px] hover:border-slate-700 transition-all select-none">
-                <div className="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-indigo-400 via-violet-500 to-indigo-300" />
+              {/* MAIN INTERACTIVE SPREADSHEET AUTOMATION SIMULATOR */}
+              <div className="w-full bg-slate-950/65 rounded-2xl border border-indigo-500/10 p-5 backdrop-blur-md shadow-2xl flex flex-col justify-between relative overflow-hidden min-h-[385px] hover:border-indigo-500/20 transition-all select-none">
                 
-                <div className="flex items-center justify-between pb-2 border-b border-slate-800/30">
-                  <div className="flex items-center gap-2">
-                    <div className="h-6 w-6 rounded bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-[10px] text-white font-sans font-bold">
-                      <Store className="h-3.5 w-3.5" />
+                {/* Simulated Glass Reflection & Glow Indicator */}
+                <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-indigo-400/40 via-violet-500/50 to-indigo-300/30" />
+                <div className="absolute -inset-y-12 w-12 bg-white/5 blur-xl -skew-x-12 translate-x-[-150px] animate-[shimmer_8s_infinite] pointer-events-none" />
+
+                {/* Card Title & Platform Switch */}
+                <div>
+                  <div className="flex items-center justify-between pb-2 border-b border-slate-800/45">
+                    <div className="flex items-center gap-2">
+                      <div className="h-5 w-5 rounded bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-[9px] text-white font-sans font-black">
+                        LITE
+                      </div>
+                      <div>
+                        <h4 className="text-[10px] font-extrabold text-slate-100 tracking-wider uppercase leading-none">Research & SME Lab</h4>
+                        <p className="text-[8px] text-indigo-400 font-mono mt-0.5 uppercase tracking-widest flex items-center gap-1">
+                          <span className="inline-block h-1 w-1 rounded-full bg-indigo-400 animate-ping"></span>
+                          {isProcessing ? (isId ? "Komputasi..." : "Calculating...") : (isId ? "Terbuka" : "Lab Interface")}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-[11px] font-bold text-slate-200 leading-none">Smart Solutions</h4>
-                      <p className="text-[9px] text-slate-500 font-mono mt-0.5">Focus on Execution</p>
+                    
+                    <button 
+                      onClick={handleTriggerSim}
+                      disabled={isProcessing}
+                      className="p-1.5 rounded bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-indigo-500/40 active:scale-95 transition-all text-[9.5px] font-bold flex items-center gap-1 cursor-pointer disabled:opacity-40 disabled:pointer-events-none font-sans whitespace-nowrap"
+                    >
+                      <Play className="h-2.5 w-2.5 text-indigo-400" />
+                      {isId ? "Proses" : "Trigger"}
+                    </button>
+                  </div>
+
+                  {/* LAB WORKSPACE SELECTOR TABS */}
+                  <div className="mt-3.5 grid grid-cols-3 gap-1 bg-slate-900/80 p-1 rounded-lg border border-slate-800/60 text-[9px] font-bold">
+                    <button 
+                      onClick={() => { setActiveTab("academic_stats"); handleTriggerSim(); }}
+                      className={`py-1 px-1 rounded transition-all text-center cursor-pointer ${
+                        activeTab === "academic_stats" 
+                          ? "bg-slate-800 text-indigo-400 border border-slate-700/60" 
+                          : "text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      Slovin (Stat)
+                    </button>
+                    <button 
+                      onClick={() => { setActiveTab("sme_budget"); handleTriggerSim(); }}
+                      className={`py-1 px-1 rounded transition-all text-center cursor-pointer ${
+                        activeTab === "sme_budget" 
+                          ? "bg-slate-800 text-indigo-400 border border-slate-700/60" 
+                          : "text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      SME Margin
+                    </button>
+                    <button 
+                      onClick={() => { setActiveTab("tidy_machine"); handleTriggerSim(); }}
+                      className={`py-1 px-1 rounded transition-all text-center cursor-pointer ${
+                        activeTab === "tidy_machine" 
+                          ? "bg-slate-800 text-indigo-400 border border-slate-700/60" 
+                          : "text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      Tidy Machine
+                    </button>
+                  </div>
+                </div>
+
+                {/* VISUAL MONITOR DISPLAY */}
+                <div className="relative h-28 bg-[rgba(1,5,15,0.92)] rounded-lg p-3 mt-3.5 border border-slate-850/80 overflow-hidden flex flex-col justify-start text-left">
+                  {/* Grid background for cell layout */}
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(99,102,241,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(99,102,241,0.015)_1px,transparent_1px)] bg-[size:1.2rem_0.6rem] pointer-events-none" />
+                  
+                  {/* Progress Line Bar */}
+                  <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-indigo-500 via-violet-500 to-pink-300 transition-all duration-150 z-20" style={{ width: `${progress}%` }} />
+
+                  {/* Simulated output visualization */}
+                  <div className="font-mono text-[8px] leading-relaxed text-slate-300 space-y-1 relative z-10 select-all overflow-y-auto">
+                    {activeTab === "academic_stats" && (
+                      <>
+                        <div className="text-slate-500">{"[Slovin Solver Output] Estimating population requirements:"}</div>
+                        <div className="text-slate-300 font-bold">
+                          {"N (Populasi) = " + population.toLocaleString() + " s.d. error (e) = " + (marginOfError / 100).toFixed(2)}
+                        </div>
+                        <div className="text-indigo-400/90">
+                          {"Slovin: n = N / (1 + N * e²)"}
+                        </div>
+                        {progress === 100 ? (
+                          <div className="text-emerald-400 font-bold text-[9px] mt-1 font-sans">
+                            {"▶ Minimun Sample: " + Math.ceil(population / (1 + population * Math.pow(marginOfError / 100, 2))) + " Responden siswa/karyawan."}
+                          </div>
+                        ) : (
+                          <div className="text-slate-400 animate-pulse text-[7.5px]">{"Solving statistical matrix formulas..."}</div>
+                        )}
+                      </>
+                    )}
+
+                    {activeTab === "sme_budget" && (
+                      <>
+                        <div className="text-slate-500">{"[UMKM Revenue Estimation - 30 Days]"}</div>
+                        <div className="text-slate-300">
+                          {"Keranjang: Rp " + avgOrderVal.toLocaleString('id-ID') + " | Orders/hari: " + dailySales}
+                        </div>
+                        <div className="text-indigo-300">
+                          {"Omset Bulanan: Rp " + (avgOrderVal * dailySales * 30).toLocaleString('id-ID')}
+                        </div>
+                        {progress === 100 ? (
+                          <div className="text-emerald-400 font-bold text-[9px] mt-1 font-sans">
+                            {"✔ Est. Laba Bersih (35%): Rp " + Math.floor((avgOrderVal * dailySales * 30) * 0.35).toLocaleString('id-ID')}
+                          </div>
+                        ) : (
+                          <div className="text-slate-400 text-[7.5px] animate-pulse">{"Projecting financial curves..."}</div>
+                        )}
+                      </>
+                    )}
+
+                    {activeTab === "tidy_machine" && (
+                      <>
+                        <div className="text-slate-500">{"[Tidy Spreadsheet Parser v1.4] Initialized..."}</div>
+                        {progress > 15 && <div className="text-indigo-400">{"📥 reading skripsi_final_v2_new_dirty.csv..."}</div>}
+                        {progress > 50 && <div className="text-slate-300">{"⚡ Imputing 28 null values | standardizing datetime..."}</div>}
+                        {progress > 80 && <div className="text-violet-400">{"✔ Outliers normalized with winsorization limits..."}</div>}
+                        {progress === 100 && (
+                          <div className="text-emerald-400 font-bold">{"🎉 Clean Spreadsheet downloaded: SPSS/SmartPLS Ready!"}</div>
+                        )}
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                {/* INTERACTIVE CONTROLS SWITCH BASED ON TAB */}
+                <div className="mt-3.5 bg-slate-900/60 rounded-lg p-2.5 border border-slate-850/60 text-left">
+                  {activeTab === "academic_stats" ? (
+                    <>
+                      <div className="flex items-center justify-between text-[8px] font-bold font-mono">
+                        <span className="text-slate-400 uppercase tracking-widest">{isId ? "Toleransi Error (e)" : "Margin of Error"}</span>
+                        <span className="text-indigo-400">{marginOfError}% Error</span>
+                      </div>
+                      <input 
+                        type="range" 
+                        min="1" 
+                        max="15" 
+                        value={marginOfError} 
+                        onChange={(e) => { setMarginOfError(Number(e.target.value)); handleTriggerSim(); }}
+                        className="w-full h-1 mt-2 bg-slate-850 rounded-lg appearance-none cursor-pointer accent-indigo-500" 
+                      />
+                      <div className="flex justify-between text-[7px] font-mono text-slate-500 mt-1">
+                        <span>1% Precision</span>
+                        <span>5% Standard</span>
+                        <span>15% Low Precision</span>
+                      </div>
+                    </>
+                  ) : activeTab === "sme_budget" ? (
+                    <>
+                      <div className="flex items-center justify-between text-[8px] font-bold font-mono">
+                        <span className="text-slate-400 uppercase tracking-widest">{isId ? "Volume Order / Hari" : "Daily Orders Volume"}</span>
+                        <span className="text-indigo-400">{dailySales} Orders</span>
+                      </div>
+                      <input 
+                        type="range" 
+                        min="2" 
+                        max="60" 
+                        value={dailySales} 
+                        onChange={(e) => { setDailySales(Number(e.target.value)); handleTriggerSim(); }}
+                        className="w-full h-1 mt-2 bg-slate-850 rounded-lg appearance-none cursor-pointer accent-indigo-500" 
+                      />
+                      <div className="flex justify-between text-[7px] font-mono text-slate-500 mt-1">
+                        <span>2 Orders</span>
+                        <span>30 Optimized</span>
+                        <span>60 SME Scale</span>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex items-center justify-between text-[8px] font-bold font-mono">
+                        <span className="text-slate-400 uppercase tracking-widest">{isId ? "Ukuran Populasi (N)" : "Population Size (N)"}</span>
+                        <span className="text-indigo-400">{population} Individu</span>
+                      </div>
+                      <input 
+                        type="range" 
+                        min="100" 
+                        max="5000" 
+                        step="50"
+                        value={population} 
+                        onChange={(e) => { setPopulation(Number(e.target.value)); handleTriggerSim(); }}
+                        className="w-full h-1 mt-2 bg-slate-850 rounded-lg appearance-none cursor-pointer accent-indigo-500" 
+                      />
+                      <div className="flex justify-between text-[7px] font-mono text-slate-500 mt-1">
+                        <span>100 Small</span>
+                        <span>1200 Normal</span>
+                        <span>5000 Large</span>
+                      </div>
+                    </>
+                  )}
+                </div>
+
+                {/* ACADEMIC/SME COST-BENEFIT METRIC GAUGES */}
+                <div className="mt-3.5 space-y-2 text-left">
+                  <div className="text-[8px] font-bold font-mono text-slate-500 tracking-wider uppercase">
+                    {isId ? "Informasi Anggaran & Dukungan" : "Pricing Package & Support"}
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="bg-slate-900/40 p-2 rounded border border-slate-850/40 text-left">
+                      <span className="text-[7px] font-mono text-slate-500 leading-none block">STARTING PRICE</span>
+                      <span className="text-[12px] font-mono font-bold text-indigo-400 tracking-tight mt-0.5 block">
+                        Rp 250rb-an
+                      </span>
+                    </div>
+                    <div className="bg-slate-900/40 p-2 rounded border border-slate-850/40 text-left">
+                      <span className="text-[7px] font-mono text-slate-500 leading-none block">COMPLETION TIME</span>
+                      <span className="text-[12px] font-mono font-bold tracking-tight mt-0.5 text-slate-100 block">
+                        2 - 4 Hari
+                      </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="relative h-32 bg-slate-800/50 rounded-lg mt-4 border border-slate-700/50 overflow-hidden flex flex-col justify-center items-center">
-                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:1rem_1rem] pointer-events-none" />
-                  
-                  {/* Micro Illustration */}
-                  <div className="flex gap-4 items-center z-10">
-                     <div className="h-10 w-10 rounded-full bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center animate-[bounce_3s_ease-in-out_infinite]">
-                        <FileSpreadsheet className="h-5 w-5 text-indigo-400" />
-                     </div>
-                     <Zap className="h-4 w-4 text-slate-600 " />
-                     <div className="h-10 w-10 rounded-full bg-violet-500/10 border border-violet-500/30 flex items-center justify-center animate-[bounce_3s_ease-in-out_infinite_0.5s]">
-                        <LineChart className="h-5 w-5 text-violet-400" />
-                     </div>
-                  </div>
-                  
+                {/* CARD FOOTER */}
+                <div className="mt-4 pt-2.5 border-t border-slate-800/40 flex justify-between text-[8px] font-mono text-slate-500">
+                  <span className="flex items-center gap-1">
+                    <span className="inline-block h-1 w-1 bg-indigo-400 rounded-full animate-pulse"></span>
+                    {isId ? "Cocok untuk Skripsi & UMKM" : "Academic & SME Perfect Tool"}
+                  </span>
+                  <span className="text-indigo-400 font-semibold uppercase tracking-wider">
+                    {activeTab === "academic_stats" ? "Slovin Act" : activeTab === "sme_budget" ? "AOV Target" : "Tidied Ready"}
+                  </span>
                 </div>
-                
-                <div className="mt-3 flex justify-between text-[9px] font-mono text-slate-500">
-                  <span>Raw Data/Files</span>
-                  <span className="text-indigo-400 font-semibold">Tidy Results</span>
-                </div>
+
               </div>
             </div>
           </div>
@@ -188,15 +424,18 @@ export default function PersonalAcademicDetail() {
             <span className="text-xs text-slate-400 font-mono font-semibold mr-1">{t('per.tools')}</span>
             
             <span className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-indigo-400 border border-indigo-500/20">
-              <Calculator className="h-3.5 w-3.5" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/IBM_SPSS_Statistics_logo.png" alt="SPSS" className="h-3.5 w-3.5 object-contain" referrerPolicy="no-referrer" />
               SPSS/SmartPLS
             </span>
              <span className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-emerald-400 border border-emerald-500/20">
-              <FileSpreadsheet className="h-3.5 w-3.5" />
+              <span className="flex items-center gap-1 shrink-0">
+                <img src="https://img.icons8.com/?size=256&id=E8amV1059i73&format=png" alt="Google Sheets" className="h-3.5 w-3.5 object-contain" referrerPolicy="no-referrer" />
+                <img src="https://img.icons8.com/?size=256&id=13654&format=png" alt="Excel" className="h-3.5 w-3.5 object-contain" referrerPolicy="no-referrer" />
+              </span>
               Spreadsheets
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-lg bg-violet-500/10 px-2.5 py-1 text-[11px] font-mono font-semibold text-violet-400 border border-violet-500/20">
-              <Smartphone className="h-3.5 w-3.5" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Google_Looker_Studio_logo.svg" alt="Looker Studio" className="h-3.5 w-3.5 object-contain" referrerPolicy="no-referrer" />
               Looker Studio
             </span>
           </div>

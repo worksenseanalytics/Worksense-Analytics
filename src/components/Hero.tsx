@@ -11,7 +11,7 @@ export default function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative overflow-hidden bg-slate-950 pt-16 pb-20 md:pt-28 md:pb-32">
+    <section className="relative overflow-hidden bg-slate-950 pt-10 pb-16 md:pt-16 md:pb-28">
       {/* Decorative gradient backgrounds */}
       <div className="absolute top-0 left-1/4 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-sky-500/10 blur-[120px]" />
       <div className="absolute right-10 bottom-10 h-[500px] w-[500px] rounded-full bg-indigo-500/5 blur-[150px]" />
@@ -84,11 +84,7 @@ export default function Hero() {
                   <div className="h-2.5 w-2.5 rounded-full bg-rose-500" />
                   <div className="h-2.5 w-2.5 rounded-full bg-amber-500" />
                   <div className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
-                  <span className="text-xs font-mono text-slate-400 ml-2">Worksense BI v2.5.1</span>
                 </div>
-                <span className="rounded bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold text-emerald-400 uppercase tracking-wider font-mono">
-                  Online
-                </span>
               </div>
 
               {/* Stat grid inside hero card */}
@@ -113,7 +109,6 @@ export default function Hero() {
               <div className="rounded-xl bg-slate-950/80 border border-slate-800 p-4">
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-xs font-bold text-slate-300 font-sans">{t('hero.trend_label')}</span>
-                  <span className="text-[10px] text-slate-500 font-mono">Live Data Stream</span>
                 </div>
                 <div className="flex h-24 items-end gap-1.5">
                   <div className="w-full chart-bar-inactive rounded-md hover:bg-sky-500/80 transition-all cursor-pointer" style={{ height: "45%" }} />

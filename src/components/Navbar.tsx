@@ -17,10 +17,43 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
 
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const element = document.querySelector(targetId);
+    if (element) {
+      const offset = 80; // offset of the sticky header to prevent layout collision
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  const handleMobileScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    setIsOpen(false);
+    setTimeout(() => {
+      const element = document.querySelector(targetId);
+      if (element) {
+        const offset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    }, 150);
+  };
+
   return (
     <nav className="sticky top-0 z-50 w-full bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
+      <div className="mx-auto max-w-full px-4 sm:px-8 lg:px-12">
+        <div className="flex h-[72px] items-center justify-between">
           {/* Logo Brand Brand Section */}
           <div className="flex items-center gap-3">
             <Logo className="h-11 w-11 md:h-13 md:w-13" />
@@ -29,7 +62,6 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
                 Worksense<span className="text-sky-400"> Analytics</span>
               </span>
               <div className="flex gap-1.5 items-center mt-0.5">
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500 "></span>
                 <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Data Specialist Team</span>
               </div>
             </div>
@@ -37,25 +69,28 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            <a href="#katalog-layanan" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+            <a href="#katalog-layanan" onClick={(e) => handleScrollTo(e, "#katalog-layanan")} className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               {t("nav.services")}
             </a>
-            <a href="#tools" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+            <a href="#about" onClick={(e) => handleScrollTo(e, "#about")} className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+              {t("nav.about")}
+            </a>
+            <a href="#tools" onClick={(e) => handleScrollTo(e, "#tools")} className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               {t("nav.tools")}
             </a>
-            <a href="#workflow" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+            <a href="#workflow" onClick={(e) => handleScrollTo(e, "#workflow")} className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               {t("nav.workflow")}
             </a>
-            <a href="#portofolio" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+            <a href="#portofolio" onClick={(e) => handleScrollTo(e, "#portofolio")} className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               {t("nav.portfolio")}
             </a>
-            <a href="#testimonials" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+            <a href="#testimonials" onClick={(e) => handleScrollTo(e, "#testimonials")} className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               {t("nav.testimonials")}
             </a>
-            <a href="#faq" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+            <a href="#faq" onClick={(e) => handleScrollTo(e, "#faq")} className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               {t("nav.faq")}
             </a>
-            <a href="#contact" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+            <a href="#contact" onClick={(e) => handleScrollTo(e, "#contact")} className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               {t("nav.contact_section")}
             </a>
           </div>
@@ -118,49 +153,56 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
         <div className="md:hidden absolute top-20 left-0 w-full bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-4 space-y-1 shadow-2xl">
           <a
             href="#katalog-layanan"
-            onClick={() => setIsOpen(false)}
+            onClick={(e) => handleMobileScrollTo(e, "#katalog-layanan")}
             className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
           >
             {t("nav.services")}
           </a>
           <a
+            href="#about"
+            onClick={(e) => handleMobileScrollTo(e, "#about")}
+            className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
+          >
+            {t("nav.about")}
+          </a>
+          <a
             href="#tools"
-            onClick={() => setIsOpen(false)}
+            onClick={(e) => handleMobileScrollTo(e, "#tools")}
             className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
           >
             {t("nav.tools")}
           </a>
           <a
             href="#workflow"
-            onClick={() => setIsOpen(false)}
+            onClick={(e) => handleMobileScrollTo(e, "#workflow")}
             className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
           >
             {t("nav.workflow")}
           </a>
           <a
             href="#portofolio"
-            onClick={() => setIsOpen(false)}
+            onClick={(e) => handleMobileScrollTo(e, "#portofolio")}
             className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
           >
             {t("nav.portfolio")}
           </a>
           <a
             href="#testimonials"
-            onClick={() => setIsOpen(false)}
+            onClick={(e) => handleMobileScrollTo(e, "#testimonials")}
             className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
           >
             {t("nav.testimonials")}
           </a>
           <a
             href="#faq"
-            onClick={() => setIsOpen(false)}
+            onClick={(e) => handleMobileScrollTo(e, "#faq")}
             className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
           >
             {t("nav.faq")}
           </a>
           <a
             href="#contact"
-            onClick={() => setIsOpen(false)}
+            onClick={(e) => handleMobileScrollTo(e, "#contact")}
             className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
           >
             {t("nav.contact_section")}
